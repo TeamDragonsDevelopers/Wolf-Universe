@@ -1,0 +1,88 @@
+$nomention
+$if[$noMentionMessage==user]
+$onlyIf[$isBot[$mentioned[1;yes]]!=true;No puedo ver la información de un bot]
+$authorIcon[$userAvatar[$mentioned[1;yes]]]
+$thumbnail[$userAvatar[$mentioned[1;yes]]]
+$author[$username[$mentioned[1;yes]]]
+
+$addField[Name;$username[$mentioned[1;yes]];yes]
+
+$addField[Discriminator;#$discriminator[$mentioned[1;yes]];yes]
+
+$addField[Full Name;$username[$mentioned[1;yes]]#$discriminator[$mentioned[1;yes]];yes]
+
+$addField[Created In;$userJoinedDiscord[$mentioned[1;yes]];yes]
+
+$addField[Join Server in;$userJoined[$mentioned[1;yes]];yes]
+
+$addField[<:hypesquad:888748064561586206>DM Status;$replaceText[$replaceText[$isUserDMEnabled[$mentioned[1;yes]];false;Closed;1];true;Open;1];yes]
+
+$addField[<:discord:888748231046103041>Status User;$getUserStatus[$mentioned[1;yes]]]
+
+$addField[Versión del Usuario;$getVar[versión;$mentioned[1;yes]]]
+
+$addField[Permisos;
+$replaceText[$replaceText[$checkCondition[$isAdmin[$mentioned[1;yes]]==true];true;Administrador del server;-1];false;Normal User;-1]]]
+$footer[Information From $username[$mentioned[1;yes]]#$discriminator[$mentioned[1;yes]]]
+$color[277ECD]
+$addTimestamp
+$botTyping
+$else
+$if[$message[1]==server]
+$nomention
+$title[**🌃Server Info🏙**]
+
+$addField[**📙Server:**;``$serverName[$guildID]``;yes]
+
+$addField[**🌐Región:**;
+``$serverRegion``;yes]
+
+$addField[👑Fundador;``$serverOwner``;yes]
+
+$addField[🔑Verificado;``$serverVerificationLvl``;yes]
+
+$addField[📘ID;``$guildID``]
+
+$addField[📺Canales📺;`` $channelCount ``;yes]
+
+$addField[👤Miembros👥;
+``$membersCount``;yes]
+$image[$serverIcon]
+$else
+$if[$checkContains[$message;bot;Bot]]
+$c[Bot Info Embed
+Variables: None | Language: BDScript/BDScript Unstable
+REFERENCES (Like variables, but you have to put the info there yourself.)
+REF-1 - Your ID/Dev ID
+REF-2 - Unix Epoch timestamp for when bot was created (use https://www.epochconverter.com/) 
+REF-3 - Add 365 here for each year ago your bot was made (ie if your bot was made about 2 years ago, put 730) 
+REF-4 - Add 30 here for each month and the day your bot was made (like if your bot was made on July 8th, July is 7th month of year, so 7×30=210 and add 8 for the day) 
+code: ]
+$nomention
+$title[Info $username[$botID]-Owner: $username[REF-1]]
+$addField[Created;on <t:REF-2:F>, approximately $sub[$sum[$if[$month==January]30$endif$if[$month==February]60$endif$if[$month==March]90$endif$if[$month==April]120$endif$if[$month==May]150$endif$if[$month==June]180$endif$if[$month==July]210$endif$if[$month==August]240$endif$if[$month==September]270$endif$if[$month==October]300$endif$if[$month==November]330$endif$if[$month==December]360$endif;$day;365];180] days ago]
+$addField[Support;$serverName[serverID]]
+$addField[Prefix;`$getVar[prefix]`]
+$addField[Hosting Expire Time<:6938_VulpixZZZ:932360927418941461>;Bot $hostingExpireTime
+Premium $premiumExpireTime]
+$addField[Node ID;$botNode]
+$addField[Commands;`$commandsCount`]
+$addField[Server/User;Server $variablesCount[server]/User $variablesCount[user]]
+$addField[I am in;$serverCount servers]
+$addFieldTotal Member-count of those Servers;$allMembersCount people]
+$addField[Ping;`$ping` ms]
+$addField[Online for...;$uptime (HH:MM:SS)]
+$addField[Invite me!;[Click/tap here]($getBotInvite)] 
+$addField[Command Enable;Use `$getVar[prefix]info command-view` to view the enable command]
+$footer[Bot ID: $botID]
+$author[$username[$botID]] $authorIcon[$userAvatar[$botID]] $color[$random[0;16777215]]
+$else
+$nomention
+$description[<@$authorID> Use
+> $getVar[prefix]info user (@user)
+> $getVar[prefix]info server
+> $getVar[prefix]info <bot/Bot>]
+$footer[Usa delante de ellos $getVar[prefix].]
+$endif
+$endif
+$endif
