@@ -65,7 +65,6 @@ $addField[Support;$serverName[serverID]]
 $addField[Prefix;`$getVar[prefix]`]
 $addField[Hosting Expire Time<:6938_VulpixZZZ:932360927418941461>;Bot $hostingExpireTime
 Premium $premiumExpireTime]
-$addField[Version;User **$getVar[versión;$authorID]**/ Bot `$getVar[actualización]` ]
 $addField[Node ID;$botNode]
 $addField[Commands;`$commandsCount`]
 $addField[Server/User;Server $variablesCount[server]/User $variablesCount[user]]
