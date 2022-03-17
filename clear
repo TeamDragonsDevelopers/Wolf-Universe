@@ -1,0 +1,17 @@
+$nomention
+$deletecommand
+$deleteIn[10s]
+$onlyBotPerms[managermessage;I dont have the permissions manager message]
+$suppressError
+
+$if[$userExists[$mentioned[1]]==false]
+$title[Cleared]
+$description[You have successfully cleared $message[1;number] messages]
+$clear[$message[1;number]]
+$footer[$username[$botID]-$year]
+$else
+$title[Cleared]
+$description[You have successfully cleared $noMentionMessage messages to $username[$mentioned[1]]]
+$footer[$username[$botID]-$year]
+$clear[$noMentionMessage;$mentioned[1];yes]
+$endif
