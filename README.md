@@ -1,2 +1,2 @@
 # wolf_of_word
-Bot wolf_of_word code
+Bot Wolf_of_Word code
