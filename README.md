@@ -4,3 +4,11 @@ Bot Wolf_of_Word code
 ![Forks](https://img.shields.io/github/forks/PenguinKingdom/wolf_of_word)
 ![Starts](https://img.shields.io/github/stars/PenguinKingdom/wolf_of_word)
 ![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)
+Lista de Cosas para pasar a la siguiente versión
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
