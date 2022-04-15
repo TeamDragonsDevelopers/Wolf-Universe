@@ -4,8 +4,11 @@ Bot Wolf_of_Word code
 ![Forks](https://img.shields.io/github/forks/PenguinKingdom/wolf_of_word)
 ![Starts](https://img.shields.io/github/stars/PenguinKingdom/wolf_of_word)
 ![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)
-Lista de Cosas para pasar a la siguiente versión
-- [X] [Resolved the issue #1](https://github.com/PenguinKingdom/wolf_of_word/issues/1)
+List of projects to move to the next version
 - [ ] Add all legendaries to logs
-- [X] Put in the help the commands that have requirements and which
 - [ ] Put multiple giveaway events
+- [ ] Put spawn funds
+- [ ] Put quests
+- [ ] Create new commands and improve old ones
+- [ ] Put new emojis to decorate the bot
+- [ ] Move to version x8.6
