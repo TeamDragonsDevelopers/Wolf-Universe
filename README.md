@@ -4,7 +4,7 @@ Bot Wolf_of_Word code
 [![Issues](https://img.shields.io/github/issues/PenguinKingdom/wolf_of_word)](https://github.com/PenguinKingdom/wolf_of_word/issues/)
 ![Forks](https://img.shields.io/github/forks/PenguinKingdom/wolf_of_word)
 ![Starts](https://img.shields.io/github/stars/PenguinKingdom/wolf_of_word)
-![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)
+[![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)](https://github.com/PenguinKingdom/wolf_of_word/blob/main/LICENSE)
 
 ## List of projects to move to the next version
 - [X] Add all legendaries to logs
