@@ -5,7 +5,8 @@ Bot Wolf_of_Word code
 ![Forks](https://img.shields.io/github/forks/PenguinKingdom/wolf_of_word)
 ![Starts](https://img.shields.io/github/stars/PenguinKingdom/wolf_of_word)
 ![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)
-List of projects to move to the next version
+
+## List of projects to move to the next version
 - [X] Add all legendaries to logs
 - [X] Put multiple giveaway events
 - [X] Put spawn funds
