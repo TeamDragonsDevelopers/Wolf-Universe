@@ -10,6 +10,7 @@ Bot Wolf_of_Word code
 - [X] Add all legendaries to logs
 - [X] Put multiple giveaway events
 - [X] Put spawn funds
+- [ ] Improve all the command and buttons
 - [ ] Put quests
 - [ ] Create new commands and improve old ones
 - [ ] Improve the Pokedex
