@@ -19,3 +19,9 @@ Bot Wolf_of_Word code
 - [ ] Put new emojis to decorate the bot
 - [ ] Fund legendary, mega and event spawns
 - [ ] Move to version x8.6
+
+
+## Version history
+| Previous version | Current version | Next version |
+| ---------------- | --------------- | ------------ |
+| New terms, new Pk!spawn improvements, new backgrounds feature, Pk!help improvement | New command: Pk!menu, Add all legendaries to logs, Put spawn funds (in Pk!spawn) [Web Command](https://delta-bot.gitbook.io/wolf-of-world/) and [Web Code](https://github.com/PenguinKingdom/wolf_of_word) | coming soon the information |
