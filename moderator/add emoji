@@ -1,0 +1,2 @@
+$nomention
+$addEmoji[$message[1;name];$message[2;link];yes]
