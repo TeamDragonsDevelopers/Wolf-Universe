@@ -1,0 +1,8 @@
+$nomention 
+$c[Use the LANGUAJE: BDScript Unstable]
+$description[$httpResult[lyrics]] $footer[Cantante: $httpResult[author]]
+$author[$httpResult[title]]
+$color[$random[12345;67890]]
+$httpGet[https://some-random-api.ml/lyrics?title=$replaceText[$message[1; cancion]; ;+;-1]] 
+$thumbnail[$httpResult[thumbnail]]
+$onlyIf[$message[1;cancio]!= ;pon algo]
