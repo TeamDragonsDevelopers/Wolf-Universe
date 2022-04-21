@@ -1,0 +1,73 @@
+$nomention
+$reply
+$botTyping
+$var[getPing;$sendMessage[Please Wait...;yes]]
+$async[ping]
+$deleteMessage[$channelID;$var[getPing]]
+$endasync
+$await[ping]
+$if[$ping>0]
+$description[> \🟩\🟩\🟩\🟩\🟩 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$if[$ping>9]
+$description[> \🟩\🟩\🟩\🟩\🟨 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$if[$ping>25]
+$description[> \🟩\🟩\🟩\🟨\🟨 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$if[$ping>45]
+$description[> \🟩\🟩\🟨\🟨\🟨 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$if[$ping>70]
+$description[> \🟨\🟨\🟨\🟨\🟨 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$if[$ping>80]
+$description[> \🟨\🟨\🟥\🟥\🟥 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$if[$ping>90]
+$description[> \🟨\🟥\🟥\🟥\🟥 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$if[$ping>100]
+$description[> \🟥\🟥\🟥\🟥\🟥 $ping ms
+
+> **Command Ping:** $executionTimems
+
+> **Bot Node:** $botNode]
+$color[$random[111111;999999]]
+$endif
+$suppressErrors
