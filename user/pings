@@ -1,4 +1,5 @@
 $nomention
+$c[Use the LANGUAJE: BDScript 2]
 $reply
 $botTyping
 $var[getPing;$sendMessage[Please Wait...;yes]]
