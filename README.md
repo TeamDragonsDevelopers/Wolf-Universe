@@ -9,14 +9,14 @@ Bot Wolf_of_Word code
 ## List of projects to move to the next version
 - [X] Add all legendaries to logs
 - [X] Put multiple giveaway events
-- [X] Put spawn funds
+- [ ] Put spawn funds
 - [ ] Improve all the command and buttons
-- [ ] Put quests
-- [ ] Create new commands and improve old ones
-- [ ] Improve the Pokedex
-- [ ] Improve the bot website
-- [ ] Put a menu of Pokemon
-- [ ] Put new emojis to decorate the bot
+- [X] Put quests
+- [X] Create new commands and improve old ones
+- [X] Improve the Pokedex
+- [X] Improve the bot website
+- [X] Put a menu of Pokemon
+- [X] Put new emojis to decorate the bot
 - [ ] Fund legendary, mega and event spawns
 - [ ] Move to version x8.6
 
