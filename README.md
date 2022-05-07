@@ -7,18 +7,8 @@ Bot Wolf_of_Word code
 [![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)](https://github.com/PenguinKingdom/wolf_of_word/blob/main/LICENSE)
 
 ## List of projects to move to the next version
-- [X] Add all legendaries to logs
-- [X] Put multiple giveaway events
-- [x] Put spawn funds
-- [x] Improve all the command and buttons
-- [X] Put quests
-- [X] Create new commands and improve old ones
-- [X] Improve the Pokedex
-- [X] Improve the bot website
-- [X] Put a menu of Pokemon
-- [X] Put new emojis to decorate the bot
-- [x] Fund legendary, mega and event spawns
-- [X] Move to version x8.7
+- [ ] Looking for events
+- [ ] Move to version y10.0
 
 
 ## Version history
