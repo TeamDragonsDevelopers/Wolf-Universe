@@ -7,6 +7,12 @@ Bot Wolf_of_Word code
 [![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)](https://github.com/PenguinKingdom/wolf_of_word/blob/main/LICENSE)
 
 ## List of projects to move to the next version
+- [ ] Improve the Pokedex
+- [ ] Put adventures
+- [ ] Start adventure
+- [ ] Put normal pokemon record as partner
+- [ ] Enhance buttons
+- [ ] Add stories
 - [ ] Looking for events
 - [ ] Move to version y10.0
 
@@ -14,4 +20,4 @@ Bot Wolf_of_Word code
 ## Version history
 | Previous version (v8.7.0) | Current version (v9.0.0)--> x9.0 | Next version (x9.5)|
 | ---------------- | --------------- | ------------ |
-|  New command: Pk!menu, Add all legendaries to logs, Put spawn funds (in Pk!spawn) [Web Command](https://delta-bot.gitbook.io/wolf-of-world/) and [Web Code](https://github.com/PenguinKingdom/wolf_of_word) | Add all legendaries to logs, Put multiple giveaway events, Put spawn funds, Improve all the command and buttons, Put quests, Create new commands and improve old ones, Improve the Pokedex, Put a menu of Pokemon, Put new emojis to decorate the bot, Fund legendary, mega and event spawns,  Move to version x8.7| coming soon the information |
+|Add all legendaries to logs, Put multiple giveaway events, Put spawn funds, Improve all the command and buttons, Put quests, Create new commands and improve old ones, Improve the Pokedex, Put a menu of Pokemon, Put new emojis to decorate the bot, Fund legendary, mega and event spawns,  Move to version x8.7| | coming soon the information |
