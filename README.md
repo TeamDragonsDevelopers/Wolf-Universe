@@ -8,11 +8,11 @@ Bot Wolf_of_Word code
 
 ## List of projects to move to the next version
 - [ ] Improve the Pokedex
-- [ ] Put adventures
-- [ ] Start adventure
-- [ ] Put normal pokemon record as partner
+- [x] Put adventures
+- [x] Start adventure
+- [x] Put normal pokemon record as partner
 - [ ] Enhance buttons
-- [ ] Add stories
+- [x] Add stories
 - [ ] Looking for events
 - [ ] Move to version y10.0
 
