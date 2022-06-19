@@ -7,13 +7,13 @@ Bot Wolf_of_Word code
 [![Licence](https://img.shields.io/github/license/PenguinKingdom/wolf_of_word)](https://github.com/PenguinKingdom/wolf_of_word/blob/main/LICENSE)
 
 ## List of projects to move to the next version
-- [ ] Improve the Pokedex
+- [x] Improve the Pokedex
 - [x] Put adventures
 - [x] Start adventure
 - [x] Put normal pokemon record as partner
-- [ ] Enhance buttons
+- [x] Enhance buttons
 - [x] Add stories
-- [ ] Looking for events
+- [x] Looking for events
 - [ ] Move to version y10.0
 
 
