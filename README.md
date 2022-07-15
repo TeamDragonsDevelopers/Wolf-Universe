@@ -15,3 +15,4 @@ Bot Wolf_of_Word code
 - [ ] Add new missions
 - [ ] Improve System Economy
 - [ ] Improve spawn natural and caused
+- [ ] Move to version y10.5
