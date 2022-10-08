@@ -1,5 +1,0 @@
-Prefix: (what you want)
-$nomention
-$onlyIf[$or[$toLowercase[$message[1]]==wikidex;$toLowercase[$message[1]]==wk]==true;]
-https://www.wikidex.net/wiki/$if[$message[2]!=]$message[2]$endif$if[$message[3]!=]_$message[3]$endif$if[$message[4]!=]_$message[4]$endif$if[$message[5]!=]_$message[5]$endif$if[$message[6]!=]_$message[6]$endif
-$addButton[no;https://www.wikidex.net/wiki/$if[$message[2]!=]$message[2]$endif$if[$message[3]!=]_$message[3]$endif$if[$message[4]!=]_$message[4]$endif$if[$message[5]!=]_$message[5]$endif$if[$message[6]!=]_$message[6]$endif;$replaceText[$message[2]; ;_;-1];link;no;] 
