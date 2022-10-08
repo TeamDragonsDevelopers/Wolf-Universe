@@ -1,7 +1,0 @@
-Trigger:
-(Prefix)slowdown $c[change the "(prefix)" to your prefix, for example "!")]
-
-$nomention
-$onlyPerms[manage channels;You do not have permission to use that command because you don't have "manage channels"]
-$slowmode[$channelID;$message]
-Current slowmode delay: $message
