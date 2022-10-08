@@ -1,0 +1,35 @@
+Command: w?support
+Command Language: BDScript
+
+$nomention
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©Ꭰꭱꭺꮐꮻɴꮪ System]
+$footer[©Ꭰꭱꭺꮐꮻɴꮪ-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+Email: team.discord.dragons@gmail.com 
+$title[System ©Ꭰꭱꭺꮐꮻɴꮪ]
+$description[$if[$getServerVar[lang]==en]**Fist Option**
+Please send the issue, error, suggestions... to our email:
+team.discord.dragons@gmail.com
+Put at firs: `($username#$discriminator[])`
+**Second Opinion**
+Go to:
+<:dragons:1016907125869527040> if you have had the problem within the support
+<:Server_Shield_Admin_Verify:952629800370073670> If you've had the problem outside of support$endif$if[$getServerVar[lang]==es]**Primera opción**
+ Por favor envíe el problema, error, sugerencias... a nuestro correo electrónico:
+ team.discord.dragons@gmail.com
+ Pon al principio: `($username#$discriminator[])`
+ **Segunda opción**
+ Vaya a:
+<:dragons:1016907125869527040> si ha tenido el problema dentro del soporte
+<:Server_Shield_Admin_Verify:952629800370073670> Si ha tenido el problema fuera del soporte$endif;1]
+$addButton[no;s.global;;danger;yes;<:Discord_new:951234064726253569>]
+$addButton[no;https://discord.gg/UxM9qH8HuV;Support Internal!;link;no;<:dragons:1016907125869527040>]$addButton[no;https://discord.gg/53BufMQyDt;Support External!;link;no;<:Server_Shield_Admin_Verify:952629800370073670>] 
+$addButton[yes;https://delta-bot.gitbook.io/wolf-of-world/welcome/start;Website;link;no;<:emoji_33:934411259372261386>] 
+$addButton[no;https://github.com/PenguinKingdom/wolf_of_world;ListCommand;link;no;<:Boost_level_9:951539780968120371>]
+$endif
