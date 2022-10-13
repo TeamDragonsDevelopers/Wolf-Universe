@@ -1,0 +1,27 @@
+$nomention
+$title[`$username[$authorID]#$discriminator[$authorID]`;1]
+$description[$replaceText[$message[text];$message[1];;-1];1]
+$footer[Send at $seconds-$minutem-$hourh on $day/$month/$year;1]
+$title[Badges;2]
+$description[$getVar[official_employee;$authorID]$getVar[dev;$authorID]$getVar[employee;$authorID]$getVar[mod;$authorID]$getVar[bug;$authorID]$getVar[early_support;$authorID]$getVar[partner;$authorID]$getVar[hypesquad;$authorID]$getVar[boost;$authorID]$getVar[medal;$authorID];2]
+$channelSendMessage[$channelID;I send the message to the system]
+$if[$message[1;system]==--system]
+$useChannel[999984198670630953]
+$else
+$if[$message[1;system]==--bug]
+$useChannel[980191595213258783]
+$else
+$if[$message[1;system]==--staff]
+$useChannel[995682748545122334]
+$else
+$if[$message[1;system]==--support]
+$useChannel[980191628109185126]
+$else
+$if[$message[1;system]==--faq]
+$useChannel[980191668886175836]
+$else
+$if[$message[1;system]==--report]
+$useChannel[980191686368043088]
+$else
+$useChannel[999984198670630953]
+$endif$endif$endif$endif$endif$endif
