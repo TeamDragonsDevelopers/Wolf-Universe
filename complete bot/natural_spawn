@@ -1,0 +1,67 @@
+$nomention $suppressErrors
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;]
+$endif
+$c[©Completed Code™✓]
+$textSplit[$getVar[cobber;$authorID];^]
+$if[$splitText[9]>$getUserVar[req]]
+$if[$and[$splitText[2]>=1;$splitText[2]<=5]==true]$setUserVar[req;50]$endif$if[$and[$splitText[2]>=6;$splitText[2]<=10]==true]$setUserVar[req;100]$endif$if[$and[$splitText[2]>=11;$splitText[2]<=20]==true]$setUserVar[req;200]$endif$if[$and[$splitText[2]>=21;$splitText[2]<=30]==true]$setUserVar[req;400]$endif$if[$and[$splitText[2]>=31;$splitText[2]<=40]==true]$setUserVar[req;650]$endif$if[$and[$splitText[2]>=41;$splitText[2]<=50]==true]$setUserVar[req;850]$endif$if[$and[$splitText[2]>=51;$splitText[2]<=60]==true]$setUserVar[req;999]$endif$if[$and[$splitText[2]>=61;$splitText[2]<=70]==true]$setUserVar[req;1050]$endif$if[$and[$splitText[2]>=71;$splitText[2]<=1100]==true]$setUserVar[req;1200]$endif$if[$and[$splitText[2]>=81;$splitText[2]<=90]==true]$setUserVar[req;1400]$endif$if[$and[$splitText[2]>=91;$splitText[2]<=100]==true]$setUserVar[req;1800]$endif
+$enabled[$getServerVar[lvl enable];]
+$enabled[$getVar[lvl enable];]
+$onlyIf[$getVar[cobber;$authorID]!=;]
+$textSplit[$getVar[cobber;$authorID];^]
+$onlyIf[$splitText[2]<100;]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]]
+$setVar[cobber;$splitText[1]^$sum[$splitText[2];1]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^0;$authorID]
+$sendEmbedMessage[$channelID;<@$authorID>;$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]#$sub[$sum[$httpResult[id];1];1];;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$getServerVar[levelmsg];{username};$username;-1];{level};$sum[$splitText[2];1];-1];{mention};<@$authorID>;-1];{pokemon};$toTitleCase[$replaceText[$httpResult[name];-; ;-1]];-1];{user};$username[$authorID]#$discriminator[$authorID];-1];{user.id};$authorID;-1];ffffff;;;;;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png;;no;no]
+$if[$and[$splitText[2]==15;$httpGet[https://pokeapi.co/api/v2/pokemon-species/$sum[$splitText[1];1]]$httpResult[evolves_from_species;name]==$httpGet[https://pokeapi.co/api/v2/pokemon-species/$splitText[1]]$httpResult[name]]==true]
+$setVar[cobber;$sum[$splitText[1];1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^0;$authorID]
+$sendEmbedMessage[$channelID;Congratulations;$httpResult[name]#$sub[$sum[$httpResult[id];1];1];;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$getServerVar[levelmsg];{username};$username;-1];{level};$sum[$splitText[2];1];-1];{mention};<@$authorID>;-1];{pokemon};$httpResult[name];-1];{user};$username[$authorID]#$discriminator[$authorID];-1];{user.id};$authorID;-1]
+<:dot:993277045905829979> Your $toTitleCase[$replaceText[$httpResult[name];-; ;-1]] has evolved to $httpGet[https://pokeapi.co/api/v2/pokemon/$sum[$splitText[1];1]]$httpResult[name];ffffff;;;;;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png;;no;no]
+$else
+$textSplit[$getVar[cobber;$authorID];^]
+$if[$and[$splitText[2]==30;$httpGet[https://pokeapi.co/api/v2/pokemon-species/$sum[$splitText[1];1]]$httpResult[evolves_from_species;name]==$httpGet[https://pokeapi.co/api/v2/pokemon-species/$splitText[1]]$httpResult[name]]==true]
+$setVar[cobber;$sum[$splitText[1];1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^0;$authorID]
+$sendEmbedMessage[$channelID;Congratulations;$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]#$sub[$sum[$httpResult[id];1];1];;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$getServerVar[levelmsg];{username};$username;-1];{level};$sum[$splitText[2];1];-1];{mention};<@$authorID>;-1];{pokemon};$httpResult[name];-1];{user};$username[$authorID]#$discriminator[$authorID];-1];{user.id};$authorID;-1]
+<:dot:993277045905829979> Your $toTitleCase[$replaceText[$httpResult[name];-; ;-1]] has evolved to $httpGet[https://pokeapi.co/api/v2/pokemon/$sum[$splitText[1];1]]$toTitleCase[$replaceText[$httpResult[name];-; ;-1]];ffffff;;;;;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png;;no;no]
+$endif $endif
+$c[Code by Greninja#1000 | YT:  Bot Designer For Discord: Guide | DM if errors ]
+$else
+$textSplit[$getVar[cobber;$authorID];^]
+$setVar[cobber;$splitText[1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$sum[$splitText[9];$random[1;50]];$authorID]
+$endif
+$if[$getVar[pokenable]$getServerVar[pokenable]==yesyes]
+$if[$random[1;20]==10]
+$if[$random[$getVar[pkMin];$getVar[pkMax]]<=898]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$random[$getVar[pkMin];$getVar[pkMax]]]
+$else
+$if[$random[$getVar[pkMin];$getVar[pkMax]]>=10001]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$random[$getVar[pkMin];$getVar[pkMax]]]
+$else
+$if[$or[$random[$getVar[pkMin];$getVar[pkMax]]>898;$random[$getVar[pkMin];$getVar[pkMax]]<10001]==true]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$randomText[$random[1;898];$random[10001;10228]]]$endif$endif$endif
+$cooldown[30s;]
+$if[$checkContains[$getVar[Shiny Lock];,$sub[$sum[$httpResult[id];1];1],]==false]
+$setServerVar[shiny;$replaceText[$replaceText[$checkCondition[$randomText[/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/shiny/;/shiny/]==/shiny/];true;s;-1];false;;-1]]
+$else
+$setServerVar[shiny;]
+$endif
+$onlyIf[$checkContains[$message;hint;h;c;catch;dex;spawn;pk;redirect;wk]==false;]
+$color[05bb85]
+$title[A wild Pokémon has appeared!]
+$description[To catch the pokemon, use `$getVar[prefix]catch <Pokemon name/number>`
+Alias: $getVar[prefix]c]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$randomText[/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/shiny/;/shiny/]$sub[$sum[$httpResult[id];1];1].png]
+$footer[<> = Required </> = choice obligation () = optional (/) = choice optional • Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year]
+$textSplit[$getServerVar[spawnchannel];|]
+$useChannel[$replaceText[$replaceText[$checkCondition[$getTextSplitLength!=0];true;$splitText[$if[$getTextSplitLength==1]1$endif$if[$getTextSplitLength==2]$random[1;2]$endif$if[$getTextSplitLength==3]$random[1;3]$endif$if[$getTextSplitLength==4]$random[1;4]$endif$if[$getTextSplitLength==5]$random[1;5]$endif$if[$getTextSplitLength==6]$random[1;6]$endif$if[$getTextSplitLength==7]$random[1;7]$endif$if[$getTextSplitLength==8]$random[1;8]$endif$if[$getTextSplitLength==9]$random[1;9]$endif$if[$getTextSplitLength==10]$random[1;10]$endif$if[$getTextSplitLength==11]$random[1;11]$endif$if[$getTextSplitLength==12]$random[1;12]$endif$if[$getTextSplitLength==13]$random[1;13]$endif$if[$getTextSplitLength==14]$random[1;14]$endif$if[$getTextSplitLength==15]$random[1;15]$endif$if[$getTextSplitLength==16]$random[1;16]$endif$if[$getTextSplitLength==17]$random[1;17]$endif$if[$getTextSplitLength==18]$random[1;18]$endif$if[$getTextSplitLength==19]$random[1;19]$endif$if[$getTextSplitLength==20]$random[1;20]$endif];-1];false;$channelID;-1]]
+
+$onlyIf[$checkContains[$random[$getVar[pkMin];$getVar[pkMax]]!=$randomText[144;145;146;150;151];$randomText[243;244;245;249;250];$randomText[251;377;378;379;380];$randomText[381;382;383;384;385];$randomText[386;480;481;482;483];$randomText[484;485;486;487;488];$randomText[490;491;492;493;494];$randomText[638;639;640;641;642;643;644];$randomText[645;645;647;648;649];$randomText[716;717;718;719;720];$randomText[721;773785;786;787];$randomText[788;791;792;800;801];$randomText[802;804;807;809;888;889];$randomText[890;893;894;895;896;897;898]]==false;]
+$setServerVar[n°pokemon;$sub[$sum[$httpResult[id];1];1]]
+$setServerVar[pokemon;$httpResult[species;name]]
+$setServerVar[url pokemon;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$randomText[/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/shiny/;/shiny/]$sub[$sum[$httpResult[id];1];1].png]
+$addButton[no;pokeball;;secondary;no;<:Sw_Pok_Ball:964863829647429632>] $addButton[no;superball;;secondary;no;<:Sw_Super_Ball:964863829295116299>]  $addButton[no;ultraball;;secondary;no;<:Sw_Ultra_Ball:964863828963774485>] $addButton[no;masterball;;secondary;no;<:Sw_Master_Ball:964865184197910549>]
+$addButton[no;battle.$random[1;100];;secondary;no;⚔️]
+$endif
+$endif
+$c[©Completed Code™✓]
