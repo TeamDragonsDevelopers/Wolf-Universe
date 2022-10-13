@@ -1,0 +1,103 @@
+$nomention
+$onlyIf[$toLowercase[$message]==vote;]
+$c[ 
+Get more awesome codes like this at https://codes.cloudteam.me
+Code made by Berk#3506
+
+YOUR BOT MUST BE LISTED ON https://top.gg, OTHERWISE THIS SYSTEM WON'T WORK FOR OBVIOUS REASONS. 
+ALSO, ENABLE BDscript 2 OR THE CODE MAY NOT WORK PROPERLY!
+And don't forget to set your top.gg API Key in the part of the code below, if you do not know how to get your bot's API Key just execute the command without setting the API Key, and the bot will tell you how to do it.
+]
+
+$c[Your top.gg API Key below, next to the semicolon.]
+$var[apikey;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1NTM5MDUzNzcwMjk2NTI1OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjU3NDU1MDgyfQ.Xf7oVvyVVVAdKhfNskvKva0SArTLNY9HrvNfMAPsSX0]
+
+$c[Color hexcodes, you can customize them with any hexcode color you want, or let it as default with the colors I set.]
+$var[normal_color;#ff3366]
+$var[success_color;#08b278]
+
+$httpAddHeader[Authorization;$var[apikey]]
+$httpGet[https://top.gg/api/bots/$botID/check?userId=$authorID]
+$if[$checkContains[$httpResult[voted];1]==true] $var[voted;true] $else $var[voted;false] $endif
+
+$c[The part of the code below is in case the Developer (You) set wrong your authorization key, the bot will return an embed with the information with some steps to setup correctly your top.gg API Key, you can delete this whole part if you know what you are doing at 100%, or you can edit it however you want.]
+$if[$checkContains[$httpResult[voted];1;0]==false]
+$title[Message to the Developer]
+$description[Invalid setup for the voting system, you need to set a valid **API Key**, you can get your API Key by [clicking here\](https://top.gg/bot/$botID/webhooks) and then set it on the code.
+
+Please **don't** confuse your **Api Key** with your **Bot's token**, they are **not** related at all, your bot token is **not** your **api key/token**, you need to use your top.gg **__API Key__** not your **bot token**.]
+$image[https://media.discordapp.net/attachments/909833092762591252/1021114020847157378/unknown.png]
+$addButton[no;https://top.gg/bot/$botID/webhooks;Get your API Key!;link;]
+$color[$var[normal_color]]
+$stop
+$endif
+$c[Here it ends the part of the code that warns the Developer (You) about the API Key.]
+
+$c[If the user voted, then the command will return the embed information.]
+$if[$var[voted]==true]
+
+$c[You can customize the embed below however you want, editing or adding whatever you want.]
+$title[$if[$getServerVar[lang]==en]Reward claimed!$endif$if[$getServerVar[lang]==es]¡Recompensa reclamada!$endif]
+$description[$if[$getServerVar[lang]==en]You successfully claimed your reward.
+And you obtain $random[1;3] boxes $randomText[1;1;1;1;2;2;2;3;3;4]
+You can claim another reward by [voting again\](https://top.gg/bot/$botID/vote) in <t:$sum[$getTimestamp;43200]:R> from the time you last voted.
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+You have:
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Boxes 1 ¦ $getVar[boxes 1;$authorID]
+> `w?open-boxes boxes-1`
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Boxes 2 ¦ $getVar[boxes 2;$authorID]
+> `w?open-boxes boxes-2`
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Boxes 3 ¦ $getVar[boxes 3;$authorID]
+> `w?open-boxes boxes-3`
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Boxes 4 ¦ $getVar[boxes 4;$authorID]
+> `w?open-boxes boxes-4`
+- - - - - - - - - - - - - - - - - - - - - - - - - -$endif$if[$getServerVar[lang]==es]Has reclamado con éxito tu recompensa.
+ Y obtienes cajas $random[1;3] $randomText[1;1;1;1;2;2;2;3;3;4]
+ Puede reclamar otra recompensa [votando de nuevo\](https://top.gg/bot/$botID/vote) en <t:$sum[$getTimestamp;43200]:R> desde la última vez que votó.
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ Tú tienes:
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ Caja 1 ¦ $getVar[boxes 1;$authorID]
+> `w?open-boxes boxes-1`
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Caja 2 ¦ $getVar[boxes 2;$authorID]
+> `w?open-boxes boxes-2`
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Caja 3 ¦ $getVar[boxes 3;$authorID]
+> `w?open-boxes boxes-3`
+- - - - - - - - - - - - - - - - - - - - - - - - - -
+Caja 4 ¦ $getVar[boxes 4;$authorID]
+> `w?open-boxes boxes-4`
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - -$endif]
+$footer[$if[$getServerVar[lang]==en]Thank you for the vote$endif$if[$getServerVar[lang]==es]Gracias por votar$endif ❤️]
+$color[$var[success_color]]
+$setVar[boxes $randomText[1;1;1;1;2;2;2;3;3;4];$sum[$getVar[boxes $randomText[1;1;1;1;2;2;2;3;3;4];$authorID];$random[1;3]];$authorID]
+$c[ Developer, YOU MUST INCLUDE YOUR REWARD CODE BY YOURSELF! The reward depends 100% on you, I don't know what would you add as reward for the users that vote your bot, if you have some economy system you could set them Money to their balance by adding a setUserVar with Sum and so on, or if you have some other system that gives the user something from the bot then you need to set it by yourself, just add the reward code below this comment, and edit the embed description above telling the user what they got as reward for voting. ]
+
+$c[I'd recommend to put your reward code above or below this line.]
+
+$c[I don't recomend deleting the line below, you still can modify the message.]
+$cooldown[12h;You can claim your next vote reward in **%time%**.]
+
+$c[Else if the user didn't vote for the bot yet, then the command will return the embed information below.]
+$else
+
+$c[You can customize the embed below however you want]
+$title[$if[$getServerVar[lang]==en]Vote to claim!$endif$if[$getServerVar[lang]==es]¡Vota para reclamar!$endif]
+$description[$if[$getServerVar[lang]==en]You need to **vote** to claim your reward, [click here\](https://top.gg/bot/$botID/vote) or the button under this message to vote.
+You can vote for the bot and claim your reward each <t:$sum[$getTimestamp;43200]:R>.
+You can get boxes 1, boxes 2, boxes 3 or boxes 4$endif$if[$getServerVar[lang]==es]Debe **votar** para reclamar su recompensa, [haga clic aquí\](https://top.gg/bot/$botID/vote) o el botón debajo de este mensaje para votar.
+ Puedes votar por el bot y reclamar tu recompensa cada <t:$sum[$getTimestamp;43200]:R>.
+ Puede obtener cajas 1, cajas 2, cajas 3 o cajas 4$endif]
+$addButton[no;https://top.gg/bot/$botID/vote;$if[$getServerVar[lang]==en]Vote for me!$endif$if[$getServerVar[lang]==es]¡Vota por mí!$endif;link;]
+$color[$var[normal_color]]
+$endif
+
+$c[ Your top.gg card widget, you may want to change the image below or delete the line if you face some problem with top.gg widgets (TopGG widgets are very unstable, so it may not load sometimes or just throw an error image) ]
+$image[https://cdn.discordapp.com/attachments/1016699899062005883/1017116780486983711/1661804761117.png]
+
+$c[ Get more awesome codes like this at https://codes.cloudteam.me | Code made by Berk#3506 ]
