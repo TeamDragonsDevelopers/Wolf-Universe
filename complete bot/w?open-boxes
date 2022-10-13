@@ -1,0 +1,115 @@
+$nomention
+$if[$toLowercase[$message[1;box]]==boxes-1]
+$onlyIf[$getVar[boxes 1;$authorID]>=1;You dont have any boxes 1]
+$title[Boxes 1]
+$description[You received:
+$random[10;20]<:Moneda_dorada_Zacian:951547048723890256>
+<:Sw_Pok_Ball:964863829647429632>x$random[80;100] ¦ <:Sw_Super_Ball:964863829295116299>x$random[30;50] ¦ <:Sw_Ultra_Ball:964863828963774485>x$random[10;20] ¦ <:Sw_Master_Ball:964865184197910549>x$random[0;5]
+$if[$randomText[1;1;1;1;1;1;1;1;2;2]==1]$random[10;100] spawn $else You don't received inciense$endif]
+$textSplit[$getVar[objects;$authorID];-] 
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];$random[10;20]];$authorID]
+$setVar[boxes 1;$sub[$getVar[boxes 1;$authorID];1];$authorID]
+$setVar[objects;$sum[$splitText[1];$random[0;50]]-$sum[$splitText[2];$random[0;35]]-$sum[$splitText[3];$random[0;20]]-$sum[$splitText[4];$random[0;5]]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID] 
+$if[$randomText[1;1;1;1;1;1;1;1;2;2]==1]$setUserVar[incienso;true]$setUserVar[spawn;$sum[$getUserVar[spawn];$random[10;100]]]$endif
+$else
+$if[$toLowercase[$message[1;box]]==boxes-2]
+$onlyIf[$getVar[boxes 2;$authorID]>=1;You dont have any boxes 2]
+$setVar[boxes 2;$sub[$getVar[boxes 2;$authorID];1];$authorID]
+$title[Boxes 2]
+$description[You received:
+$random[30;50]<:Moneda_dorada_Zacian:951547048723890256>
+<:Sw_Pok_Ball:964863829647429632>x$random[80;100] ¦ <:Sw_Super_Ball:964863829295116299>x$random[30;50] ¦ <:Sw_Ultra_Ball:964863828963774485>x$random[10;20] ¦ <:Sw_Master_Ball:964865184197910549>x$random[0;5]
+$if[$randomText[1;1;2;2]==1]
+$random[40;60] xp $else You don't received xp$endif
+$if[$randomText[1;1;1;1;1;1;1;1;1;2]==1]
+$random[10;105] spawn $else You don't received inciense$endif
+$if[$randomText[1;1;1;1;1;1;1;1;1;1;1;1;1;1;2]==2]
+1💎 $elseYou don't received 💎 $endif]
+$textSplit[$getVar[objects;$authorID];-] 
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];$random[30;50]];$authorID]
+$setVar[boxes 1;$sub[$getVar[boxes 1;$authorID];1];$authorID]
+$setVar[objects;$sum[$splitText[1];$random[0;50]]-$sum[$splitText[2];$random[0;35]]-$sum[$splitText[3];$random[0;20]]-$sum[$splitText[4];$random[0;5]]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID] 
+$if[$randomText[1;1;1;1;1;1;1;1;1;2]==1]$setUserVar[incienso;true]$setUserVar[spawn;$sum[$getUserVar[spawn];$random[10;105]]]$endif
+$if[$randomText[1;1;2;2]==1]
+$textSplit[$getVar[cobber;$authorID];^]
+$setVar[cobber;$splitText[1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$random[40;60];$authorID]
+$endif
+$if[$randomText[1;1;1;1;1;1;1;1;1;1;1;1;1;1;2]==2]
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];1];$authorID]$endif
+$else
+$if[$toLowercase[$message[1;box]]==boxes-3]
+$onlyIf[$getVar[boxes 3;$authorID]>=1;You dont have any boxes 3]
+$setVar[boxes 3;$sub[$getVar[boxes 3;$authorID];1];$authorID]
+$title[Boxes 3]
+$description[You received:
+$random[50;100]<:Moneda_dorada_Zacian:951547048723890256>
+$if[$randomText[1;1;1;2;2]==1]
+$random[10;60] xp $else You don't received xp$endif
+$if[$randomText[1;1;1;1;1;1;1;1;1;2]==1]
+$random[10;105] spawn $else You don't received inciense$endif
+$if[$randomText[1;1;1;1;1;1;1;1;1;1;1;1;1;1;2]==2]
+$random[1;3]💎 $elseYou don't received 💎 $endif]
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];$random[50;100]];$authorID]
+$setVar[boxes 1;$sub[$getVar[boxes 1;$authorID];1];$authorID]
+$if[$randomText[1;1;1;1;1;1;1;1;2]==1]$setUserVar[incienso;true]$setUserVar[spawn;$sum[$getUserVar[spawn];$random[10;105]]]$endif
+$if[$randomText[1;1;1;2;2]==1]
+$textSplit[$getVar[cobber;$authorID];^]$setVar[cobber;$splitText[1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$random[10;60];$authorID]$endif
+$if[$randomText[1;1;1;1;1;1;1;1;1;1;1;1;1;1;2]==2]
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];$random[1;3]];$authorID]$endif
+$else
+$if[$toLowercase[$message[1;box]]==boxes-4]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$random[1;905]]
+$onlyIf[$getVar[boxes 4;$authorID]>=1;You dont have any boxes 4]
+$setVar[boxes 4;$sub[$getVar[boxes 4;$authorID];1];$authorID]
+$title[Boxes 4]
+$description[You received:
+$random[100;350]
+And you found `$toTitleCase[$httpResult[name]]`
+Use `w?info` to now more about the pokemon]
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];$random[100;350]];$authorID]
+$var[poke;$getUserVar[box 1;$authorID]] 
+$setUserVar[box 1;$sub[$sum[$httpResult[id];1];1]^$random[1;98]^^0^0^3^8^2^0 $var[poke];$authorID]
+$setUserVar[info-pok;$sub[$sum[$httpResult[id];1];1]^98^^0^0^3^8^2^0]
+$else
+$title[Boxes;1]
+$description[Information
+```You get the prizes of the previous boxes only if the box you are going to open does not contain that prize. Only ball don't follow this ruler```
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+`Boxes 1- Give`:
+ <:dot:993277045905829979> (100%)-Between 10 and 20 legendcoin
+ <:dot:993277045905829979> (100%)-<:Sw_Pok_Ball:964863829647429632>xBetween 0 and 50 ¦ <:Sw_Super_Ball:964863829295116299>xBetween 0 and 35 ¦ <:Sw_Ultra_Ball:964863828963774485>xBetween 0 and 20 <:Sw_Master_Ball:964865184197910549>xBetween 0 and 5
+ <:dot:993277045905829979> (85%)-Inciense between 10 and 100
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+`Boxes 2- Give`:
+ <:dot:993277045905829979> (100%)-Between 30 and 50 legendcoin
+ <:dot:993277045905829979> (90%)-Inciense between 10 and 105
+ <:dot:993277045905829979> (50%)-More experience to the Pokemon between 40xp or 60xp
+ <:dot:993277045905829979> (5%)-Universal Diamond 1
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+`Boxes 3- Give`:
+ <:dot:993277045905829979> (100%)-Between 50 and 100 legendcoin
+ <:dot:993277045905829979> (85%)-Inciense between 10 and 100
+ <:dot:993277045905829979> (60%)-More experience to the Pokemon between 10xp and 60xp
+ <:dot:993277045905829979> (5%)-Universal Diamond between 1 and 3
+ <:dot:993277045905829979> (5%)-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+`Boxes 4- Give`:
+ <:dot:993277045905829979> (100%)-Between 100 and 350 legendcoin
+ <:dot:993277045905829979> Pokemon Random Lvl.1-98 Not shiny
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -;1]
+$title[Amounts;2]
+$description[You have:
+- - - - - - - - - - - - - - - - - - - - -
+Boxes 1 ¦ $getVar[boxes 1;$authorID]
+> `w?open-boxes boxes-1`
+- - - - - - - - - - - - - - - - - - - - -
+Boxes 2 ¦ $getVar[boxes 2;$authorID]
+> `w?open-boxes boxes-2`
+- - - - - - - - - - - - - - - - - - - - -
+Boxes 3 ¦ $getVar[boxes 3;$authorID]
+> `w?open-boxes boxes-3`
+- - - - - - - - - - - - - - - - - - - - -
+Boxes 4 ¦ $getVar[boxes 4;$authorID]
+> `w?open-boxes boxes-4`
+- - - - - - - - - - - - - - - - - - - - -;2]
+$endif$endif$endif$endif
