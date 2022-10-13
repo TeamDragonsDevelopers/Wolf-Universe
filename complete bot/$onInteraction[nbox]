@@ -1,0 +1,27 @@
+$nomention
+$ephemeral $removeButtons
+$if[$message==box1]
+Now you will see Box 1.
+Press ◀️ or ▶️
+$setUserVar[box;1]
+$endif
+$if[$message==box2]
+Now you will see Box 2.
+Press ◀️ or ▶️
+$setUserVar[box;2]
+$endif
+$if[$message==box3]
+Now you will see Box 3.
+Press ◀️ or ▶️
+$setUserVar[box;3]
+$endif
+$if[$message==box4]
+Now you will see Box 4.
+Press ◀️ or ▶️
+$setUserVar[box;4]
+$endif
+$if[$message==box5]
+Now you will see Box 5.
+Press ◀️ or ▶️
+$setUserVar[box;5]
+$endif
