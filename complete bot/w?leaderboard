@@ -1,0 +1,30 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==:x:]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[usenable];Developer of this bot disable System User]
+$enabled[$getServerVar[usenable];Developer of this server disable System User]
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$message[1;mode]==--economy]
+$title[Legendcoin]
+$globalUserLeaderboard[legendcoin;asc]
+$endif 
+$if[$message[1;mode]==--universal-diamond]
+$title[Universal Diamond]
+$globalUserLeaderboard[universal diamond;asc]
+$endif 
+$if[$message[1;mode]==--pokedex]
+$title[Pokedex]
+$globalUserLeaderboard[Pokedex;asc]
+$endif 
+$if[$message[1;mode]==--used-user]
+$title[Use Bot User]
+$globalUserLeaderboard[use-bot;asc]
+$endif
+$if[$message[1;mode]==--used-server]
+$title[Use Bot Server]
+$serverLeaderboard[use-bot;asc]
+$endif
