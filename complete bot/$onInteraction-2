@@ -1,0 +1,137 @@
+$nomention
+$if[$customID==adven]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$removeButtons
+$nomention
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$getVar[cobber;$authorID]!=]
+$textSplit[$getVar[cobber;$authorID];^]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]]
+$title[Adventure Status]
+$description[Trainer: `$username#$discriminator[]` ¦ $getVar[membership;$authorID]
+<:Moneda_dorada_Zacian:951547048723890256>Legends Coin: $getVar[legendcoin;$authorID]
+<:Boost_level_9:951539780968120371>Universal Diamond: $getVar[universal diamond;$authorID]
+<:flareon:951547048627429426>Adventure part: $getVar[parts adventure;$authorID]
+<:sospechoso:963716325748903997>Partner: `$httpResult[name]` $if[$splitText[1]==1]¦<:_:1016680833303720006>¦ $endif$if[$splitText[1]==2]¦<:_:1016676754775085076>¦ $endif$if[$splitText[1]==3]¦<:_:1016676756729634856>¦ $endif$if[$splitText[1]==4]¦<:_:1016676758424133642>¦ $endif$if[$splitText[1]==5]¦<:_:1016676760324145225>¦ $endif$if[$splitText[1]==6]¦<:_:1016676762127708181>¦ $endif$if[$splitText[1]==7]¦<:_:1016676756729634856>¦ $endif$if[$splitText[1]==8]¦<:_:1016676756729634856>¦ $endif$if[$splitText[1]==9]¦<:_:1016676756729634856>¦ $endif$if[$splitText[1]==10]¦<:_:1016678435940216964>¦ $endif$if[$splitText[1]==11]¦<:_:1016678437974462535>¦ $endif$if[$splitText[1]==12]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==13]¦<:_:1016678441304719361>¦ $endif$if[$splitText[1]==14]¦<:_:1016678443460595742>¦ $endif$if[$splitText[1]==15]¦<:_:1016678903491858512>¦ $endif$if[$splitText[1]==16]¦<:_:1016678906427879434>¦ $endif$if[$splitText[1]==17]¦<:_:1016678908235624491>¦ $endif$if[$splitText[1]==18]¦<:_:1016678912471867492>¦ $endif$if[$splitText[1]==19]¦<:_:1017214710237634651>¦ $endif$if[$splitText[1]==20]¦<:_:1017214712926187600>¦ $endif$if[$splitText[1]==21]¦<:_:1017214716164177971>¦ $endif$if[$splitText[1]==22]¦<:_:1017214719658053672>¦ $endif$if[$splitText[1]==23]¦<:_:1017214722053001216>¦ $endif$if[$splitText[1]==24]¦<:_:1017214723848163421>¦ $endif$if[$splitText[1]==25]¦<:_:1017214725462962216>¦ $endif$if[$splitText[1]==26]¦<:_:1017214727115509841>¦ $endif$if[$splitText[1]==27]¦<:_:1017214728931643452>¦ $endif$if[$splitText[1]==28]¦<:_:1017214730273828865>¦ $endif$if[$splitText[1]==29]¦<:_:1017214733855756399>¦ $endif$if[$splitText[1]==30]¦<:_:1017214736040988703>¦ $endif$if[$splitText[1]==31]¦<:_:1017214738607915029>¦ $endif$if[$splitText[1]==32]¦<:_:1017214740205928538>¦ $endif$if[$splitText[1]==33]¦<:_:1017214741996896276>¦ $endif$if[$splitText[1]==34]¦<:_:1017214744186343434>¦ $endif$if[$splitText[1]==35]¦<:_:1017215050592821309>¦ $endif$if[$splitText[1]==36]¦<:_:1017215052601897060>¦ $endif$if[$splitText[1]==37]¦<:_:1017215056364195900>¦ $endif$if[$splitText[1]==38]¦<:_:1017215058746548234>¦ $endif$if[$splitText[1]==39]¦<:_:1017215060826923039>¦ $endif$if[$splitText[1]==40]¦<:_:1017215062890516540>¦ $endif$if[$splitText[1]==41]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==42]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==43]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==44]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==45]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==46]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==47]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==48]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==49]¦<:_:1016678439509577749>¦ $endif$if[$splitText[1]==50]¦<:_:1016678439509577749>¦ $endif
+$if[$splitText[3]==s]<:Goldsparkles:951547849940795392>$endif
+Ex: $splitText[9]/$getUserVar[req]
+Lvl: `$splitText[2]`
+Static: Ps-$sum[$sub[$httpResult[stats;0;base_stat];1];1] Attact-$sum[$sub[$httpResult[stats;1;base_stat];1];1] Defense-$sum[$sub[$httpResult[stats;2;base_stat];1];1] Special-Attack-$sum[$sub[$httpResult[stats;3;base_stat];1];1] Special-Defense-$sum[$sub[$httpResult[stats;4;base_stat];1];1] Speed-$sum[$sub[$httpResult[stats;5;base_stat];1];1]
+Hab: $if[$splitText[4]!=]$toTitleCase[$httpResult[abilities;$splitText[4];ability;name]]$else
+$setVar[cobber;$splitText[1]^$splitText[2]^$splitText[3]^0^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8];$authorID]
+$endif
+Movs: $if[$splitText[5]!=]$toTitleCase[$httpResult[moves;$splitText[5];move;name]]$endif $if[$splitText[6]!=]$toTitleCase[$httpResult[moves;$splitText[6];move;name]]$endif $if[$splitText[7]!=]$toTitleCase[$httpResult[moves;$splitText[7];move;name]]$endif 
+$if[$splitText[8]!=]$toTitleCase[$httpResult[moves;$splitText[8];move;name]]$endif]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png]
+$thumbnail[$authorAvatar]$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$color[$random[0;16777215]]
+$elseYou don't start the adventure in this bot. Click ▶️$endif
+$if[$getVar[parts adventure;$authorID]==]$setVar[parts adventure;0;$authorID]$endif
+$addButton[no;box;Box;secondary;no;<:pc:982747734190739466>]
+$addButton[no;pocket-1.$authorID;Pocket;secondary;no;<:bag500:982749014518825092>]
+$addButton[no;rank;Rank;success;no;]
+$addButton[yes;adven.$authorID;;secondary;yes;◀]
+$if[$getVar[parts adventure;$authorID]==]$addButton[no;advenD0-0.$authorID;;secondary;yes;▶]$endif
+$if[$getVar[parts adventure]==special]
+$addButton[no;advenDspecial1-1.$authorID;;secondary;no;▶]
+$endif
+$if[$getVar[parts adventure;$authorID]==0]
+$addButton[no;advenD0-0.$authorID;;secondary;no;▶]
+$endif
+$if[$getVar[parts adventure;$authorID]==1]
+$addButton[no;advenD1-0.$authorID;;secondary;yes;▶]
+$endif
+$if[$getVar[parts adventure;$authorID]==2]
+$addButton[no;advenD2-0.$authorID;;secondary;no;▶]
+$endif
+$if[$getVar[parts adventure;$authorID]==3]
+$addButton[no;advenD3-0.$authorID;;secondary;no;▶]
+$endif
+$if[$getVar[parts adventure;$authorID]==4]
+$addButton[no;advenD4-0.$authorID;;secondary;no;▶]
+$endif
+$addButton[no;adven;Adventure;secondary;no;$randomText[<:freezing_mind:974177954517102602>;<:burning_power:974180611235409950>]]
+$endif
+$if[$customID==gift]
+$removeButtons
+$title[Raffle, event and online gifts]
+$description[📶---->❔---->🌐
+1°Receive gift online
+2°Receive gift by code
+3°Receive gift by exchange]
+$addButton[no;online;;secondary;no;📶]
+$addButton[no;code;;secondary;no;🔢]
+$addButton[no;exchange;;secondary;no;💱]
+$endif
+
+$if[$customID==code]
+$title[🎁Code Gift🎁]
+$description[$if[$getVar[code_gift;$authorID]!=FALSE]
+Put the code $getVar[code_gift;$authorID] to get Arceus and Diamansfera$elseYou have already get your gift$endif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$if[$getVar[code_gift;$authorID]!=FALSE]
+$channelSendMessage[$channelID;<@$authorID> please put the code behind this message.ⓘMake sure you only put the code and it is correct]
+$awaitFunc[code_gift]
+$endif
+
+$if[$customID==online]
+$removeButtons
+$title[🎁Online Gift🎁]
+$description[Press ✅, to get your gift]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$addButton[no;online.tick;;secondary;no;✅]
+$endif
+$if[$getVar[online;$authorID]$customID==trueonline.tick]
+You get . You can't obtain again$endif
+
+$if[$customID==exchange]
+$title[🎁Exanchance Gift🎁]
+$description[Confugutating]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$endif
+
+$if[$customID==missions]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$textSplit[$getVar[mission status;$authorID];-]
+$title[Daily Missions;1]
+$description[Complete these missions to receive awards
+> Capture Normal Pokemon-$splitText[1]/80
+> Capture Shiny Pokemon-$splitText[2]/50
+Awards: 1💎
+
+> Use Bot-$splitText[7]/100
+Awards: 2499€ + 1💎;1]
+
+
+$title[Missions Weekly;2]
+$description[Complete these missions to receive awards
+
+> Capture Mega Pokemon-$splitText[5]/70
+Awards: 2💎
+
+> Capture Giga Pokemon-$splitText[6]/70
+Awards: 2💎
+
+> Capture Legendary Pokemon-$splitText[3]/60
+Awards: 2💎
+
+> Capture Singular Pokemon-$splitText[4]/30
+Awards: 10 💎(YOU CAN OBTAIN HISUI, using w?sp-special);2]
+$title[Missions Monthly;3]
+$description[Complete these missions to receive awards;3]
+$title[Missions Adventure;4]
+$description[Complete these missions to receive awards
+`Configuration`<a:Loading:951234065200189491> ;4]
+$endif
