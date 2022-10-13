@@ -1,0 +1,47 @@
+$nomention
+$if[$checkContains[$customID;hangman]==true]
+$if[$checkContains[$customID;$authorID]==true]
+$async[get button]
+$textSplit[$customID;@]
+$var[letter;$splitText[2]]
+$var[id;$splitText[3]]
+$endasync
+$await[get button]
+$httpPost[https://rpchangman.herokuapp.com/api/guess/;{ "id": "$var[id]", "guess": "$var[letter]" }]
+$textSplit[$httpResult[max_guesses];.]
+$if[$httpResult[is_done]==false]
+🕐 **Game ongoing.**
+$var[color;ff8888]
+$var[board;$httpResult[board]]
+$var[rem;$sub[$splitText[1];$charCount[$httpResult[missed_letters]]] misses remaining!]
+$elseif[$httpResult[is_done]==true]
+$removeButtons
+$if[$httpResult[result]==W]
+🟩 **You won!** and you get $random[10;50]€
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];$random[10;50]];$authorID]
+$var[color;BFF4A0]
+$var[board;$httpResult[secret_word]]
+$var[rem;$sub[$splitText[1];$charCount[$httpResult[missed_letters]]] misses remaining!]
+$elseif[$httpResult[result]==L]
+🟥 **You Lost! 
+$var[color;F45353]
+$var[board;$httpResult[secret_word]]
+$var[rem;$sub[$splitText[1];$charCount[$httpResult[missed_letters]]] misses remaining!]
+$endif
+$endif
+$title[🏟️ • HangMan]
+$footer[$var[rem] • Level : $replaceText[$replaceText[$replaceText[$httpResult[difficulty];E;🐣 Easy;1];M;🐶 Normal;1];H;😈 Hard;1]]
+$color[$var[color]]
+$addField[📋 BOARD • Clue : $replaceText[$replaceText[$checkCondition[$multi[$charCount[$httpResult[missed_letters]];2]>=$splitText[1]];true;||*$httpResult[secret_set]*||;1];false;*After $sub[$divide[$splitText[1];2];$charCount[$httpResult[missed_letters]]] mistake(s).*;1];$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$toLowercase[$var[board]];a;🇦 ;-1];b;🇧 ;-1];c;🇨 ;-1];d;🇩 ;-1];e;🇪 ;-1];f;🇫 ;-1];g;🇬 ;-1];h;🇭 ;-1];i;🇮 ;-1];j;🇯 ;-1];k;🇰 ;-1];l;🇱 ;-1];m;🇲 ;-1];n;🇳 ;-1];o;🇴 ;-1];p;🇵 ;-1];q;🇶 ;-1];r;🇷 ;-1];s;🇸 ;-1];t;🇹 ;-1];u;🇺 ;-1];v;🇻 ;-1];w;🇼 ;-1];x;🇽 ;-1];y;🇾 ;-1];z;🇿 ;-1];_;❔ ;-1];no]
+$if[$sub[$splitText[1];$charCount[$httpResult[missed_letters]]]==$cropText[$getEmbedData[$channelID;$messageID;1;footer];1;]]
+$var[butt;success]
+$else
+$var[butt;danger]
+$endif
+$editButton[$customID;$toUppercase[$var[letter]];$var[butt];yes;]
+$else
+$ephemeral
+$removeButtons
+‼️ This is not your game!
+$endif
+$endif
