@@ -1,0 +1,4 @@
+$nomention
+$globalCooldown[1w;]
+$textSplit[$getVar[mission status;$authorID];-]
+$setVar[mission status;$splitText[1]-$splitText[2]-0-0-0-0-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
