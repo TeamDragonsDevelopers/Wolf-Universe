@@ -1,0 +1,92 @@
+$nomention
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$message==help]
+$removeButtons
+$author[$username#$discriminator[$userID[$authorID]]]
+$title[`HELP`]
+$description[Command: `$getVar[prefix]`
+> Si te falla el w?, usa Hakairyu <commando>
+> If w? get error, use Hakairyu <command>
+Slash Commands 
+$slashCommandsCount
+`$getVar[prefix]terms` to see my terms
+Online: `$uptime`
+Bot $hostingExpireTime
+Premium $premiumExpireTime
+
+https://dragons-team.gitbook.io/wolf-universe/command-bot/help]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year• ©$username[$botID]-$year]
+$image[https://media.discordapp.net/attachments/995682748545122334/1013907658635489281/1661804761117.png]
+$thumbnail[https://media.discordapp.net/attachments/920755935926972426/937345409192439828/1643548855495.png]
+$else
+$if[$message==economy&backpack]
+$removeButtons
+$title[Economy&Backpack;1]
+$description[:x:---->❌---->:x:
+`Configuration`<a:Loading:951234065200189491>
+```1-Backpack & economy
+2-Shop
+3-Shop Pokemon
+4-Buy
+5-Buy Pokemon```;1]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year;1]
+$else
+$if[$message==information]
+$removeButtons
+$botTyping
+$var[user;$findUser[$authorID;yes]]
+$author[Userinfo • $nickname[$var[user]]]
+$authorIcon[$userAvatar[$var[user]]]
+$color[$getRoleColor[$highestRole[$findUser[$message;yes]]]]
+$try
+$textSplit[$date-$userJoinedDiscord[$var[user]]-$userJoined[$var[user]]-$creationDate[$guildID];-]
+$httpGet[https://showcase.api.linx.twenty57.net/UnixTime/tounixtimestamp?datetime=$userJoined[$var[user];2006/01/02+15:04:05]]
+$description[
+💮 **$username[$var[user]]#__$discriminator[$var[user]]__** 
+> **$replaceText[$replaceText[$isBot[$var[user]];true;🤖 BOT;1];false;😇 Human;1]**,**  $replaceText[$replaceText[$isUserDMEnabled[$var[user]];false;📪 DM Disabled;1];true;💌 DM Enabled;1]**, **$replaceText[$replaceText[$replaceText[$replaceText[$getUserStatus[$var[user]];online;<:online_status:896313015622852649> Online;1];dnd;<:dnd_status:896313695964135434> DND;1];idle;<:idle_status:896313860720558120> Idle;1];offline;<:offline_status:896313334222192650> Offline;1]**
+📅 **[Dates :\](https://www.google.com/search?q=dates)** 
+>  **`Account Age   :` __$sub[$sum[$multi[$splitText[1];365];$multi[$splitText[2];30];$splitText[3]];$sum[$multi[$splitText[4];365];$multi[$splitText[5];30];$splitText[6]]] days__** (<t:$calculate[($var[user] / 4194304 + 1420070400000) / 1000]:D>)
+🧑‍💼 **[Roles :\](https://www.google.com/search?q=roles)**
+> **Highest Role :** <@&$highestRole[$var[user]]>
+> $replaceText[$replaceText[$eval[$replaceText[<@&¥findRole[$replaceText[$userRoles[$var[user]];
+;\]> <@&¥findRole[;-1]\];¥;$;-1]\]]; <@&$highestRole[$var[user]]>;;1]; <@&\];;1]]
+$catch
+$textSplit[$date-$userJoinedDiscord[$var[user]]-0-0-0-$creationDate[$guildID];-]
+$description[
+💮 **$username[$var[user]]#__$discriminator[$var[user]]__** 
+> **$replaceText[$replaceText[$isBot[$var[user]];true;🤖 BOT;1];false;😇 Human;1]**,**  $replaceText[$replaceText[$isUserDMEnabled[$var[user]];false;📪 DM Disabled;1];true;💌 DM Enabled;1]**, **$replaceText[$replaceText[$replaceText[$replaceText[$getUserStatus[$var[user]];online;<:online_status:896313015622852649> Online;1];dnd;<:dnd_status:896313695964135434> DND;1];idle;<:idle_status:896313860720558120> Idle;1];offline;<:offline_status:896313334222192650> Offline;1]**
+📅 **[Dates :\](https://www.google.com/search?q=dates)** 
+>  **`Account Age   :` __$sub[$sum[$multi[$splitText[1];365];$multi[$splitText[2];30];$splitText[3]];$sum[$multi[$splitText[4];365];$multi[$splitText[5];30];$splitText[6]]] days__** (<t:$calculate[($var[user] / 4194304 + 1420070400000) / 1000]:D>)
+🧑‍💼 **[Roles :\](https://www.google.com/search?q=roles)**
+> **Highest Role :** <@&$highestRole[$var[user]]>]
+$endtry
+$addField[Used Bot;$getVar[use-bot;$var[user]];yes]
+$addField[Legendscoin 🪙;$getVar[legendcoin;$var[user]];yes]
+$addField[Universal Diamond 💎;$getVar[universal diamond;$var[user]];yes]
+$addField[Version;$getVar[actualización;$var[user]];yes]
+$addField[Badge ©Ꭰꭱꭺꮐꮻɴꮪ;$getVar[official_employee;$var[user]] $getVar[employee;$var[user]] $getVar[mod;$var[user]] $getVar[bug;$var[user]] $getVar[early_support;$var[user]] $getVar[dev;$var[user]] $getVar[partner;$var[user]] $getVar[hypesquad;$var[user]] $getVar[boost;$var[user]] $getVar[membership;$var[user]];yes]
+$addField[Badge $serverName[$guildID];$getUserVar[dev;$var[user]] $getUserVar[employee;$var[user]] $getUserVar[mod;$var[user]]  $getUserVar[bug;$var[user]] $getUserVar[early_support;$var[user]] $getUserVar[partner;$var[user]] $getUserVar[hypesquad;$var[user]] $getUserVar[boost;$var[user]] $getUserVar[medal;$var[user]];yes]
+$addButton[no;adven;Adventure;secondary;no;$randomText[<:freezing_mind:974177954517102602>;<:burning_power:974180611235409950>]]
+$else
+$if[$message==backpack]
+$removeButtons
+$title[Bag's $username[$authorID]]
+$description[User Bank
+> $getUserVar[legendcoin]]
+$addButton[no;pocket-1.$authorID;Pocket;secondary;no;<:bag500:982749014518825092>]
+$addButton[no;shop;Shop;primary;yes;<:Moneda_dorada_Zacian:951547048723890256>]
+$else
+Error
+$endif
+$endif
+$endif
+$endif
+$endif $endif
