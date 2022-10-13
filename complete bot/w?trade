@@ -1,0 +1,20 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[ecenable];Developer of this bot disable System Economy]
+$enabled[$getServerVar[ecenable];Developer of this server disable System Economy]
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$toLowercase[$message]==universal diamond]
+$description[Press 💎, to change Legends Coin to Universal Diamond
+100000 LC == 1 UD]
+$addButton[no;universal.diamond;;secondary;no;💎]
+$endif
+$if[$toLowercase[$message]==legend coin]
+$description[Press 🪙, to change Universal Diamond to Legends Coin
+100000 LC == 1 UD]
+$addButton[no;legend.coin;;secondary;no;🪙]
+$endif
