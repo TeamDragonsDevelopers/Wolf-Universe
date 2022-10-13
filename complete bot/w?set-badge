@@ -1,0 +1,46 @@
+$nomention
+$onlyIf[$checkContains[$message[1];dev;mod;official_employee;partner;employee;bug;early_support;hypesquad]==true;You can only these badges dev, mod, partner, employee, bug, early_support, hypesquad, official_employee]
+$onlyIf[$userExists[$message[2]]==true;Member does not exist]
+$if[$message[1]==boost]
+$title[©Ꭰꭱꭺꮐꮻɴꮪ's Badge]
+$description[Now <@$message[2]> var `$message[1]` = $message[3] of ©Ꭰꭱꭺꮐꮻɴꮪ
+Use: `w?user-info` to view the badge
+``Remember that these badges are from the Bot, but not from Discord Insignias Official``]
+$image[https://media.discordapp.net/attachments/995682748545122334/1013907658635489281/1661804761117.png;3]
+$addButton[no;https://discord.com/oauth2/authorize?client_id=855390537702965258&permissions=139653925952&response_type=code&scope=bot%20guilds%20applications.commands%20identify;Invite bot!;link;no;📨] 
+$addButton[no;https://discord.gg/UxM9qH8HuV;Support!;link;no;<:AK_Alola:921485506586505246>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/other-things/faq;Website;link;no;<:emoji_33:934411259372261386>] 
+$addButton[no;https://github.com/PenguinKingdom/wolf_of_word;ListCommand;link;no;<:Boost_level_9:951539780968120371>]
+$description[©Ꭰꭱꭺꮐꮻɴꮪ Official: From $getServerVar[terms] server
+> $getVar[official_employee;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[dev;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[membership;$authorID];2]
+$description[> This message comes from an `official server` of the `team ©Ꭰꭱꭺꮐꮻɴꮪ`.  So it's just `informational`.  `To reply`, you will have to use `w?support`.  Remember that `we will never ask you for your password or private information`;3]
+$if[$isUserDMEnabled[$message[2]]==true]$dm[$message[2]]$else The dm of this person it's close$endif
+$channelSendMessage[$channelID;Now <@$message[2]>($username[$message[2]]#$discriminator[$message[2]]) var `$message[1]` = $message[3] of ©Ꭰꭱꭺꮐꮻɴꮪ]
+$setVar[$message[1];$message[3];$message[2]]
+$endif
+$if[$or[$message[1]==server;$noMentionMessage[1]==boost]==false]
+$if[$or[$message[1]==dev;$message[1]==official_employee]==true;]
+$onlyIf[$or[$getVar[official_employee;$authorID]!=❌;$authorID==841727643392671805]==true;only can <:Employee_1:983413721399443527>,that is, the team of ©∆𝖊𝖑𝖙𝖆]
+$else
+$onlyIf[$and[$getVar[official_employee;$authorID]!=❌;$getVar[employee;$authorID]!=:x:]==true;solo puede <:Employee:951234065917431879> or <:Employee_1:983413721399443527>,that is, the official and Administrator of ©Ꭰꭱꭺꮐꮻɴꮪ]
+$endif
+$title[©Ꭰꭱꭺꮐꮻɴꮪ's Badge]
+$description[Now <@$message[2]> var `$message[1]` = $message[3] of ©Ꭰꭱꭺꮐꮻɴꮪ
+``Remember that these badges are from the Bot, but not from Discord Insignias Official``]
+$if[$isUserDMEnabled[$message[2]]==true]$dm[$message[2]]$else The dm of this person it's close$endif
+$channelSendMessage[$channelID;Now <@$message[2]>($username[$message[2]]#$discriminator[$message[2]]) var `$message[1]` = $message[3] of ©Ꭰꭱꭺꮐꮻɴꮪ]
+$description[©Ꭰꭱꭺꮐꮻɴꮪ Official: From $getServerVar[terms] server
+> $getVar[official_employee;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[dev;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[membership;$authorID];2]
+$description[> This message comes from an `official server` of the `team ©Ꭰꭱꭺꮐꮻɴꮪ`.  So it's just `informational`.  `To reply`, you will have to use `w?support`.  Remember that `we will never ask you for your password or private information`;3]
+$image[https://media.discordapp.net/attachments/995682748545122334/1013907658635489281/1661804761117.png;3]
+$addButton[no;https://discord.com/oauth2/authorize?client_id=855390537702965258&permissions=139653925952&response_type=code&scope=bot%20guilds%20applications.commands%20identify;Invite bot!;link;no;📨] 
+$addButton[no;https://discord.gg/UxM9qH8HuV;Support!;link;no;] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/;Website;link;no;] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/;ListCommand;link;no;] 
+$setVar[$message[1];$message[3];$message[2]]
+$endif
+$if[$or[$message[1]$message[3]$guildExists[$message[4]]==partner<:Partner:951234063400845353>true;$message[1]$message[3]$guildExists[$message[4]]==partner❌true]==true]
+And in $serverName[$message[4]] are now <:partner_server:1015640470019375234>
+$channelSendMessage[$channelID;And in $serverName[$message[4]] are now <:partner_server:1015640470019375234>]
+$setServerVar[partner;<:partner_server:1015640470019375234>;$message[4]]
+$endif
