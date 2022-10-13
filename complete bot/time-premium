@@ -1,0 +1,14 @@
+$nomention
+$onlyIf[$getServerVar[premium]>=$getTimestamp;]
+$onlyIf[$sub[$getVar[legendcoin;$serverOwner];15000]>=0;]
+$onlyIf[$getServerVar[terms]==no;]
+$serverCooldown[48w;]
+$setVar[legendcoin;$sub[$getVar[legendcoin;$serverOwner];15000];$serverOwner]
+$if[$sub[$getVar[legendcoin;$serverOwner];15000]<15000]
+$setServerVar[premium;$getVar[premium]]
+$endif
+$if[$isUserDMEnabled[$serverOwner]==true]
+$if[$sub[$getVar[legendcoin;$serverOwner];15000]<=30000]
+In one year your premium finish.
+Reasons: You will not have any legendcoin to pay
+$endif
