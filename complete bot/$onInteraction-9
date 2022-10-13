@@ -1,0 +1,171 @@
+$nomention
+$if[$customID==pokeball]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$textSplit[$getVar[objects;$authorID];-]  
+$onlyIf[$splitText[1]>=1;$username You dont have more <:Sw_Pok_Ball:964863829647429632>. Use w?buy pokeball 1]
+$setVar[objects;$sub[$splitText[1];1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$ephemeral
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n°pokemon]]
+$onlyIf[$getServerVar[pokemon]$getServerVar[n°pokemon]!=errorerror;There aren't any pokemon spawn in this guild]
+$title[$toTitleCase[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$httpResult[species;name];a;$randomText[`-`;`a`];-1];e;$randomText[`-`;`e`];-1];i;$randomText[`-`;`i`];-1];o;$randomText[`-`;`o`];-1];u;$randomText[`-`;`u`];-1];b;$randomText[`-`;`-`;`-`;`b`];-1];c;$randomText[`-`;`-`;`c`];-1];d;$randomText[`-`;-`;`d`];-1];f;$randomText[`-`;`-`;`f`];-1];g;$randomText[`-`;`-`;`g`];-1];h;$randomText[`-`;`-`;`h`];-1];j;$randomText[`-`;`-`;`j`];-1];k;$randomText[`-`;`-`;`k`];-1];l;$randomText[`-`;`-`;`l`];-1];m;$randomText[`-`;`-`;`m`];-1];n;$randomText[`-`;`-`;`n`];-1];ñ;$randomText[`-`;`-`;`ñ`];-1];p;$randomText[`-`;`-`;`p`];-1];q;$randomText[`-`;`-`;`q`];-1];r;$randomText[`-`;`-`;`r`];-1];s;$randomText[`-`;`-`;`s`];-1];t;$randomText[`-`;`-`;`t`];-1];v;$randomText[`-`;`-`;`v`];-1];w;$randomText[`-`;`-`;`w`];-1];x;$randomText[`-`;`-`;`x`];-1];y;$randomText[`-`;`-`;`y`];-1];z;$randomText[`-`;`-`;`z`];-1]]]
+$description[<:Sw_Pok_Ball:964863829647429632>x$splitText[1] ¦ <:Sw_Super_Ball:964863829295116299>x$splitText[2] ¦ <:Sw_Ultra_Ball:964863828963774485>x$splitText[3] ¦ <:Sw_Master_Ball:964865184197910549>x$splitText[4]]
+$image[$getServerVar[url pokemon]]
+$endif$endif
+$else
+$if[$customID==superball]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$textSplit[$getVar[objects;$authorID];-] 
+$onlyIf[$splitText[2]>=1;$username you dont have more <:Sw_Super_Ball:964863829295116299>. Use w?buy superball 1]
+$setVar[objects;$splitText[1]-$sub[$splitText[2];1]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID] 
+$ephemeral
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n°pokemon]]
+$onlyIf[$getServerVar[pokemon]$getServerVar[n°pokemon]!=errorerror;There aren't any pokemon spawn in this guild]
+$title[$toTitleCase[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$httpResult[species;name];a;$randomText[`a`;`a`];-1];e;$randomText[`e`;`e`];-1];i;$randomText[`i`;`i`];-1];o;$randomText[`o`;`o`];-1];u;$randomText[`u`;`u`];-1];b;$randomText[`-`;`b`;`b`];-1];c;$randomText[`-`;`c`;`c`];-1];d;$randomText[`-`;`d`;`d`];-1];f;$randomText[`-`;`f`;`f`];-1];g;$randomText[`-`;`-`;`g`];-1];h;$randomText[`-`;`-`;`h`];-1];j;$randomText[`-`;`-`;`j`];-1];k;$randomText[`-`;`-`;`k`];-1];l;$randomText[`-`;`-`;`l`];-1];m;$randomText[`-`;`-`;`m`];-1];n;$randomText[`-`;`-`;`n`];-1];ñ;$randomText[`-`;`-`;`ñ`];-1];p;$randomText[`-`;`-`;`p`];-1];q;$randomText[`-`;`-`;`q`];-1];r;$randomText[`-`;`-`;`r`];-1];s;$randomText[`-`;`-`;`s`];-1];t;$randomText[`-`;`-`;`t`];-1];v;$randomText[`-`;`-`;`v`];-1];w;$randomText[`-`;`-`;`w`];-1];x;$randomText[`-`;`-`;`x`];-1];y;$randomText[`-`;`-`;`y`];-1];z;$randomText[`-`;`-`;`z`];-1]]]
+$description[<:Sw_Pok_Ball:964863829647429632>x$splitText[1] ¦ <:Sw_Super_Ball:964863829295116299>x$splitText[2] ¦ <:Sw_Ultra_Ball:964863828963774485>x$splitText[3] ¦ <:Sw_Master_Ball:964865184197910549>x$splitText[4]]
+$image[$getServerVar[url pokemon]]
+$endif$endif
+$else
+$if[$customID==ultraball]
+$textSplit[$getVar[objects;$authorID];-]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$textSplit[$getVar[objects;$authorID];-] 
+$onlyIf[$splitText[3]>=1;$username you dont have more <:Sw_Ultra_Ball:964863828963774485>. Use w?buy ultraball 1]
+$setVar[objects;$splitText[1]-$splitText[2]-$sub[$splitText[3];1]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID] 
+$ephemeral
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n°pokemon]]
+$onlyIf[$getServerVar[pokemon]$getServerVar[n°pokemon]!=errorerror;There aren't any pokemon spawn in this guild]
+$title[$toTitleCase[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$httpResult[species;name];a;$randomText[a;a];-1];e;$randomText[e;e];-1];i;$randomText[i;i];-1];o;$randomText[o;o];-1];u;$randomText[u;u];-1];b;$randomText[-;b;b];-1];c;$randomText[-;c;c];-1];d;$randomText[-;d;d];-1];f;$randomText[-;f;f];-1];g;$randomText[-;g;g];-1];h;$randomText[-;h;h];-1];j;$randomText[-;j;j];-1];k;$randomText[-;k;k];-1];l;$randomText[-;l;l];-1];m;$randomText[-;m;m];-1];n;$randomText[-;-;n];-1];ñ;$randomText[-;-;ñ];-1];p;$randomText[-;-;p];-1];q;$randomText[-;-;q];-1];r;$randomText[-;-;r];-1];s;$randomText[-;-;s];-1];t;$randomText[-;-;t];-1];v;$randomText[-;-;v];-1];w;$randomText[-;-;w];-1];x;$randomText[-;-;x];-1];y;$randomText[-;-;y];-1];z;$randomText[-;-;z];-1]]]
+$description[<:Sw_Pok_Ball:964863829647429632>x$splitText[1] ¦ <:Sw_Super_Ball:964863829295116299>x$splitText[2] ¦ <:Sw_Ultra_Ball:964863828963774485>x$splitText[3] ¦ <:Sw_Master_Ball:964865184197910549>x$splitText[4]]
+$image[$getServerVar[url pokemon]]
+$endif$endif
+$else
+$if[$customID==masterball]
+$textSplit[$getVar[objects;$authorID];-]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$textSplit[$getVar[objects;$authorID];-] 
+$onlyIf[$splitText[4]>=1;$username you dont have more <:Sw_Master_Ball:964865184197910549>. Use w?buy masterball 1]
+$setVar[objects;$splitText[1]-$splitText[2]-$splitText[3]-$sub[$splitText[4];1]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID] 
+$ephemeral
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n°pokemon]]
+$onlyIf[$getServerVar[pokemon]$getServerVar[n°pokemon]!=errorerror;There aren't any pokemon spawn in this guild]
+$title[$toTitleCase[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$httpResult[species;name];a;$randomText[`a`;`a`];-1];e;$randomText[`e`;`e`];-1];i;$randomText[`i`;`i`];-1];o;$randomText[o;o];-1];u;$randomText[u;u];-1];b;$randomText[b;b;b];-1];c;$randomText[c;c;c];-1];d;$randomText[d;d;d];-1];f;$randomText[f;f;f];-1];g;$randomText[g;g;g];-1];h;$randomText[h;h;h];-1];j;$randomText[j;j;j];-1];k;$randomText[k;k;k];-1];l;$randomText[l;l;l];-1];m;$randomText[m;m;m];-1];n;$randomText[-;n;n];-1];ñ;$randomText[-;ñ;ñ];-1];p;$randomText[-;p;p];-1];q;$randomText[-;q;q];-1];r;$randomText[-;r;r];-1];s;$randomText[-;s;s];-1];t;$randomText[-;t;t];-1];v;$randomText[-;v;v];-1];w;$randomText[-;w;w];-1];x;$randomText[-;x;x];-1];y;$randomText[-;y;y];-1];z;$randomText[-;z;z];-1]]]
+$description[<:Sw_Pok_Ball:964863829647429632>x$splitText[1] ¦ <:Sw_Super_Ball:964863829295116299>x$splitText[2] ¦ <:Sw_Ultra_Ball:964863828963774485>x$splitText[3] ¦ <:Sw_Master_Ball:964865184197910549>x$splitText[4]]
+$image[$getServerVar[url pokemon]]
+$endif$endif
+$endif$endif$endif$endif
