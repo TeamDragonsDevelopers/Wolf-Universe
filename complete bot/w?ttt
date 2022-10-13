@@ -1,0 +1,16 @@
+$nomention
+$if[$getVar[xo]!=⬛ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 0 0 0 0 0 0]
+$setVar[xo;⬛ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ ⬛ 0 0 0 0 0 0] $endif
+
+$title[Tic Tac Toe]
+$textSplit[$getVar[xo]; ]
+$onlyIf[$and[$splitText[11]==0;$splitText[12]==0]==true;]
+$setVar[xo;$getVar[xo];$authorID]
+$description[
+```mdd
+The tic-tac-toe, also called "crab" and "oxo" in Belgium, is a game of reflection practiced by two players, turn by turn, the aim of which is to create an alignment first. The game is usually played by drawing on paper in pencil.
+```
+<@$authorID> is waiting for an opponent.]
+$addButton[no;xoJoin$authorID;Join;secondary;no;]
+ 
+$image[https://media.discordapp.net/attachments/859411410144198676/1014834700348567612/unnamed.jpg]
