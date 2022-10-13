@@ -1,0 +1,19 @@
+$nomention
+$onlyIf[$guildID==951221660202201158;This server isn't the official server of the bot. Please go to $serverName[951221660202201158]]
+$if[$message[1]==1]
+$onlyIf[$or[$getVar[membership;$message[3]]==<:cs_unranked:1003760673785905335>;$getVar[membership;$message[3]]==<:cs_bronze:1003761046588239883>;$getVar[membership;$message[3]]==<:cs_silver:1003761342253105222>;$getVar[membership;$message[3]]==<:cs_gold:1003761689415655514>;$getVar[membership;$message[3]]==<:cs_platinum:1003761571316637736>;$getVar[membership;$message[3]]==<:cs_diamond:1003761614891262012>;$getVar[membership;$message[3]]==<:cs_master:1003761835968831569>;$getVar[membership;$message[3]]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$message[3]]!=:x:]==true;He or She need <:cs_unranked:1003760673785905335><:cs_bronze:1003761046588239883><:cs_silver:1003761342253105222><:cs_gold:1003761689415655514><:cs_platinum:1003761571316637736><:cs_diamond:1003761614891262012><:cs_master:1003761835968831569> or <:cs_specialops:1003761903685861427>]
+$endif
+$if[$message[1]==2]
+$onlyIf[$or[$getVar[membership;$message[3]]==<:cs_silver:1003761342253105222>;$getVar[membership;$message[3]]==<:cs_gold:1003761689415655514>;$getVar[membership;$message[3]]==<:cs_platinum:1003761571316637736>;$getVar[membership;$message[3]]==<:cs_diamond:1003761614891262012>;$getVar[membership;$message[3]]==<:cs_master:1003761835968831569>;$getVar[membership;$message[3]]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$message[3]]!=:x:]==true;He or She need <:cs_bronze:1003761046588239883><:cs_silver:1003761342253105222><:cs_gold:1003761689415655514><:cs_platinum:1003761571316637736><:cs_diamond:1003761614891262012><:cs_master:1003761835968831569> or <:cs_specialops:1003761903685861427>]
+$endif
+$if[$message[1]==3]
+$onlyIf[$or[$getVar[membership;$message[3]]==<:cs_platinum:1003761571316637736>;$getVar[membership;$message[3]]==<:cs_diamond:1003761614891262012>;$getVar[membership;$message[3]]==<:cs_master:1003761835968831569>;$getVar[membership;$message[3]]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$message[3]]!=:x:]==true;He or She need <:cs_platinum:1003761571316637736><:cs_diamond:1003761614891262012><:cs_master:1003761835968831569> or <:cs_specialops:1003761903685861427>]
+$endif
+$if[$message[1]==4]
+$onlyIf[$or[$getVar[membership;$message[3]]==<:cs_master:1003761835968831569>;$getVar[membership;$message[3]]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$message[3]]!=:x:]==true;He or She need <:cs_master:1003761835968831569> or <:cs_specialops:1003761903685861427>]
+$endif
+$channelSendMessage[$channelID;I send $message[2] boxes $message[1] to `$username[$message[3]]#$discriminator[$message[3]]`]
+$setVar[boxes $message[1];$sum[$getVar[boxes $message[1];$message[3]];$message[2]];$message[3]]
+<@$authorID> give $message[2] boxes $message[1] to <@$message[3]> (Come from $serverName[$guildID])
+> You can use `w?open-boxes boxes-$message[1]` in a channel
+$if[$isUserDMEnabled[$message[3]]==true]$dm[$message[3]]$endif
