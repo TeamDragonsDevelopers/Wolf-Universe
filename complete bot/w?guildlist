@@ -1,0 +1,38 @@
+$onlyForServers[951221660202201158;951224494444412958;951221213735321730;You can't use this command in this guild]
+ $onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$nomention
+$botTyping
+$var[current;$replaceText[$replaceText[*$message[1]*;**;1;1];*;;-1]]
+$var[page;$calculate[($var[current]-1)*10]]
+$color[ff8888]
+$title[🏠 Server List]
+$description[Showing Servers ` $var[page] ` to ` $sum[$var[page];10] ` out of **$serverCount servers**
+> ⏰ **CalculationTime :** $executionTime Miliseconds
+]
+$footer[Page $replaceText[$replaceText[*$message[1]*;**;1;1];*;;2]/$calculate[($serverCount/10)+1]]
+$newSelectMenu[$authorIDguildlist;1;1;🏠 Get Details]
+$var[count;1] 
+$addSelectMenuOption[$authorIDguildlist;Page $sub[$var[current];1];page$sub[$var[current];1];;no;🔺] 
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;1️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;2️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;3️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;4️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;5️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;6️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;7️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;8️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;9️⃣] $var[count;$sum[$var[count];1]] $endtry
+$var[s$var[count];$guildID[$replaceText[$serverNames[$sum[$var[page];$var[count]];];$serverNames[$sum[$var[page];$sub[$var[count];1]];];;1]]]
+$try $addSelectMenuOption[$authorIDguildlist;$cropText[$serverName[$var[s$var[count]]];20;...];$var[s$var[count]];$cropText[$username[$serverOwner[$var[s$var[count]]]]#$discriminator[$serverOwner[$var[s$var[count]]]];20;] ($creationDate[$var[s$var[count]]]);no;🔟] $var[count;$sum[$var[count];1]] $endtry
+$addSelectMenuOption[$authorIDguildlist;Page $sum[$var[current];1];page$sum[$var[current];1];;no;🔻] 
