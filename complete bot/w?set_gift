@@ -1,0 +1,10 @@
+$nomention
+$if[$message[1]==code]
+$setVar[code_gift;$toUppercase[$message[2]]]
+Now the code is $toUppercase[$message[2]]
+$endif
+$if[$message[1]==online]
+$onlyIf[$or[$message[2]==true;$message[2]==false]==true;You can put false or true]
+Now online is $message[2]
+$setVar[online;$message[2]]
+$endif
