@@ -1,0 +1,44 @@
+$nomention
+$async[time]
+$if[$sum[$getVar[sanctions;$splitText[1]];1]==1]**nothing**$endiffif[$sum[$getVar[sanctions;$splitText[1]];1]==2]<t:$sum[$getTimestamp;350]:F> **(5 min)**$endif$if[$sum[$getVar[sanctions;$splitText[1]];1]==3]<t:$sum[$getTimestamp;1800]:F> **(5
+30 min)**$endif$if[$sum[$getVar[sanctions;$splitText[1]];1]==4]<t:$sum[$getTimestamp;350]:F> **(30 min)**$endif$if[$sum[$getVar[sanctions;$splitText[1]];1]==6]<t:$sum[$getTimestamp;3600]:F> **(1h)**$endif
+$endasync
+$textSplit[$message;~]
+$sendEmbedMessage[$channelID;`$username[$splitText[1]]#$discriminator[$splitText[1]]`-$sum[$getVar[sanctions;$splitText[1]];1];Warn Member#$sum[$getVar[sanctions;$splitText[1]];1];;Member: <@$splitText[1]>
+Reasons: $splitText[2]
+Effects: 
+$if[$splitText[3]==block]
+<:Server_Shield_Admin_Verify:952629800370073670> User Block
+$endif
+Staff: $username[$authorID]#$discriminator[$authorID]
+$getVar[official_employee;$authorID]
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[medal;$authorID];$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$sendEmbedMessage[1001975255356670034;`$username[$splitText[1]]#$discriminator[$splitText[1]]`-$sum[$getVar[sanctions;$splitText[1]];1];Warn Member#$sum[$getVar[sanctions;$splitText[1]];1];;Member: <@$splitText[1]>
+Reasons: $splitText[2]
+Effects:
+$if[$splitText[3]==block]
+<:Server_Shield_Admin_Verify:952629800370073670> User Block
+$endif
+Staff: $username[$authorID]#$discriminator[$authorID]
+$getVar[official_employee;$authorID]
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[medal;$authorID];$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$title[Warn Member#$sum[$getVar[sanctions;$splitText[1]];1]]
+$description[Member: <@$splitText[1]>
+Reasons: $splitText[2]
+Effects:
+$if[$splitText[3]==block]
+<:Server_Shield_Admin_Verify:952629800370073670> User Block
+$endif
+Staff: $username[$authorID]#$discriminator[$authorID]
+$getVar[official_employee;$authorID]
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[medal;$authorID]]
+$footer[Date-$day/$month/$year | Hour $hourh/$minutem/$seconds]
+$if[$isUserDMEnabled[$splitText[1]]]==true]
+$dm[$splitText[1]]
+$endif
+$setVar[sanctions;$sum[$getVar[sanctions;$splitText[1]];1];$splitText[1]]
+$if[$splitText[3]==block]
+$onlyIf[$charCount[$getVar[user_block],$splitText[1]]<=499;You can add more users]
+$onlyIf[$checkContains[$getVar[user_block];$guildID;$splitText[1]]==false;<:Server_Shield_Admin_Verify:952629800370073670>This member its already blocked]
+$setVar[user_block;$getVar[user_block],$splitText[1]]
+$endif
