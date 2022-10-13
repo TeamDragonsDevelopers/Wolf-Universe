@@ -1,0 +1,40 @@
+$nomention
+$textSplit[$message;~]
+$onlyIf[$sub[$getVar[sanctions;$authorID];1]>=0;The user don't have more warns]
+$sendEmbedMessage[$channelID;`$username[$splitText[1]]#$discriminator[$splitText[1]]`-$sub[$getVar[sanctions;$splitText[1]];1];Un-Warn Member#$sub[$getVar[sanctions;$splitText[1]];1];;Member: <@$splitText[1]>
+Reasons: $splitText[2]
+$if[$splitText[3]!=]Time: $splitText[3]
+$endif
+$if[$splitText[4]==un-block]
+<:Server_Shield_Admin_Verify:952629800370073670> User Un-Block
+$endif
+Staff: $username[$authorID]#$discriminator[$authorID]
+$getVar[official_employee;$authorID]
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[medal;$authorID];$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$sendEmbedMessage[1001975255356670034;`$username[$splitText[1]]#$discriminator[$splitText[1]]`-$sub[$getVar[sanctions;$splitText[1]];1];Un-Warn Member#$sub[$getVar[sanctions;$splitText[1]];1];;Member: <@$splitText[1]>
+Reasons: $splitText[2]
+$if[$splitText[3]!=]Time: $splitText[3]
+$endif
+Staff: $username[$authorID]#$discriminator[$authorID]
+$getVar[official_employee;$authorID]
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[medal;$authorID];$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$title[Warn Member#$sub[$getVar[sanctions;$splitText[1]];1]]
+$description[Member: <@$splitText[1]>
+Reasons: $splitText[2]
+$if[$splitText[3]!=]Time: $splitText[3]
+$endif
+$if[$splitText[4]==un-block]
+<:Server_Shield_Admin_Verify:952629800370073670> User Un-Block
+$endif
+Staff: $username[$authorID]#$discriminator[$authorID]
+$getVar[official_employee;$authorID]
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[medal;$authorID]]
+$footer[Date-$day/$month/$year | Hour $hourh/$minutem/$seconds]
+$if[$isUserDMEnabled[$splitText[1]]==true]
+$dm[$splitText[1]]
+$endif
+$setVar[sanctions;$sub[$getVar[sanctions;$authorID];1];$splitText[1]]
+$if[$splitText[4]==un-block]
+$onlyIf[$checkContains[$getVar[user_block];$splitText[1]]==true;<:Server_Shield_Admin_Verify:952629800370073670>This member its not blocked]
+$setVar[user_block;$replaceText[$getVar[user_block];$splitText[1];;1]]
+$endif
