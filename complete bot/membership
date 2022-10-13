@@ -1,0 +1,22 @@
+$globalCooldown[1w;] 
+$if[$or[$getVar[membership;$authorID]==<:cs_master:1003761835968831569>;$getVar[membership;$authorID]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$authorID]!=❌]==true]
+I give you 1 boxes 4
+> Use w?open-boxes boxes-4 
+$setVar[boxes 4;$sum[$getVar[boxes 4;$authorID];1];$authorID]
+$endif
+$if[$or[$getVar[membership;$authorID]==<:cs_platinum:1003761571316637736>;$getVar[membership;$authorID]==<:cs_diamond:1003761614891262012>;$getVar[membership;$authorID]==<:cs_master:1003761835968831569>;$getVar[membership;$authorID]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$authorID]!=❌]==true]
+$setVar[boxes 3;$sum[$getVar[boxes 3;$authorID];1];$authorID]
+I give you 1 boxes 3
+> Use w?open-boxes boxes-3 
+$endif
+$if[$or[$getVar[membership;$authorID]==<:cs_silver:1003761342253105222>;$getVar[membership;$authorID]==<:cs_gold:1003761689415655514>;$getVar[membership;$authorID]==<:cs_platinum:1003761571316637736>;$getVar[membership;$authorID]==<:cs_diamond:1003761614891262012>;$getVar[membership;$authorID]==<:cs_master:1003761835968831569>;$getVar[membership;$authorID]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$authorID]!=❌]==true]
+$setVar[boxes 2;$sum[$getVar[boxes 2;$authorID];1];$authorID]
+I give you 1 boxes 2
+> Use w?open-boxes boxes-2 
+$endif
+$if[$or[$getVar[membership;$authorID]==<:cs_unranked:1003760673785905335>;$getVar[membership;$authorID]==<:cs_bronze:1003761046588239883>;$getVar[membership;$authorID]==<:cs_silver:1003761342253105222>;$getVar[membership;$authorID]==<:cs_gold:1003761689415655514>;$getVar[membership;$authorID]==<:cs_platinum:1003761571316637736>;$getVar[membership;$authorID]==<:cs_diamond:1003761614891262012>;$getVar[membership;$authorID]==<:cs_master:1003761835968831569>;$getVar[membership;$authorID]==<:cs_specialops:1003761903685861427>;$getVar[official_employee;$authorID]!=❌]==true]
+I give you 1 boxes 1
+> Use w?open-boxes boxes-1
+$setVar[boxes 1;$sum[$getVar[boxes 1;$authorID];1];$authorID]
+$endif
+$if[$isUserDMEnabled[$authorID]==true]$dm[$authorID]$endif
