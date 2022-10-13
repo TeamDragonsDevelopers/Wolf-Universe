@@ -1,0 +1,25 @@
+$nomention
+$onlyIf[$getVar[official_employee;$authorID]$or[$getVar[dev;$authorID]!=:x:;$getVar[mod;$authorID]!=:x:;$getVar[employee;$authorID]!=:x:]==<:Employee_1:983413721399443527>true;solo puede <:bughunterlv1:888748064888725515>, <:bughunterlv2:888748064964239410>, <:moderator:888747414083735623>, <:employee:888747414142468126>, or <:verified_bot_developer:888747413890793482>,that is, the team of ©∆𝖊𝖑𝖙𝖆]
+$splitText[5]
+$title[$splitText[2];1]
+$description[$splitText[3];1]
+$footer[$splitText[4] • Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year• ©$username[$botID]-$year;1]
+$color[ffffff;1]
+$description[©Ꭰꭱꭺꮐꮻɴꮪ Official: From $getServerVar[terms] server:
+Badge `©Ꭰꭱꭺꮐꮻɴꮪ-$username[$botID]#$discriminator[$botID]`
+> $getVar[official_employee;$botID] $getVar[employee;$botID] $getVar[mod;$botID] $getVar[bug;$botID] $getVar[early_support;$botID] $getVar[dev;$botID] $getVar[partner;$botID] $getVar[hypesquad;$botID] $getVar[boost;$botID] $getVar[membership;$botID];2]
+
+$description[> This message comes from an `official server` of the `team ©∆𝖊𝖑𝖙𝖆`.  So it's just `informational`.  `To reply`, you will have to use `w?send-system --$if[$checkContains[$channelName[$channelID];bug;staff;faq;support;report;system]==true]$channelName[$channelID]$elsesystem$endif <message>`
+Replace <message> to the message you want to send. Remember that `we will never ask you for your password or private information`;3]
+$image[https://media.discordapp.net/attachments/995682748545122334/1013907658635489281/1661804761117.png;3]
+$useChannel[$splitText[1]]
+$textSplit[$message;|]
+$onlyIf[$channelExists[$splitText[1]]==true;Please put a exist channelID
+w?system-official-send-channel <`channelID` | title | description | footer> (message)]
+$onlyIf[$splitText[2]!= ;Set a title of this message embed
+w?system-official-send-channel <channelID | `title` | description | footer> (message)]
+$onlyIf[$splitText[3]!= ;Set a title of this message embed
+w?system-official-send-channel <channelID | title | `description` | footer> (message)]
+$onlyIf[$splitText[4]!= ;Set a footer of this message embed
+w?system-official-send-channel <channelID | title | description | `footer`> (message)]
+$channelSendMessage[$channelID;I send the message to $channelName[$splitText[1]] <:verified:888747413467181086>]
