@@ -1,0 +1,107 @@
+$nomention
+$c[--------------Global----------------]
+$if[$customID==s.global]
+$removeButtons
+$title[System Global]
+$description[<:Bug_Hunter_lvl_1:951539846206337054> -Permission errors and command failure
+<:Bug_Hunter_lvl_2:951539929761079377> -Severe command failure and permission errors
+<:Shield_Admin_Verify:952629800370073670> -Wrong messages and data cancellation
+<:Support:951234061609873419> -Contacting the system in general is usually used when you don't know if it's an error or something else. Giving the support, they solve you anyway
+<:Report_flag:951544817115074562> -Bot error, usually happens when the symbol :x: appears. You can also report a bug]
+$addButton[no;$customID-bug1;Bug_1;danger;no;<:Bug_Hunter_lvl_1:951539846206337054>]
+$addButton[no;$customID-bug2;Bug_2;danger;no;<:Bug_Hunter_lvl_2:951539929761079377>]
+$addButton[no;$customID-staff;Staff;success;no;<:Shield_Admin_Verify:952629800370073670>]
+$addButton[yes;$customID-support;Support;primary;no;<:Delta:951226047335104553>]
+$addButton[no;$customID-faq;FAQ;secondary;no;<:Support:951234061609873419>]
+$addButton[yes;$customID-report;Report;danger;no;<:Report_flag:951544817115074562>]
+$endif
+$if[$customID==s.global-bug1]
+$newModal[s.global-bug1.1;Ticket Global Bug Hunter 1]
+$addTextInput[bug 1;paragraph;What is the error?;1;1000;yes]
+$endif
+$if[$customID==s.global-bug1.1]
+$sendEmbedMessage[980191595213258783;<@&980172346503614534>-`$username[$authorID]#$discriminator[$authorID]`;<:Bug_Hunter_lvl_1:951539846206337054>Bug<:Bug_Hunter_lvl_1:951539846206337054>;;<:Discord_new:951234064726253569> Member: `$username[$authorID]#$discriminator[$authorID]`
+<:Discord_Phone_Verification:951234065195991121> Id: `$authorID`
+<:Search:951234065497989120> Server `$guildID`
+<:Verified:951234061920243712> Channel $channelName[$channelID] > `$channelID`
+Have put
+**$input[bug 1]**
+> Badge ©∆𝖊𝖑𝖙𝖆:
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[official_employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID]
+**Only people with this icon,<:Employee_1:983413721399443527>, will be a worker of the ©∆𝖊𝖑𝖙𝖆**
+To Response: 
+```$getVar[prefix]responseChannel <channelID | title | description | footer> (message)```
+```$getVar[prefix]responseDM <userID | title | description | footer> (message)```;$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$endif
+$if[$customID==s.global-bug2]
+$newModal[s.global-bug2.1;Ticket Global Bug Hunter 2]
+$addTextInput[bug 2;paragraph;What is the error?;1;1000;yes]
+$endif
+$if[$customID==s.global-bug2.1]
+$sendEmbedMessage[980191595213258783;<@&980172345291444356>-`$username[$authorID]#$discriminator[$authorID]`;<:Bug_Hunter_lvl_2:951539929761079377>Bug<:Bug_Hunter_lvl_2:951539929761079377>;;<:Discord_new:951234064726253569> Member: `$username[$authorID]#$discriminator[$authorID]`
+<:Discord_Phone_Verification:951234065195991121> Id: `$authorID`
+<:Search:951234065497989120> Server `$guildID`
+<:Verified:951234061920243712> Channel $channelName[$channelID] > `$channelID`
+Have put
+**$input[bug 2]**
+> Badge ©∆𝖊𝖑𝖙𝖆:
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[official_employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID]
+**Only people with this icon,<:Employee_1:983413721399443527>, will be a worker of the ©∆𝖊𝖑𝖙𝖆**
+To Response: 
+```$getVar[prefix]responseChannel <channelID | title | description | footer> (message)```
+```$getVar[prefix]responseDM <userID | title | description | footer> (message)```;$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$endif
+$if[$customID==s.global-staff]
+$newModal[s.global-staff.1;Ticket Global Staff]
+$addTextInput[staff;paragraph;What its the problem?;1;1000;yes]
+$endif
+$if[$customID==s.global-staff.1]
+$sendEmbedMessage[980191797009588235;<@&980172340635791440>-<@&980172339113255013>-`$username[$authorID]#$discriminator[$authorID]`;<:Shield_Staff:952628951497470033>Staff<:Shield_Staff:952628951497470033>;;<:Discord_new:951234064726253569> Member: `$username[$authorID]#$discriminator[$authorID]`
+<:Discord_Phone_Verification:951234065195991121> Id: `$authorID`
+<:Search:951234065497989120> Server `$guildID`
+<:Verified:951234061920243712> Channel $channelName[$channelID] > `$channelID`
+Have put
+**$input[staff]**
+> Badge ©∆𝖊𝖑𝖙𝖆:
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[official_employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID]
+**Only people with this icon,<:Employee_1:983413721399443527>, will be a worker of the ©∆𝖊𝖑𝖙𝖆**
+To Response: 
+```$getVar[prefix]responseChannel <channelID | title | description | footer> (message)```
+```$getVar[prefix]responseDM <userID | title | description | footer> (message)```;$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$endif
+$if[$customID==s.global-support]
+$newModal[s.global-support.1;Ticket Global Support]
+$addTextInput[support;paragraph;Tell us what you need;1;1000;yes]
+$endif
+$if[$customID==s.global-support.1]
+$sendEmbedMessage[980191628109185126;<@&995394101824471130>-`$username[$authorID]#$discriminator[$authorID]`;<:Official_Server:952633270145785866>Support<:Official_Server:952633270145785866>;;<:Discord_new:951234064726253569> Member: `$username[$authorID]#$discriminator[$authorID]`
+<:Discord_Phone_Verification:951234065195991121> Id: `$authorID`
+<:Search:951234065497989120> Server `$guildID`
+<:Verified:951234061920243712> Channel $channelName[$channelID] > `$channelID`
+Have put
+**$input[support]**
+> Badge ©∆𝖊𝖑𝖙𝖆:
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[official_employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID]
+**Only people with this icon,<:Employee_1:983413721399443527>, will be a worker of the ©∆𝖊𝖑𝖙𝖆**
+To Response: 
+```$getVar[prefix]responseChannel <channelID | title | description | footer> (message)```
+```$getVar[prefix]responseDM <userID | title | description | footer> (message)```;$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$endif
+$if[$customID==s.global-report]
+$newModal[s.global-report.1;Ticket Global Report]
+$addTextInput[report;paragraph;Tell us what you need;1;1000;yes]
+$endif
+$if[$customID==s.global-report.1]
+$sendEmbedMessage[980191686368043088;<@&995394101824471130>-`$username[$authorID]#$discriminator[$authorID]`;<:Report_flag:951544817115074562>Report<:Report_flag:951544817115074562>;;<:Discord_new:951234064726253569> Member: `$username[$authorID]#$discriminator[$authorID]`
+<:Discord_Phone_Verification:951234065195991121> Id: `$authorID`
+<:Search:951234065497989120> Server `$guildID`
+<:Verified:951234061920243712> Channel $channelName[$channelID] > `$channelID`
+Have put
+**$input[report]**
+> Badge ©∆𝖊𝖑𝖙𝖆:
+$getVar[dev;$authorID] $getVar[employee;$authorID] $getVar[official_employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID]
+**Only people with this icon,<:Employee_1:983413721399443527>, will be a worker of the ©∆𝖊𝖑𝖙𝖆**
+To Response: 
+```$getVar[prefix]responseChannel <channelID | title | description | footer> (message)```
+```$getVar[prefix]responseDM <userID | title | description | footer> (message)```;$random[100000;999999];;;Date-$day/$month/$year | Hour $hourh/$minutem/$seconds;;;;;]
+$endif
