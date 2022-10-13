@@ -1,0 +1,171 @@
+$nomention
+$if[$cropText[$customID;6;]==xoJoin]
+ $removeButtons $var[owner;$replaceText[$customID;xoJoin;;1]]
+ $textSplit[$getVar[xo;$var[owner]]; ]
+ $onlyIf[$and[$splitText[11]==0;$splitText[12]==0]==true;]
+ $setVar[xo;$replaceText[$getVar[xo;$var[owner]];$splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[9] 1 $var[owner] $authorID ❌ ⭕ $randomText[11;12];1];$var[owner]]
+  $textSplit[$getVar[xo;$var[owner]]; ]
+ $setVar[xo;$replaceText[$getVar[xo;$var[owner]];$splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[9] 1 $var[owner] $authorID ❌ ⭕ $randomText[11;12];1];$splitText[12]]
+ $title[$username[$splitText[11]] vs $username[$splitText[12]]]
+ $textSplit[$getVar[xo;$splitText[$splitText[15]]]; ]
+ <@$splitText[$splitText[15]]> 
+ $description[$nickname[$splitText[$splitText[15]]]'s turn]
+ 
+ $if[$splitText[15]==11] $var[opponent;12] $else $var[opponent;11] $endif
+ $addButton[yes;1$splitText[$splitText[15]];$splitText[1];secondary;no;]
+ $addButton[no;2$splitText[$splitText[15]];$splitText[2];secondary;no;]
+ $addButton[no;3$splitText[$splitText[15]];$splitText[3];secondary;no;]
+ $addButton[no;E$splitText[$splitText[15]];🔚 End;danger;no;]
+ $addButton[yes;4$splitText[$splitText[15]];$splitText[4];secondary;no;]
+ $addButton[no;5$splitText[$splitText[15]];$splitText[5];secondary;no;]
+ $addButton[no;6$splitText[$splitText[15]];$splitText[6];secondary;no;]
+ $addButton[yes;7$splitText[$splitText[15]];$splitText[7];secondary;no;]
+ $addButton[no;8$splitText[$splitText[15]];$splitText[8];secondary;no;]
+ $addButton[no;9$splitText[$splitText[15]];$splitText[9];secondary;no;]
+$else $endif
+ 
+$if[$customID==E$authorID]
+ $textSplit[$getVar[xo;$authorID]; ]
+ $var[state;yes]
+ $if[$splitText[11]==$authorID] $var[author;$splitText[11]] $var[opponent;$splitText[12]] $else $var[author;$splitText[12]] $var[opponent;$splitText[11]] $endif
+  $description[<@$var[author]> Surrendered, <@$var[opponent]> Wins! 🎉] $removeButtons
+  $if[$var[opponent]==$var[author]]
+$else 
+ $var[state;yes] $endif
+ 
+  $setVar[xo;$getVar[xo];$var[author]]
+  $setVar[xo;$getVar[xo];$var[opponent]]
+$else $endif
+ 
+$if[$isNumber[$cropText[$customID;1;]]==true]
+$var[tile;$cropText[$customID;1;]]
+$if[$getVar[xo;$splitText[11]]==$getVar[xo;$splitText[12]]]
+ $if[$replaceText[$customID;$var[tile];;1]==$authorID]
+  $textSplit[$getVar[xo;$authorID]; ]
+   $if[$splitText[15]==11] $var[place;⭕] $var[next;12] $else $var[place;❌] $var[next;11] $endif
+ 
+    $if[$and[$var[tile]==1;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$var[place] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$var[place] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==2;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $var[place] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $var[place] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==3;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $var[place] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $var[place] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==4;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $var[place] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $var[place] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==5;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $var[place] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $var[place] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==6;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $var[place] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $var[place] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==7;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $var[place] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $var[place] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==8;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $var[place] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $var[place] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+    $if[$and[$var[tile]==9;$splitText[$var[tile]]==⬛]==true]
+     $setVar[xo;$replaceText[$getVar[xo;$authorID];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $var[place] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$authorID]
+     $setVar[xo;$replaceText[$getVar[xo;$splitText[$var[next]]];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $splitText[9] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $splitText[15];$splitText[1] $splitText[2] $splitText[3] $splitText[4] $splitText[5] $splitText[6] $splitText[7] $splitText[8] $var[place] $splitText[10] $splitText[11] $splitText[12] $splitText[13] $splitText[14] $var[next];1];$splitText[$var[next]]]
+     $else $endif
+ 
+     $var[mes;$nickname[$splitText[$var[next]]]'s turn]
+     $var[state;no]
+ 
+      $textSplit[$getVar[xo;$authorID]; ]
+$if[$and[$splitText[1]==❌;$splitText[2]==❌;$splitText[3]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[4]==❌;$splitText[5]==❌;$splitText[6]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[7]==❌;$splitText[8]==❌;$splitText[9]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[1]==❌;$splitText[4]==❌;$splitText[7]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[2]==❌;$splitText[5]==❌;$splitText[8]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[3]==❌;$splitText[6]==❌;$splitText[9]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[1]==❌;$splitText[5]==❌;$splitText[9]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[3]==❌;$splitText[5]==❌;$splitText[7]==❌]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[1]==⭕;$splitText[2]==⭕;$splitText[3]==⭕]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[4]==⭕;$splitText[5]==⭕;$splitText[6]==⭕]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[7]==⭕;$splitText[8]==⭕;$splitText[9]==⭕]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[1]==⭕;$splitText[4]==⭕;$splitText[7]==⭕]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[2]==⭕;$splitText[5]==⭕;$splitText[8]==⭕]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[3]==⭕;$splitText[6]==⭕;$splitText[9]==⭕]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[1]==⭕;$splitText[5]==⭕;$splitText[9]==⭕]==true]
+ $var[end;yes]
+$else $endif
+$if[$and[$splitText[3]==⭕;$splitText[5]==⭕;$splitText[7]==⭕]==true]
+ $var[end;yes]
+$else $endif
+ 
+$if[$and[$splitText[3]!=⬛;$splitText[5]!=⬛;$splitText[7]!=⬛;$splitText[2]!=⬛;$splitText[1]!=⬛;$splitText[4]!=⬛;$splitText[6]!=⬛;$splitText[8]!=⬛;$splitText[9]!=⬛]==true]
+ $var[mes;Tie!]
+ $var[state;yes]
+
+$else $endif
+ 
+$if[$var[end]==yes]
+ $var[mes;$nickname[$authorID] Wins! 🎉]
+ $removeButtons
+ $if[$splitText[11]==$authorID] $var[author;$splitText[11]] $var[opponent;$splitText[12]] $else  $var[author;$splitText[12]] $var[opponent;$splitText[11]]  $endif
+ 
+ $var[state;yes]
+$endif
+ 
+  $textSplit[$getVar[xo;$authorID]; ]
+ $title[$username[$splitText[11]] vs $username[$splitText[12]]]
+ $description[$var[mes] ] $removeButtons
+ $if[$splitText[15]==11] $var[opponent;12] $else $var[opponent;11] $endif
+ $addButton[yes;1$splitText[$splitText[15]];$splitText[1];secondary;$var[state];]
+ $addButton[no;2$splitText[$splitText[15]];$splitText[2];secondary;$var[state];]
+ $addButton[no;3$splitText[$splitText[15]];$splitText[3];secondary;$var[state];]
+ $addButton[no;E$splitText[$splitText[15]];🔚 End;danger;$var[state];]
+ $addButton[yes;4$splitText[$splitText[15]];$splitText[4];secondary;$var[state];]
+ $addButton[no;5$splitText[$splitText[15]];$splitText[5];secondary;$var[state];]
+ $addButton[no;6$splitText[$splitText[15]];$splitText[6];secondary;$var[state];]
+ $addButton[no;I$var[opponent];⏳;secondary;yes;]
+ $addButton[yes;7$splitText[$splitText[15]];$splitText[7];secondary;$var[state];]
+ $addButton[no;8$splitText[$splitText[15]];$splitText[8];secondary;$var[state];]
+ $addButton[no;9$splitText[$splitText[15]];$splitText[9];secondary;$var[state];]
+ 
+ 
+ $else $endif
+$else $ephemeral $description[desync'd] $endif
+ 
+$else $endif
