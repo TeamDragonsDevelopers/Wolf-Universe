@@ -1,0 +1,21 @@
+$nomention
+$if[$getVar[terms;$authorID]!=yes]
+$enabled[yes;<:Server_Shield_Admin_Verify:952629800370073670>We are updating the terms of bot<:Server_Shield_Admin_Verify:952629800370073670>]
+$removeButtons
+<@$authorID> You have accepted the terms of the Bot
+$title[<:Employee:951234065917431879> ©Ꭰꭱꭺꮐꮻɴꮪ-$username[$botID]'s ToS<:Employee:951234065917431879>]
+$description[> [Terms of Service& Terms of Bot](https://delta-bot.gitbook.io/wolf-of-world/information/terms)
+> [Privacy Policies](https://delta-bot.gitbook.io/wolf-of-world/information/policity)
+
+> If any member sees that it is breached, send to global support, staff, who has breached the rule and which 
+> If the security team sees that there is a breach, the use of the bot can be temporarily or permanently banned
+
+```©Ꭰꭱꭺꮐꮻɴꮪ-$year ¦ Wolf Universe team • ToB --> Terms of Bots```]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year• ©$username[$botID]-$year]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]
+$setVar[terms;yes;$authorID]
+$channelSendMessage[951221660692938794;The member $username[$authorID]#$discriminator[$authorID], <@$authorID> with id $authorID , has accepted the terms. At $creationDate[$messageID].]
+$else
+You have already verified yourself before
+$endif
