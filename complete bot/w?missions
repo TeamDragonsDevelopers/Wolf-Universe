@@ -1,0 +1,95 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$c[missions status
+1-Normal
+2-Shiny
+3-Legend
+4-Singular
+5-Mega
+6-Giga
+7-Use bot
+8-HISUI] 
+$textSplit[$getVar[mission status;$authorID];-]
+$if[$splitText[1]==80]
+<@$authorID> I give you 100€
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];100];$authorID]
+$setVar[mission status;$sum[$splitText[1];1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$splitText[2]==50]
+<@$authorID> I give you 1💎
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];1];$authorID]
+$setVar[mission status;$splitText[1]-$sum[$splitText[2];1]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$splitText[7]==100]
+<@$authorID> I give you 1💎 + 2499€
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];1];$authorID]
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];2499];$authorID]
+$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$sum[$splitText[7];1]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$endif $endif $endif
+$title[Daily Missions;1]
+$description[Complete these missions to receive awards
+> Capture Normal Pokemon-$splitText[1]/80
+> Capture Shiny Pokemon-$splitText[2]/50
+Awards: 1💎
+
+> Use Bot-$splitText[7]/100
+Awards: 2499€ + 1💎;1]
+
+$if[$splitText[3]==60]
+<@$authorID> I give you 2💎
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];2];$authorID]
+$setVar[mission status;$splitText[1]-$splitText[2]-$sum[$splitText[3];1]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$splitText[4]>=30]
+<@$authorID> I give you 3💎
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];3];$authorID]
+$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$sum[$splitText[4];1]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$splitText[5]>=70]
+<@$authorID> I give you 2💎
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];2];$authorID]
+$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$splitText[4]-$sum[$splitText[5];1]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$splitText[6]>=70]
+<@$authorID> I give you 2💎
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];2];$authorID]
+$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$sum[$splitText[6];1]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$splitText[10]>=15]
+<@$authorID> I give you 300€
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];300];$authorID]
+$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-0-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$endif $endif $endif $endif $endif
+$endif
+$title[Missions Weekly;2]
+$description[Complete these missions to receive awards
+
+> Capture Mega Pokemon-$splitText[5]/70
+Awards: 2💎
+
+> Capture Giga Pokemon-$splitText[6]/70
+Awards: 2💎
+
+> Capture Legendary Pokemon-$splitText[3]/60
+Awards: 2💎
+
+> Capture Singular Pokemon-$splitText[4]/30
+Awards: 10 💎(YOU CAN OBTAIN HISUI, using w?sp-special)
+;2]
+$title[Missions Special;3]
+$description[Complete these missions to receive awards in a period
+> Capture Ghost/Dark pokemon and $splitText[10]/15;3]
+$title[Missions Adventure;4]
+$description[Complete these missions to receive awards
+`Configuration`<a:Loading:951234065200189491> ;4]
