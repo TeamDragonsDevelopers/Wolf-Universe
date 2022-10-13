@@ -1,0 +1,7 @@
+$nomention
+$channelSendMessage[995437309753299045;The user $username[$message[1]]#$discriminator[$message[1]]-$message[1] reserver Pokémon $message[2]. To <t:1688221800:F>]
+$if[$isUserDMEnabled[$message[1]]==true]
+The user `$username[$message[1]]#$discriminator[$message[1]]` reserver `Pokémon $message[2]`. To <t:1688221800:F>
+By: `Game ©Ꭰꭱꭺꮐꮻɴꮪ` | `Team ©Ꭰꭱꭺꮐꮻɴꮪ Pokémon`
+$dm[$message[1]]
+$endif
