@@ -1,0 +1,25 @@
+$nomention
+$title[Pokémon World]
+$addField[- - - - - - - - - - - 
+🔳🔳🔳🔳🔳
+🔳1️⃣⬆️2️⃣🔳
+🔳◀️<:delta:985443231674294302>▶️🔳
+🔳3⃣⬇️📤🔳
+🔳🔳🔳🔳🔳
+- - - - - - - - - - -;Typing (Press <:delta:985443231674294302> to activate);yes] 
+$addField[- - - - - - - - - - -
+🔳🔳🔳🔳🔳
+🔳<:pokedex:964839909909205022>⬆️<:pc:982747734190739466>🔳
+🔳◀️<:delta:985443231674294302>▶️🔳
+🔳<:2570_FoxxoBlep:1001489074009423892>⬇️📤🔳
+🔳🔳🔳🔳🔳
+- - - - - - - - - - -;Using buttons;yes]
+$addButton[yes;dex;Dex;secondary;no;]
+$addButton[no;up;;secondary;no;⬆️]
+$addButton[no;box;;secondary;no;<:pc:982747734190739466>] 
+$addButton[yes;left;;secondary;no;◀️]
+$addButton[no;delta.menu;Dragons;secondary;no;]
+$addButton[no;right;;secondary;no;▶️]
+$addButton[yes;adven;Adven;secondary;no;]
+$addButton[no;down;;secondary;no;⬇️]
+$addButton[no;n;;secondary;no;📤]
