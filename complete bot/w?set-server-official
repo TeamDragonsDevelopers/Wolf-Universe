@@ -1,0 +1,11 @@
+$nomention
+$setServerVar[terms;$message[2];$message[1]]
+$channelSendMessage[$channelID;The server $serverName[$message[1]] are now $message[2]]
+$if[$isUserDMEnabled[$serverOwner[$message[1]]]==true]$dm[$serverOwner[$message[1]]]
+$title[Server Badge;1]
+$description[The server $serverName[$message[1]] are now $message[2];1]
+$description[> This message comes from an `official server` of the `team ©Ꭰꭱꭺꮐꮻɴꮪ`.  So it's just `informational`.  `To reply`, you will have to use `w?send-system --$if[$checkContains[$channelName[$channelID];bug;staff;faq;support;report;system]==true]$channelName[$channelID]$elsesystem$endif <message>`
+Replace <message> to the message you want to send.  Remember that `we will never ask you for your password or private information`;2]$endif
+$onlyIf[$guildExists[$message[1]]==true;This server doesn't exist]
+$onlyIf[$message[2]!=;Please put an emoji]
+$onlyIf[$guildID==951221660202201158;This server isn't the official server of the bot. Please go to $serverName[951221660202201158]]
