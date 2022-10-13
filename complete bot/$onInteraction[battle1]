@@ -1,0 +1,53 @@
+$nomention
+$if[$checkContains[$customID;battle.]==true]
+$ephemeral
+$if[$getVar[official_employee;$authorID]==:x:]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$onlyIf[$or[$guildID==951221660202201158;$getVar[official_employee;$authorID]==<:Employee_1:983413721399443527>;$getServerVar[partner;$guildID]==<:partner_server:1015640470019375234>;$getVar[partner;$authorID]==<:Partner:951234063400845353>;$getVar[partner;$authorID]==<a:PartnerShrine:995262370337263616>]==true;only can <:Discord_Early_Supporter:951234062868168704> or <:Partner:951234063400845353> user or <:Partner:951234063400845353> server]
+
+$setUserVar[battle;yes]
+$suppressErrors[There aren't any pokemon now
+Error Code: `$getVar[actualización]00000`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$removeButtons
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n°pokemon]]
+$textSplit[$customID;.]
+$setUserVar[poke1;$toTitleCase[$httpResult[name],$splitText[2],$sum[$sub[$httpResult[id];1];1]];$botID]
+$setUserVar[move1;$httpResult[moves;$random[0;11];move;name],$httpResult[moves;$random[0;15];move;name],$httpResult[moves;$random[0;21];move;name],$httpResult[moves;$random[0;25];move;name];$botID]
+$setUserVar[ps1;1;$botID]
+$setUserVar[ps2;1]
+$textSplit[$getVar[cobber;$authorID];^] 
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]]
+$setUserVar[poke2;$toTitleCase[$httpResult[name]]]
+$title[Battle]
+$description[Combat between $textSplit[$getUserVar[poke1;$botID];,] `$splitText[1] Lvl.$splitText[2]` and $textSplit[$getVar[cobber;$authorID];^]`$toTitleCase[$httpResult[name]] Lvl.$splitText[2]`
+¦- - - - - - - - - - - - - - - - - - - - - - - -¦$textSplit[$getUserVar[poke1;$botID];,]
+`$splitText[1] Lvl.$splitText[2]`
+> Move of $splitText[1]
+¦- - - - - - - - - - - - - - - - - - - - - - - -¦$textSplit[$getUserVar[move1;$botID];,]
+> 1️⃣-$toTitleCase[$splitText[1]] 2️⃣-$toTitleCase[$splitText[2]]
+> 3️⃣-$toTitleCase[$splitText[3]] 4️⃣-$toTitleCase[$splitText[4]]
+¦- - - - - - - - - - - - - - - - - - - - - - - -¦
+$textSplit[$getVar[cobber;$authorID];^] 
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]]`$toTitleCase[$httpResult[name]] Lvl.$splitText[2]`
+> Move of $toTitleCase[$replaceText[$httpResult[name];-; ;-1]]
+¦- - - - - - - - - - - - - - - - - - - - - - - -¦
+> 1️⃣-$if[$splitText[5]!=]$toTitleCase[$httpResult[moves;$splitText[5];move;name]]$endif 2️⃣-$if[$splitText[6]!=]$toTitleCase[$httpResult[moves;$splitText[6];move;name]]$endif 
+> 3️⃣-$if[$splitText[7]!=]$toTitleCase[$httpResult[moves;$splitText[7];move;name]]$endif 4️⃣-$if[$splitText[8]!=]$toTitleCase[$httpResult[moves;$splitText[8];move;name]]$endif
+¦- - - - - - - - - - - - - - - - - - - - - - - -¦
+Start -->]
+$textSplit[$getUserVar[poke1;$botID];,]
+$image[https://server.poketwo.io/battle/$splitText[3]/$textSplit[$getVar[cobber;$authorID];^]$splitText[1]?text0=$toTitleCase[$httpResult[name]]&text1=$textSplit[$getUserVar[poke1;$botID];,]$splitText[1]&hp0=$getUserVar[ps2]&hp1=$getUserVar[ps1]&shiny0=$textSplit[$getVar[cobber;$authorID];^]$if[$splitText[3]==]0$else1$endif&shiny1=$if[$getServerVar[shiny]==]0$else1$endif&ball0=1&ball1=1&v=100]
+$footer[Image: ©Poketwo.net | Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year]
+$textSplit[$getVar[cobber;$authorID];^] 
+$addButton[no;mov.$splitText[5];$splitText[5];secondary;no;1️⃣]
+$addButton[no;mov.$splitText[6];$splitText[6];secondary;no;2️⃣]
+$addButton[no;mov.$splitText[7];$splitText[7];secondary;no;3️⃣]
+$addButton[no;mov.$splitText[8];$splitText[8];secondary;no;4️⃣] 
+$addButton[yes;mega;;secondary;yes;<:Sw_Megaevolucion:951233822903635968>]
+$addButton[no;movZ;;secondary;yes;<:Z_Bracelet:1005057097190350909>]
+$addButton[no;giga;;secondary;yes;<:Sw_Gigamax:951233822530363454>]
+$addButton[no;tera;;secondary;yes;<:Tera_Orb:1005788025072128000>]
+$endif
