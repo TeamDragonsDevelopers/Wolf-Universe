@@ -1,0 +1,98 @@
+$nomention
+$if[$checkContains[$customID;adven]==true]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$textSplit[$getVar[cobber;$authorID];~]
+$if[$or[$getVar[parts adventure;$authorID]$customID==0advenD0-0.$authorID;$getVar[parts adventure;$authorID]$customID==0advenI0-0.$authorID]==true]
+$removeButtons
+$title[Selección de Mundo]
+$description[Welcome to the Pokémon world, you enter the wonderful world of **POKÉMON**
+Use `w?pick or /pick <pokemon>`
+Alias: w?get or /get
+ **Warning**: `once selected you will not be able to go back`
+ The spawn you make will be from that generation.  Soon it will be possible to modify it to a global one.]
+$addField[Kanto;Bulbasaur	Charmander	Squirtle;yes]
+$addField[Johto;Chikorita	Cyndaquil	Totodile;yes]
+$addField[Hoenn;Treecko	Torchic	Mudkip;yes]
+$addField[Sinnoh;Turtwig	Chimchar	Piplup;yes]
+$addField[Teselia;Snivy Tepig Oshawott#501;yes]
+$addField[Kalos;Chespin Fennekin Froakie;yes]
+$addField[Alola;Rowlet Litten Popplio;yes]
+$addField[Galar;Grookey Scorbunny Sobble;yes]
+$addField[Hisui;Rowlet Cyndaquil Oshawott#501;yes]
+$addField[Paldea;~~Sprigatito Fuecoco Quaxly~~;yes]
+$addField[Kerno (Bowth);froakie^0^^0^2^6^5^8^0 snivy^0^^0^2^6^5^8^0 mudkip^0^^0^2^6^5^8^0]
+$addField[Kerno (Pokémon Calm);pikachu^0^^0^2^6^5^8^0;yes]
+$addField[Kerno (Pokémon Fury);axew^0^^0^2^6^5^8^0;yes]
+$image[https://elcomercio.pe/resizer/bm6DZj3cyPIxItYebHeF3tjEyrg=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/T5B2SMVPBRH7FATUZTUBB5Z6II.jpg]
+$addButton[no;adven;;secondary;no;◀]
+$addButton[no;advenD1-0.$authorID;;secondary;yes;▶]
+
+$endif
+$if[$or[$getVar[parts adventure;$authorID]$customID==1advenD1-0.$authorID;$getVar[parts adventure;$authorID]$customID==1advenI1-0.$authorID]==true]
+$removeButtons
+$title[The pokemon world]
+$description[A rotating globe full of wonders, home to countless creatures so different that it is impossible to understand them all, formed by the force of nature in all its splendor as only nature knows how to do it. It does not matter in which corner of the world you are, rest assured that there you will also find pokemon, climbing to the heights, touching the clouds and traveling in underwater currents, sharing the majesty of the mountains and animating many green and lush forests, happy they make their homes in fields of grass and even in our big cities are full of them. People and pokemon come together to share the goal of victory in pokemon battle and become friends, partners and pokemon masters. And this brings us to a young trainer who dedicates his life to the love of pokemon and battles. $username[$authorID] with his partner $splitText[1] working side by side, catching pokemon and perfecting the art of battle, traveling with good friends and with unlimited energy. For every pokemon our heroes meet, a new adventure awaits just around the corner and right now somewhere in this world, a new pokemon waits ready to make itself known to our heroes, heralding the beginning of a new and fantastic adventure]
+$addButton[no;advenI0-0.$authorID;;secondary;no;◀]
+$addButton[no;advenD1-1.$authorID;;secondary;yes;▶]
+$endif
+$endif
+$if[$or[$getVar[parts adventure;$authorID]$customID==1advenD1-1.$authorID;$getVar[parts adventure;$authorID]$customID==1advenI1-1.$authorID]==true]
+$removeButtons
+$title[Un mundo en Creación]
+$description[En un mundo donde no hay nada, salvo un huevo aparece del cual sale un Larvitar...perdido en la nada, hasta que ,dé repente sale...un $splitText[1], también perdido...el cual se sorprende al ver a Larvitar 
+$splitText[1] dijo : ¿que haces aquí perdido ?
+Larvitar respondió : Me pregunto exactamente lo mismo, yo acabo de eclosionar
+
+Se aventuraron a ver si habían más ... y dé repente se encontraron a Dialga y Palkia
+
+Y Larvitar dijo: Mira no somos los únicos. Scorbunny riéndose, dijo : ¡Que suerte es tener a dos mas!
+Larvitar: Disculpen, ¿saben en donde hay más de nosotros? Yo eclosioné y luego de un rato vino _Scorbunny_
+Dijeron los otros dos: si , en el universo Pokeruis, pero Palkia y Dialga se fueron hacia Pokerste, mientras que $splitText[1] y Larvitar iban a ese universo flotando
+$if[$checkContains[$getUserVar[history-pokemon];lucario]==1true]
+$else> Captura un Pokémon de tipo lucha y acero que tenga megaevolución. Fue el primer pokemon en experimentar esto$endif]
+$footer[Created by ©STC-STORYS • ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$addButton[no;advenI1-0;;secondary;no;◀]
+$addButton[no;advenD1-2.$authorID;;secondary;no;▶]
+$endif
+
+$if[$or[$getVar[parts adventure;$authorID]$customID==1advenD1-2.$authorID;$getVar[parts adventure;$authorID]$customID==1advenI1-2.$authorID]==true]
+$removeButtons
+$onlyIf[$getVar[parts adventure;$authorID]$or[$checkContains[$getVar[box 1];lucario];$checkContains[$getVar[box 2];lucario];$checkContains[$getVar[box 3];lucario]]==true]==1true;]
+$title[Frente un Mega Hotel]
+$description[Desde que $splitText[1] y Larvitar fueron a ver ese lugar, se encontraron con un hotel que era muy grande , en el mostrador estaba Lucario , fue muy amable. 
+Lucario dijo: Hola, Bienvenidos a Hotel MegaLear
+Era grandísimo, tenía de todo, piscina,cuidados pokemon, alimentación...
+Era un hotel de 5 estrellas , el mejor de esa zona.
+Larvitar se quedó en la planta 3, habitación derecha y Scorbunny planta 4 habitación derecha, uno encima del otro
+Estuvieron socializando con otros y así fueron obteniendo amistades como con un Riolu o un Pikachu.
+Pero cuando se marcharon, por qué había un tiempo límite, se volvieron a perder
+$if[$and[$getVar[parts adventure;$authorID]$checkContains[$getUserVar[history-pokemon];riolu]==1true;$getVar[parts adventure;$authorID]$checkContains[$getUserVar[history-pokemon];pikachu]==1true]==true]
+$else> Captura el Pokémon que al evolucionar es Lucario y a un pequeño roedor cuya morfología se encuentra basada en un roedor electrónico$endif]
+$footer[Created by ©STC-STORYS • ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$addButton[no;advenI1-1.$authorID;;secondary;no;◀]
+$addButton[no;advenD1-3.$authorID;;secondary;no;▶]
+$endif
+$if[$or[$getVar[parts adventure;$authorID]$customID==1advenD1-3.$authorID;$getVar[parts adventure;$authorID]$customID==1advenI1-3.$authorID]==true]
+$onlyIf[$and[$getVar[parts adventure;$authorID]$checkContains[$getUserVar[history-pokemon];riolu]==1true;$getVar[parts adventure;$authorID]$checkContains[$getUserVar[history-pokemon];pikachu]==1true]==true;]
+$removeButtons
+$title[5]
+$addButton[no;advenI1-2.$authorID;;secondary;no;◀]
+$addButton[no;advenD1-4.$authorID;;secondary;no;▶️]
+$endif
+$if[$or[$getVar[parts adventure;$authorID]$customID==1advenD1-4.$authorID;$getVar[parts adventure;$authorID]$customID==0advenI1-4.$authorID]==true]
+$removeButtons
+$title[6]
+$addButton[no;advenI1-3.$authorID;;secondary;no;◀]
+$addButton[no;advenD2-0.$authorID;;secondary;yes;▶]
+$endif
