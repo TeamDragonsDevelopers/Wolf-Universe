@@ -1,0 +1,128 @@
+$botTyping
+$if[$isSlash==false]
+$onlyIf[$or[$toLowercase[$message[1]]==c;$toLowercase[$message[1]]==catch]==true;]
+$endif
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot]
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$if[$getVar[cobber;$authorID]==]
+$title[Start Adventure]
+$description[Start an adventure by pressing this button]
+$addButton[no;adven;Adventure;secondary;no;$randomText[<:freezing_mind:974177954517102602>;<:burning_power:974180611235409950>]]
+$else
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$suppressErrors[The name or number does not match
+Error Code: `$getVar[actualización]00001`
+If you have the problem , contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$onlyIf[$getUserVar[battle]!=yes;You are in a battle now]
+$onlyIf[$getUserVar[battle]!=lost;You lost the battle after. You need to won a battle to catch the pokemon]
+$onlyIf[$and[$getServerVar[pokemon]==error;$getServerVar[n°pokemon]==error]==false;There aren't any Pokemon in this guild <a:7205wumpusrelief:950018408609628170>]
+$var[getPing;$sendMessage[Please Wait...;yes]]
+$async[ping]
+$deleteMessage[$channelID;$var[getPing]]
+$endasync
+$await[ping]
+$nomention
+$enabled[yes;Due to command error, this command has been disabled. Thank you
+From : ©Ꭰꭱꭺꮐꮻɴꮪ-Discord-Bugs]
+$onlyIf[$toLowercase[$message[2;pokemon]]!= ;Enter the name of the Pokemon]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n°pokemon]]
+$onlyIf[$checkContains[$toLowercase[$message[2;pokemon]];$getServerVar[n°pokemon];$httpResult[name];$httpResult[species;name];$replaceText[$httpResult[name];-; ;-1]]==true;$if[$getServerVar[lang]==en]the name `$toLowercase[$message[2;pokemon]]` does not match or has already been caught$endif$if[$getServerVar[lang]==es]el nombre `$toLowercase[$message[2;pokemon]]` no coincide o ya ha sido capturado$endif]
+$title[Catch Pokemon $toTitleCase[$replaceText[$httpResult[name];-; ;-1]] Lvl.$random[1;100]]
+$if[$checkContains[$getVar[Shiny Lock];,$sub[$sum[$httpResult[id];1];1],]==true]$description[⛔ ¦ `Shiny Lock`
+$if[$getServerVar[lang]==en]The pokémon has not been saved shiny$endif$if[$getServerVar[lang]==es]El pokémon no se ha guardado shiny$endif]$endif
+$if[$and[$sub[$sum[$httpResult[id];1];1]>=1;$sub[$sum[$httpResult[id];1];1]<=905]==true]
+$httpGet[https://pokeapi.co/api/v2/pokemon-species/$getServerVar[n°pokemon]]
+$if[$httpResult[is_mythical]==true]
+$description[$if[$getServerVar[lang]==en]The Mythical Pokemon have not registered, is disable$endif$if[$getServerVar[lang]==es]El Pokémon Mítico no se ha registrado, está deshabilitado$endif] 
+$endif$endif
+$footer[Captured by $username[$authorID]#$discriminator[$authorID] • Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year]
+$image[$getServerVar[url pokemon]]
+$color[ffffff]
+$textSplit[$getVar[cobber;$authorID];^]
+$setVar[cobber;$splitText[1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$random[10;50];$authorID]
+
+$if[$or[$sub[$sum[$httpResult[id];1];1]==144;$sub[$sum[$httpResult[id];1];1]==10169;$sub[$sum[$httpResult[id];1];1]==145;$sub[$sum[$httpResult[id];1];1]==10170;$sub[$sum[$httpResult[id];1];1]==146;$sub[$sum[$httpResult[id];1];1]==10171;$sub[$sum[$httpResult[id];1];1]==150;$sub[$sum[$httpResult[id];1];1]==10043;$sub[$sum[$httpResult[id];1];1]==10044;$sub[$sum[$httpResult[id];1];1]==243;$sub[$sum[$httpResult[id];1];1]==244;$sub[$sum[$httpResult[id];1];1]==245;$sub[$sum[$httpResult[id];1];1]==249;$sub[$sum[$httpResult[id];1];1]==250;$sub[$sum[$httpResult[id];1];1]==377;$sub[$sum[$httpResult[id];1];1]==378;$sub[$sum[$httpResult[id];1];1]==379;$sub[$sum[$httpResult[id];1];1]==380;$sub[$sum[$httpResult[id];1];1]==10062;$sub[$sum[$httpResult[id];1];1]==381;$sub[$sum[$httpResult[id];1];1]==10063;$sub[$sum[$httpResult[id];1];1]==382;$sub[$sum[$httpResult[id];1];1]==10077;$sub[$sum[$httpResult[id];1];1]==383;$sub[$sum[$httpResult[id];1];1]==10078;$sub[$sum[$httpResult[id];1];1]==384;$sub[$sum[$httpResult[id];1];1]==10079;$sub[$sum[$httpResult[id];1];1]==480;$sub[$sum[$httpResult[id];1];1]==481;$sub[$sum[$httpResult[id];1];1]==482;$sub[$sum[$httpResult[id];1];1]==483;$sub[$sum[$httpResult[id];1];1]==10245;$sub[$sum[$httpResult[id];1];1]==484;$sub[$sum[$httpResult[id];1];1]==10246;$sub[$sum[$httpResult[id];1];1]==485;$sub[$sum[$httpResult[id];1];1]==486;$sub[$sum[$httpResult[id];1];1]==487;$sub[$sum[$httpResult[id];1];1]==10007;$sub[$sum[$httpResult[id];1];1]==488;$sub[$sum[$httpResult[id];1];1]==638;$sub[$sum[$httpResult[id];1];1]==639;$sub[$sum[$httpResult[id];1];1]==640;$sub[$sum[$httpResult[id];1];1]==641;$sub[$sum[$httpResult[id];1];1]==10019;$sub[$sum[$httpResult[id];1];1]==642;$sub[$sum[$httpResult[id];1];1]==10020;$sub[$sum[$httpResult[id];1];1]==643;$sub[$sum[$httpResult[id];1];1]==644;$sub[$sum[$httpResult[id];1];1]==645;$sub[$sum[$httpResult[id];1];1]==10021;$sub[$sum[$httpResult[id];1];1]==646;$sub[$sum[$httpResult[id];1];1]==10022;$sub[$sum[$httpResult[id];1];1]==10023;$sub[$sum[$httpResult[id];1];1]==716;$sub[$sum[$httpResult[id];1];1]==717;$sub[$sum[$httpResult[id];1];1]==718;$sub[$sum[$httpResult[id];1];1]==10118;$sub[$sum[$httpResult[id];1];1]==10119;$sub[$sum[$httpResult[id];1];1]==10120;$sub[$sum[$httpResult[id];1];1]==10181]==true]
+$textSplit[$getVar[mission status;$authorID];-]$if[$sum[$splitText[3];1]<=70]$username $if[$getServerVar[lang]==en]your mission of capture `legendary Pokemon` has been updated$endif $if[$getServerVar[lang]==es]se ha actualizado tu misión de capturar `Pokémon legendario`$endif$setVar[mission status;$splitText[1]-$splitText[2]-$sum[$splitText[3];1]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]  $endif
+$else
+$if[false==true]
+$textSplit[$getVar[mission status;$authorID];-]$if[$sum[$splitText[4];1]<=30]$username $if[$getServerVar[lang]==en]your mission of capture `mithical Pokemon` has been updated$endif $if[$getServerVar[lang]==es]se ha actualizado tu misión de capturar `Pokémon mítico`$endif$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$sum[$splitText[4];1]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]$endif
+$else
+$textSplit[$getVar[mission status;$authorID];-]
+$if[$checkContains[$getServerVar[url pokemon];shiny]==true]$if[$sum[$splitText[2];1]<=40]$username $if[$getServerVar[lang]==en]your mission of capture `Shiny Pokemon` has been updated$endif $if[$getServerVar[lang]==es]se ha actualizado tu misión de capturar `Pokémon Variocolor`$endif$setVar[mission status;$splitText[1]-$sum[$splitText[2];1]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$endif
+$else
+$textSplit[$getVar[mission status;$authorID];-]
+$if[$and[$sub[$sum[$httpResult[id];1];1]>=1;$sub[$sum[$httpResult[id];1];1]<=905]==true]
+$if[$sum[$splitText[2];1]<=40]$username $if[$getServerVar[lang]==en]your mission of capture `Normal Pokemon` has been updated$endif $if[$getServerVar[lang]==es]se ha actualizado tu misión de capturar `Pokémon Normal`$endif$setVar[mission status;$sum[$splitText[1];1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$endif
+ $else
+$if[$or[$httpResult[types;0;type;name]==ghost;$httpResult[types;0;type;name]==dark;$httpResult[types;1;type;name]==ghost;$httpResult[types;1;type;name]==dark]==true]
+$textSplit[$getVar[mission status;$authorID];-]$if[$sum[$splitText[10];1]<=15]$username $if[$getServerVar[lang]==en]your mission of capture `dark/ghost Pokemon` has been updated$endif$if[$getServerVar[lang]==es]se ha actualizado tu misión de capturar `Pokémon siniestros/fantasmas`$endif$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$sum[$splitText[10];1]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]$endif
+$endif
+$endif $endif $endif $endif
+$endif
+$if[$and[$sub[$sum[$httpResult[id];1];1]>=1;$sub[$sum[$httpResult[id];1];1]<=905]==true]
+$httpGet[https://pokeapi.co/api/v2/pokemon-species/$getServerVar[n°pokemon]]
+$if[$httpResult[is_mythical]==true]
+$async[shiny]
+$setServerVar[shiny;]
+$setServerVar[pokemon;error]
+$setServerVar[n°pokemon;error]
+$endasync
+$await[shiny]
+$stop
+$endif$endif
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n°pokemon]] 
+$var[mov;$random[1;30]$endif^$random[31;80]^$random[8;12]^$random[13;40]]
+$var[hab;$replaceText[$replaceText[$checkCondition[$httpResult[abilities;1;ability;name]==];true;0;-1];false;$randomText[0;0;0;0;0;1];-1]] 
+$setUserVar[info-pok;$sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]
+$if[$checkContains[$getUserVar[box 1;$authorID];C]==false] 
+$if[$charCount[$getUserVar[box 1;$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]<=4999]
+$textSplit[$getUserVar[box 1;$authorID]; ]
+$setUserVar[box 1;$getUserVar[box 1;$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]You have saved $toTitleCase[$replaceText[$httpResult[name];-; ;-1]]#$sub[$sum[$httpResult[id];1];1]$replaceText[$replaceText[$checkCondition[$getServerVar[shiny]==s];true;<:Goldsparkles:951547849940795392>;-1];false;;-1] in your `box 1`
+$setUserVar[box;1]$endif
+
+$if[$charCount[$getUserVar[box 1;$authorID]]>=4998]
+$setUserVar[box 1;$getUserVar[box 1;$authorID] C;$authorID]
+$stop
+$endif
+$endif
+$async[shiny]
+$setServerVar[shiny;]
+$setServerVar[pokemon;error]
+$setServerVar[n°pokemon;error]
+$endasync
+$await[shiny]
+$addButton[yes;https://wikidex.net/wiki/$httpResult[species;name];©Wikidex.net;link;no;<:WikiDex:966737971606859786>] 
+$addButton[no;missions;;secondary;no;<:bag500:982749014518825092>]
+$addButton[yes;box;Box;secondary;no;<:pc:982747734190739466>]
+$addButton[no;pocket-1.$authorID;Pocket;secondary;no;<:bag500:982749014518825092>]
+$endif $endif $endif
