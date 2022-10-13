@@ -1,0 +1,12 @@
+$nomention
+I past the last code to the new code
+
+He pasado del antiguo código al nuevo.
+
+Check with w?box
+Comprueba con w?box
+$onlyIf[$isNumber[$message]==true;Put the number of the box that you have problem.
+> w?new_past $getUserVar[box]]
+$onlyIf[$message<=20;The maximum box are 20]
+$setUserVar[box $message;$replaceText[$getUserVar[box $message];~;^;-1]]
+$setVar[cobber;$replaceText[$getVar[cobber;$authorID];~;^;-1];$authorID]
