@@ -1,0 +1,4 @@
+$nomention
+$onlyIf[$charCount[$getVar[server_block],$guildID[$message]<=499;You can add more users]
+$onlyIf[$checkContains[$getVar[server_block];$guildID;$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its already blocked]
+$setVar[server_block;$getVar[server_block],$guildID[$message]]
