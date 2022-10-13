@@ -1,0 +1,36 @@
+$nomention
+$if[$getVar[official_employee;$authorID]==❌]
+You don't have permission to enter here
+$ephemeral
+$else
+$removeButtons
+$title[Command ©∆𝖊𝖑𝖙𝖆]
+$addField[$getVar[prefix]responseChannel <channelID | title | description | footer> (message);It is usually used to answer BUG, SUPPORT, FAQ, REPORT
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+
+$addField[$getVar[prefix]responseDM <userID | title | description | footer> (message);It is usually used to answer BUG, SUPPORT, FAQ, REPORT to DM
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+
+$addField[$getVar[prefix]server.invite <serverID>;Invite server (ONLY USE THE COMMAND IF THE ERROR CANNOT BE SOLVED THROUGH THE BOT)
+For: <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>;yes]
+$addField[$getVar[prefix]update <mentionUser>;Update a member if they don't know but want to update or if they don't want to update themselves but want to use the bot
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addField[$getVar[prefix]eval;Test the code bot (ONLY BDScrip programming language)
+For: <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addField[$getVar[prefix]set-mode global <enable/disable>-<mode/all>;Enable or Disable a mode
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addField[$getVar[prefix]set-delta <medal> <userID> <emoji>;Set a badge of Delta to a user
+For: <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addField[$getVar[prefix]official-send-channel <channelID> | <title> | <description> | <footer> | (message);Send and official message to the channel
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addField[$getVar[prefix]system-official-send-channel <channelID> | <title> | <description> | <footer> | (message);Send and official message to the channel
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addField[$getVar[prefix]official-send-dm <userID> | <title> | <description> | <footer> | (message);Send and official message to the dm 
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addField[$getVar[prefix]system-official-send-dm <userID> | <title> | <description> | <footer> | (message);Send and official message to the dm 
+For: <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>]
+$addButton[yes;https://discord.com/oauth2/authorize?client_id=855390537702965258&permissions=139653925952&response_type=code&scope=bot%20guilds%20applications.commands%20identif;Invite bot!;link;no;📨] 
+$addButton[no;https://discord.gg/7u9SH3rZEK;Support!;link;no;] 
+$addButton[no;https://sites.google.com/view/pokemon-stc;Website;link;no;] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/;ListCommand;link;no;]
+$endif
