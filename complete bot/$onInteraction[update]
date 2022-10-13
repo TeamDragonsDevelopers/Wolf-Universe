@@ -1,0 +1,30 @@
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$onlyIf[no==no;<a:developer_bot:1001095856914706472> Wait until all the necessary commands have been updated]
+$onlyIf[$getVar[actualización;$mentioned[1;yes]]<=$getVar[actualización];You already have the newest version]
+$nomention
+$if[$mentioned[1;yes]==$authorID]
+$title[Updating...]
+$description[Wait 20s for it to finish
+ Going from version $getVar[actualización;$authorID] to version $getVar[actualización]
+> <:ModDanger:954095508509577216> | ``Use w?reset to improve your adventure. If you have already put it, use it again``]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ • ©Wolf Universe]
+$editEmbedIn[20s;New things;Update completed.
+ This is what has been updated:
+
+ You have upgraded to the latest version, $getVar[actualización;$authorID]
+Thanks for using me;Created by ©Ꭰꭱꭺꮐꮻɴꮪ • ©Wolf Universe;ffffff]
+$color[356842]
+$setVar[actualización;$getVar[actualización];$mentioned[1;yes]]
+$else
+$onlyIf[$getVar[official_employee;$authorID]!=:x:;only can the team of ©Ꭰꭱꭺꮐꮻɴꮪ]
+$endif
+$addButton[no;version;Version;secondary;no;🆙]
+$endif
