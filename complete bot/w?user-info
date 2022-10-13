@@ -1,0 +1,67 @@
+$nomention
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$if[$getVar[official_employee;$authorID]==:x:]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[usenable];Developer of this bot disable System User]
+$enabled[$getServerVar[usenable];Developer of this server disable System User]
+$onlyIf[$guildExists[$guildID]==true;]
+$removeButtons
+$botTyping
+$var[user;$findUser[$message;yes]]
+$author[Userinfo • $nickname[$var[user]]]
+$authorIcon[$userAvatar[$var[user]]]
+$color[$getRoleColor[$highestRole[$findUser[$message;yes]]]]
+$try
+$textSplit[$date-$userJoinedDiscord[$var[user]]-$userJoined[$var[user]]-$creationDate[$guildID];-]
+$httpGet[https://showcase.api.linx.twenty57.net/UnixTime/tounixtimestamp?datetime=$userJoined[$var[user];2006/01/02+15:04:05]]
+$description[
+💮 **$username[$var[user]]#__$discriminator[$var[user]]__** 
+> **$replaceText[$replaceText[$isBot[$var[user]];true;🤖 BOT;1];false;😇 Human;1]**,**  $replaceText[$replaceText[$isUserDMEnabled[$var[user]];false;📪 DM Disabled;1];true;💌 DM Enabled;1]**, **$replaceText[$replaceText[$replaceText[$replaceText[$getUserStatus[$var[user]];online;<:online_status:896313015622852649> Online;1];dnd;<:dnd_status:896313695964135434> DND;1];idle;<:idle_status:896313860720558120> Idle;1];offline;<:offline_status:896313334222192650> Offline;1]**
+📅 **[Dates :\](https://www.google.com/search?q=dates)** 
+>  **`Account Age   :` __$sub[$sum[$multi[$splitText[1];365];$multi[$splitText[2];30];$splitText[3]];$sum[$multi[$splitText[4];365];$multi[$splitText[5];30];$splitText[6]]] days__** (<t:$calculate[($var[user] / 4194304 + 1420070400000) / 1000]:D>)
+>  **`Server Age    :` __$sub[$sum[$multi[$splitText[1];365];$multi[$splitText[2];30];$splitText[3]];$sum[$multi[$splitText[10];365];$multi[$splitText[11];30];$splitText[12]]] days__** (<t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]:D>)
+>  **`Server Joined :` __$sub[$sum[$multi[$splitText[1];365];$multi[$splitText[2];30];$splitText[3]];$sum[$multi[$splitText[7];365];$multi[$splitText[8];30];$splitText[9]]] days__** (<t:$httpResult[UnixTimeStamp]:D>)
+💥 **[Perms :\](https://www.google.com/search?q=perms)**
+> $replaceText[$replaceText[$checkUserPerms[$var[user];admin];true;⛔** Server Administrator**;1];false;$replaceText[$replaceText[$checkUserPerms[$var[user];ban];true;⛔ Ban;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];kick];true;🛡️ Kick;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];manageserver];true;⚙️ Manage server;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];managechannels];true;🛠️ Manage Channels;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];manageroles];true;📑 Manage Roles;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];managemessages];true;📝 Manage Messages;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];managenicknames];true;🔖 Manage Nicknames;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];manageemojis];true;😀 Manage Emotes;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];mentioneveryone];true;🆔 Ping *@*everyone,*@*here & Roles;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];changenicknames];true;🏷️ Change Nicknames;1];false;;1];1]
+🧑‍💼 **[Roles :\](https://www.google.com/search?q=roles)**
+> **Highest Role :** <@&$highestRole[$var[user]]>
+> $replaceText[$replaceText[$eval[$replaceText[<@&¥findRole[$replaceText[$userRoles[$var[user]];
+;\]> <@&¥findRole[;-1]\];¥;$;-1]\]]; <@&$highestRole[$var[user]]>;;1]; <@&\];;1]]
+$catch
+$textSplit[$date-$userJoinedDiscord[$var[user]]-0-0-0-$creationDate[$guildID];-]
+$description[
+💮 **$username[$var[user]]#__$discriminator[$var[user]]__** 
+> **$replaceText[$replaceText[$isBot[$var[user]];true;🤖 BOT;1];false;😇 Human;1]**,**  $replaceText[$replaceText[$isUserDMEnabled[$var[user]];false;📪 DM Disabled;1];true;💌 DM Enabled;1]**, **$replaceText[$replaceText[$replaceText[$replaceText[$getUserStatus[$var[user]];online;<:online_status:896313015622852649> Online;1];dnd;<:dnd_status:896313695964135434> DND;1];idle;<:idle_status:896313860720558120> Idle;1];offline;<:offline_status:896313334222192650> Offline;1]**
+📅 **[Dates :\](https://www.google.com/search?q=dates)** 
+>  **`Account Age   :` __$sub[$sum[$multi[$splitText[1];365];$multi[$splitText[2];30];$splitText[3]];$sum[$multi[$splitText[4];365];$multi[$splitText[5];30];$splitText[6]]] days__** (<t:$calculate[($var[user] / 4194304 + 1420070400000) / 1000]:D>)
+>  **`Server Age    :` __$sub[$sum[$multi[$splitText[1];365];$multi[$splitText[2];30];$splitText[3]];$sum[$multi[$splitText[10];365];$multi[$splitText[11];30];$splitText[12]]] days__** (<t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]:D>)
+>  **`Server Joined :` __Unknown days ago__**
+💥 **[Perms :\](https://www.google.com/search?q=perms)**
+> $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];admin];true;⛔** Server Administrator**;1];false;$replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];ban];true;⛔ Ban;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];kick];true;🛡️ Kick;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];manageserver];true;⚙️ Manage server;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];managechannels];true;🛠️ Manage Channels;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];manageroles];true;📑 Manage Roles;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];managemessages];true;📝 Manage Messages;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];managenicknames];true;🔖 Manage Nicknames;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];manageemojis];true;😀 Manage Emotes;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];mentioneveryone];true;🆔 Ping *@*everyone,*@*here & Roles;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$findUser[$message;yes];changenicknames];true;🏷️ Change Nicknames;1];false;;1];1]
+🧑‍💼 **[Roles :\](https://www.google.com/search?q=roles)**
+> **Highest Role :** <@&$highestRole[$var[user]]>]
+$endtry
+$addField[Used Bot;$getVar[use-bot;$var[user]];yes]
+$addField[Legendscoin 🪙;$getVar[legendcoin;$var[user]];yes]
+$addField[Universal Diamond 💎;$getVar[universal diamond;$var[user]];yes]
+$addField[Badge ©Ꭰꭱꭺꮐꮻɴꮪ;$getVar[dev;$var[user]] $getVar[mod;$var[user]] $getVar[employee;$var[user]] $getVar[bug;$var[user]] $getVar[early_support;$var[user]] $getVar[partner;$var[user]] $getVar[hypesquad;$var[user]] $getVar[boost;$var[user]] $getVar[membership;$var[user]];yes]
+$addField[Badge $serverName[$guildID];$getUserVar[dev;$var[user]] $getUserVar[mod;$var[user]] $getUserVar[employee;$var[user]] $getUserVar[bug;$var[user]] $getUserVar[early_support;$var[user]] $getUserVar[partner;$var[user]] $getUserVar[hypesquad;$var[user]] $getUserVar[boost;$var[user]] $getUserVar[medal;$var[user]];yes]
+$endif $endif
