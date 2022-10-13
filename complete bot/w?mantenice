@@ -1,0 +1,3 @@
+$nomention
+$setVar[Mantenice;$eval[$message]]
+**Now Mantenice is**: `$eval[$message]`
