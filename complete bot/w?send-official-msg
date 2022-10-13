@@ -1,0 +1,7 @@
+$nomention
+$onlyIf[$getVar[official_employee;$authorID]!=:x:;<:Server_Shield_Admin_Verify:952629800370073670> Only official employees can]
+$textSplit[$message;|]
+$channelSendMessage[$splitText[1];$eval[$splitText[2]]
+Submitted by: `$username#$discriminator[]`-$getVar[official_employee;$authorID]]
+$channelSendMessage[$channelID;Send to: $channelName[$splitText[1]]
+$eval[$splitText[2]]]
