@@ -1,0 +1,25 @@
+$nomention
+$onlyIf[$getVar[official_employee;$authorID]$or[$getVar[mod;$authorID]!=:x:;$getVar[employee;$authorID]!=:x:]==<:Employee_1:983413721399443527>true;only can <:moderator:888747414083735623>, <:employee:888747414142468126>,that is, the team of ©Ꭰꭱꭺꮐꮻɴꮪ]
+$splitText[5]
+$title[$splitText[2];1]
+$description[$splitText[3];1]
+$footer[$splitText[4] • Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year• ©$username[$botID]-$year;1]
+$color[ffffff;1]
+$description[©Ꭰꭱꭺꮐꮻɴꮪ Official: From $getServerVar[terms] server
+:
+Badge `©Ꭰꭱꭺꮐꮻɴꮪ-$username[$authorID]#$discriminator[$authorID]`
+> $getVar[official_employee;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[dev;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[membership;$authorID];2]
+$description[> This message comes from an `official server` of the `team ©Ꭰꭱꭺꮐꮻɴꮪ`.  So it's just `informational`.  `To reply`, you will have to use `w?send-system --$if[$checkContains[$channelName[$channelID];bug;staff;faq;support;report;system]==true]$channelName[$channelID]$elsesystem$endif <message>`
+Replace <message> to the message you want to send.  Remember that `we will never ask you for your password or private information`;3]
+$dm[$splitText[1]]
+$textSplit[$message;|]
+$onlyIf[$userExists[$splitText[1]]==true;Please put a exist userID
+w?official-send-dm <`userID` | title | description | footer> (message)]
+$onlyIf[$isUserDMEnabled[$splitText[1]]==true;The dm it closed]
+$onlyIf[$splitText[2]!= ;Set a title of this message embed
+w?official-send-dm <usedID | `title` | description | footer> (message)]
+$onlyIf[$splitText[3]!= ;Set a title of this message embed
+w?official-send-dm <channelID | title | `description` | footer> (message)]
+$onlyIf[$splitText[4]!= ;Set a footer of this message embed
+w?official-send-dm <channelID | title | description | `footer`> (message)]
+$channelSendMessage[$channelID;I send the message to $username[$splitText[1]]#$discriminator[$splitText[1]]<:verified:888747413467181086>]
