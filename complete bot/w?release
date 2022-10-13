@@ -1,0 +1,46 @@
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$argsCheck[2;You need to put 2 arguments, w?release <numberBox> <positionPok>. Example: w?release 2 10]
+$textSplit[$getUserVar[box $message[1;box];$authorID]; ]
+$if[$checkContains[$getUserVar[box $message[1;box];$authorID];C]==true]
+$setUserVar[box $message[1;box];$replaceText[$getUserVar[box $message[1;box];$authorID];C; ;1];$authorID]
+$endif
+$onlyIf[$checkContains[$getVar[box $message[1;box];$authorID];$splitText[$message[2;position]]]==true;You dont have that pokemon register]
+  $onlyIf[$and[$message[1;box]>=1;$message[1;box]<=7]==true;You have to put in the fist place the number of the box (1-7) where is the pokemon]$onlyIf[$message[2;position]>=1;You have to put in the second place the number of the pokemon is occupation the place]
+ 
+$textSplit[$splitText[$message[2;position]];^]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]]
+I have released `$httpResult[name]` Lvl.$splitText[2]$if[$splitText[3]==s] ¦ <:Goldsparkles:951547849940795392>$endif of the box $message[1;box]
+$textSplit[$getUserVar[box $message[1;box];$authorID]; ]
+$if[$and[$message[2;position]>=1;$message[2;position]!=$getTextSplitLength]==true]
+$setUserVar[box $message[1;box];$replaceText[$getUserVar[box $message[1;box]];$splitText[$message[2;position]] ; ;1]]
+$endif
+$if[$message[2;position]==$getTextSplitLength]
+$setUserVar[box $message[1;box];$replaceText[$getUserVar[box $message[1;box]]; $splitText[$message[2;position]]; ;1]]
+$endif
+$endif $endif
