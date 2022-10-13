@@ -1,0 +1,80 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns] 
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$onlyIf[$userExists[$message[1]]==true;The user don't exist
+w?give-pokemon `<userID>` <innumberBox> <positionPokemon> <tonumberBox>] 
+$onlyIf[$isNumber[$message[2]]==true;Put the number box where the pokemon are
+w?give-pokemon <userID> `<innumberBox>` <positionPokemon> <tonumberBox>]
+$onlyIf[$isNumber[$message[3]]==true;Put the number position of the pokemon you want to trade
+w?give-pokemon <userID> <innumberBox> `<positionPokemon>` <tonumberBox>]
+ 
+$onlyIf[$isNumber[$message[4]]==true;Put the number box where the pokemon will be
+w?give-pokemon <userID> <innumberBox> <positionPokemon> `<tonumberBox>`]
+$textSplit[$getUserVar[box $message[2]]; ]
+$onlyIf[$splitText[$message[3]]!=;You currently don't have any pokemon occupying this spot
+w?give-pokemon <userID> <innumberBox> `<positionPokemon>` <tonumberBox>]
+$if[$and[$message[3;position]>=1;$message[3;position]!=$getTextSplitLength]==true]
+$setUserVar[box $message[2;box];$replaceText[$getUserVar[box $message[2;box]];$splitText[$message[3;position]] ; ;1]]
+$endif
+$if[$message[3;position]==$getTextSplitLength]
+$setUserVar[box $message[2;box];$replaceText[$getUserVar[box $message[2;box]]; $splitText[$message[3;position]]; ;1]]
+$endif
+$setUserVar[box $message[4];$splitText[$message[3]] $getUserVar[box $message[4];$message[1]];$message[1]]
+The trainer <@$message[1]>, received $splitText[$message[3]] by <@$authorID>. It save in `box $message[2]`
+$textSplit[$splitText[$message[3]];^]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]]
+$suppressErrors[Error]
+$title[Pokémon Preview]
+$description[<:sospechoso:963716325748903997>Partner: `$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]` $if[$splitText[3]==s]<:Goldsparkles:951547849940795392>
+$if[$checkContains[$getVar[Shiny Lock];,$splitText[1],]==true]`Shiny Lock ⚠️`$endif$endif
+Lvl: `$splitText[2]` $if[$splitText[2]>=101]⚠️$endif
+Static: Ps-$sum[$sub[$httpResult[stats;0;base_stat];1];1] Attact-$sum[$sub[$httpResult[stats;1;base_stat];1];1] Defense-$sum[$sub[$httpResult[stats;2;base_stat];1];1] Special-Attack-$sum[$sub[$httpResult[stats;3;base_stat];1];1] Special-Defense-$sum[$sub[$httpResult[stats;4;base_stat];1];1] Speed-$sum[$sub[$httpResult[stats;5;base_stat];1];1] 
+Hab: $toTitleCase[$httpResult[abilities;$splitText[4];ability;name]]
+Movs: $if[$splitText[5]!=]$toTitleCase[$httpResult[moves;$splitText[5];move;name]]$endif $if[$splitText[6]!=]$toTitleCase[$httpResult[moves;$splitText[6];move;name]]$endif $if[$splitText[7]!=]$toTitleCase[$httpResult[moves;$splitText[7];move;name]]$endif 
+$if[$splitText[8]!=]$toTitleCase[$httpResult[moves;$splitText[8];move;name]]$endif]
+$if[$sub[$sum[$httpResult[id];1];1]!=10192]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png]
+$endif
+$if[$sub[$sum[$httpResult[id];1];1]==10192]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif893-dada.png;1]
+$endif
+$thumbnail[$authorAvatar]$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year]
+$color[$random[0;16777215]]
+$sendEmbedMessage[1027294831975870547;$username[$authorID] give to $username[$message[1]] this pokemon $splitText[$message[3]] and its save in box $message[2] in $serverName[$guildID];Pokémon Prevview;;<:sospechoso:963716325748903997>Partner: `$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]` $if[$splitText[3]==s]<:Goldsparkles:951547849940795392>
+$if[$checkContains[$getVar[Shiny Lock];,$splitText[1],]==true]`Shiny Lock ⚠️`$endif$endif
+Lvl: `$splitText[2]` $if[$splitText[2]>=101]⚠️$endif
+Static: Ps-$sum[$sub[$httpResult[stats;0;base_stat];1];1] Attact-$sum[$sub[$httpResult[stats;1;base_stat];1];1] Defense-$sum[$sub[$httpResult[stats;2;base_stat];1];1] Special-Attack-$sum[$sub[$httpResult[stats;3;base_stat];1];1] Special-Defense-$sum[$sub[$httpResult[stats;4;base_stat];1];1] Speed-$sum[$sub[$httpResult[stats;5;base_stat];1];1] 
+Hab: $toTitleCase[$httpResult[abilities;$splitText[4];ability;name]]
+Movs: $if[$splitText[5]!=]$toTitleCase[$httpResult[moves;$splitText[5];move;name]]$endif $if[$splitText[6]!=]$toTitleCase[$httpResult[moves;$splitText[6];move;name]]$endif $if[$splitText[7]!=]$toTitleCase[$httpResult[moves;$splitText[7];move;name]]$endif 
+$if[$splitText[8]!=]$toTitleCase[$httpResult[moves;$splitText[8];move;name]]$endif;ffffff;;;Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year;;$authorAvatar;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png;no;no]
+$endif
+$endif
+$endif $endif
