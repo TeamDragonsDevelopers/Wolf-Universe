@@ -1,0 +1,183 @@
+$nomention
+$if[$message[1]!=global]
+$onlyIf[$or[$isAdmin[$authorID]==true;$getVar[official_employee;$authorID]!=:x:]==true;You need admin in this server]
+$if[$message==enable-pok-natural]
+$title[<:KNcheck:893833092681306152>Enable Pokémon Natural<:KNcheck:893833092681306152>]
+$description[System Pokemon Natural (Spawn) are **ENABLE** in $serverName[$guildID]]
+$setServerVar[pokenable;yes]
+$else
+$if[$message==disable-pok-natural]
+$title[<:KNnotcheck:893833092836507678>Disable Pokémon Natural<:KNnotcheck:893833092836507678>]
+$description[System Pokemon Natural are **DISABLE** in $serverName[$guildID]]
+$setServerVar[pokenable;no]
+$endif
+$endif
+
+$if[$message==enable-pok]
+$title[<:KNcheck:893833092681306152>Enable Pokémon<:KNcheck:893833092681306152>]
+$description[System Pokemon are **ENABLE** in $serverName[$guildID]]
+$setServerVar[pok¹enable;yes]
+$else
+$if[$message==disable-pok]
+$title[<:KNnotcheck:893833092836507678>Disable Pokémon<:KNnotcheck:893833092836507678>]
+$description[System Pokemon are **DISABLE** in $serverName[$guildID]]
+$setServerVar[pok¹enable;no]
+$endif
+$endif
+
+$if[$message==enable-economy]
+$title[<:KNcheck:893833092681306152>Enable Economy<:KNcheck:893833092681306152>]
+$description[System Economy are **ENABLE** in $serverName[$guildID]]
+$setServerVar[ecenable;yes]
+$else
+$if[$message==disable-economy]
+$title[<:KNnotcheck:893833092836507678>Disable Economy<:KNnotcheck:893833092836507678>]
+$description[System Economy are **DISABLE** in $serverName[$guildID]]
+$setServerVar[ecenable;no]
+$endif
+$endif
+
+$nomention
+$if[$message==enable-user]
+$title[<:KNcheck:893833092681306152>Enable User<:KNcheck:893833092681306152>]
+$description[System User are **ENABLE** in $serverName[$guildID]]
+$setServerVar[usenable;yes]
+$else
+$if[$message==disable-user]
+$title[<:KNnotcheck:893833092836507678>Disable User<:KNnotcheck:893833092836507678>]
+$description[System User are **DISABLE** in $serverName[$guildID]]
+$setServerVar[usenable;no]
+$endif
+$endif
+
+$if[$message==enable-lvl]
+$title[<:KNcheck:893833092681306152>Enable Moderation<:KNcheck:893833092681306152>]
+$description[System Moderationv
+are **ENABLE** in $serverName[$guildID]]
+$setServerVar[lvl enable;yes]
+$else
+$if[$message==disable-lvl]
+$title[<:KNnotcheck:893833092836507678>Disable Moderation<:KNnotcheck:893833092836507678>]
+$description[System Moderation are **DISABLE** in $serverName[$guildID]]
+$setServerVar[lvl enable;no]
+$endif
+$endif
+
+$if[$message==enable-all]
+$title[<:KNcheck:893833092681306152>Enable ALL<:KNcheck:893833092681306152>]
+$description[ALL System are **ENABLE** in $serverName[$guildID]]
+$setServerVar[lvl enable;yes]
+$setServerVar[ecenable;yes]
+$setServerVar[usenable;yes]
+$setServerVar[pokenable;yes]
+$setServerVar[pok¹enable;yes]
+$else
+$if[$message==disable-all]
+$title[<:KNcheck:893833092681306152>Enable ALL<:KNcheck:893833092681306152>]
+$description[ALL System are **ENABLE** in $serverName[$guildID]]
+$setServerVar[lvl enable;no]
+$setServerVar[ecenable;no]
+$setServerVar[usenable;no]
+$setServerVar[pokenable;no]
+$setServerVar[pok¹enable;no]
+$endif
+$endif
+$endif
+
+$if[$message[1]==global]
+$nomention
+$onlyIf[$getVar[official_employee;$authorID]==<:Employee_1:983413721399443527>;only can <:Employee:951234065917431879>, <:Employee_1:983413721399443527> team ©∆𝖊𝖑𝖙𝖆]
+$if[$message[2]==enable-pok-natural]
+$title[<:KNcheck:893833092681306152>Enable Pokémon Natural<:KNcheck:893833092681306152>]
+$description[System Pokemon Natural (Spawn) are **ENABLE**]
+$setVar[pokenable;yes]
+$else
+$if[$message[2]==disable-pok-natural]
+$title[<:KNnotcheck:893833092836507678>Disable Pokémon Natural<:KNnotcheck:893833092836507678>]
+$description[System Pokemon Natural are **DISABLE**]
+$setVar[pokenable;no]
+$endif
+$endif
+
+$if[$message[2]==enable-pok]
+$title[<:KNcheck:893833092681306152>Enable Pokémon<:KNcheck:893833092681306152>]
+$description[System Pokemon are **ENABLE**]
+$setVar[pok¹enable;yes]
+$else
+$if[$message[2]==disable-pok]
+$title[<:KNnotcheck:893833092836507678>Disable Pokémon<:KNnotcheck:893833092836507678>]
+$description[System Pokemon are **DISABLE**]
+$setVar[pok¹enable;no]
+$endif
+$endif
+
+$if[$message[2]==enable-economy]
+$title[<:KNcheck:893833092681306152>Enable Economy<:KNcheck:893833092681306152>]
+$description[System Economy are **ENABLE**]
+$setVar[ecenable;yes]
+$else
+$if[$message[2]==disable-economy]
+$title[<:KNnotcheck:893833092836507678>Disable Economy<:KNnotcheck:893833092836507678>]
+$description[System Economy are **DISABLE**]
+$setVar[ecenable;no]
+$endif
+$endif
+
+$nomention
+$if[$message[2]==enable-user]
+$title[<:KNcheck:893833092681306152>Enable User<:KNcheck:893833092681306152>]
+$description[System User are **ENABLE**]
+$setServer=Var[usenable;yes]
+$else
+$if[$message[2]==disable-user]
+$title[<:KNnotcheck:893833092836507678>Disable User<:KNnotcheck:893833092836507678>]
+$description[System User are **DISABLE**]
+$setVar[usenable;no]
+$endif
+$endif
+
+$if[$message[2]==enable-lvl]
+$title[<:KNcheck:893833092681306152>Enable Level<:KNcheck:893833092681306152>]
+$description[System Level are **ENABLE**]
+$setVar[lvl enable;yes]
+$else
+$if[$message[2]==disable-lvl]
+$title[<:KNnotcheck:893833092836507678>Disable Level<:KNnotcheck:893833092836507678>]
+$description[System Level are **DISABLE**]
+$setVar[lvl enable;no]
+$endif
+$endif
+
+$if[$message[2]==enable-boton]
+$title[<:KNcheck:893833092681306152>Enable Boton<:KNcheck:893833092681306152>]
+$description[System Buttons are **ENABLE**]
+$setVar[botonenable;yes]
+$else
+$if[$message[2]==disable-boton]
+$title[<:KNnotcheck:893833092836507678>Disable Moderation<:KNnotcheck:893833092836507678>]
+$description[System Buttons are **DISABLE**]
+$setVar[botonenable;no]
+$endif
+$endif
+
+$if[$message[2]==enable-all]
+$title[<:KNcheck:893833092681306152>Enable ALL<:KNcheck:893833092681306152>]
+$description[ALL System are **ENABLE**]
+$setVar[botonenable;yes]
+$setVar[lvl enable;yes]
+$setVar[usenable;yes]
+$setVar[ecenable;yes]
+$setVar[pokenable;yes]
+$setVar[pok¹enable;yes]
+$else
+$if[$message[2]==disable-all]
+$title[<:KNcheck:893833092681306152>Disable ALL<:KNcheck:893833092681306152>]
+$description[ALL System are **DISABLE**]
+$setVar[botonenable;no]
+$setVar[usenable;no]
+$setVar[pokenable;no]
+$setVar[pok¹enable;no]
+$setVar[lvl enable;yes]
+$endif
+$endif
+$endif
