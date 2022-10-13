@@ -1,0 +1,157 @@
+$nomention
+$if[$guildID!=797833180936667153]
+$if[$hasRole[$botID;$findRole[©Ꭰꭱꭺꮐꮻɴꮪ • Wolf Universe]]!=true]
+$title[Permissions Bot<:System:951234063954485278>]
+$description[The bot you have is old, please `kick or modify the role` the bot and add it with the following Invitation:
+https://discord.com/oauth2/authorize?client_id=855390537702965258&permissions=518147927121&response_type=code&scope=bot%20guilds%20applications.commands%20identify
+It should come out as a name: `©Ꭰꭱꭺꮐꮻɴꮪ • Wolf Universe`
+GO to `Privacy Policies` if yoe need more information abaut this
+]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$var[user;855390537702965258]
+$onlyIf[$or[$guildExists[$guildID]==true;$checkContains[$message;invite;dm;clear;terms;support;pings;send-system]==true]==true;<:AK_Enojado:921863118634766336> dont use me in your dm, you can use me for example in: $serverName[878225376319516732]]
+$onlyIf[$or[$message[1]==lang;$message[1]==idioma;$message[1]==language;$message[1]==info;$message[1]==event;$message[1]==t.box;$message[1]==daily;$message[1]==say;$message[1]==terms;$message[1]==no_battle;$message[1]==support;$message[1]==pings;$message[1]==spawn;$message[1]==catch;$message[1]==c;$message[1]==hint;$message[1]==h;$message[1]==dex;$message[1]==pk;$message[1]==e;$message[1]==evol;$message[1]==evolved;$toLowercase[$message[1]]==vote;$message[1]==redirect;$message[1]==search;$message[1]==hangman;$message[1]==ttt;$message[1]==time;$message[1]==buy;$message[1]==add-redeem;$message[1]==m-spawn;$message[1]==h.spawn;$message[1]==p.spawn;$message[1]==g.spawn;$message[1]==rank;$message[1]==w.spawn;$message[1]==wikidex;$message[1]==eval;$message[1]==g-spawn;$message[1]==fun;$message[1]==set-mode;$message[1]==setLvlmsg;$message[1]==setLvl;$message[1]==pok-info;$message[1]==invite;$message[1]==set-badge;$message[1]==setBackgroundrank;$message[1]==e;$message[1]==start;$message[1]==set-incienso;$message[1]==give-coin;$message[1]==l.spawn;$message[1]==set_terms;$message[1]==change_form;$message[1]==shop;$message[1]==send-official-msg;$message[1]==send-official-support;$message[1]==send-official-system;$message[1]==set-dm;$message[1]==use box ticket-eon;$message[1]==official-send-channel;$message[1]==syste-official-send-channel;$message[1]==set-server-official;$message[1]==sebd-official;$message[1]==official-send-dm;$message[1]==system-official-send-dm;$message[1]==menu;$message[1]==set-pokemon;$message[1]==pick;$message[1]==get;$message[1]==prueba;$message[1]==config;$message[1]==help;$message[1]==leaderboard;$message[1]==warn;$message[1]==random-member-ship;$message[1]==bot-info;$message[1]==give-pokemon;$message[1]==add-pokemon;$message[1]==user-info;$message[1]==i]==true;$if[$getServerVar[lang]==en]<:System:951234063954485278> `Automatic message` <:System:951234063954485278>
+<a:Discord_Developers:1021123236290900119> I don't have it registered the command: `$getVar[prefix]$message[1]`
+<:information:998316895742738643> You must put again the command, this time the right one
+<:dot:993277045905829979> If you thing that exist and  don't know how to use `$getVar[prefix]$message[1]`
+> ```If the command you have put is correct and don't respond to you, follow these steps```
+<:dot:993277045905829979> Perform the `$getVar[prefix]support` command
+<:dot:993277045905829979> Enter in the support.
+<:dot:993277045905829979> Go to <#1021859683004330165>
+<:dot:993277045905829979> Open a forum and write the problem. You can put image to help
+- - - - - - - - - - -
+<:Discord_new:951234064726253569> In `$serverName[878225376319516732]` we help you in every way possible.
+- - - - - - - - - - - - - - - - - - -
+**Signature**: `$serverName[951221660202201158]`-$getServerVar[terms;951221660202201158]$endif$if[$getServerVar[lang]==es]<:System:951234063954485278> `Mensaje automático` <:System:951234063954485278>
+ <a:Discord_Developers:1021123236290900119> No tengo registrado el comando: `$getVar[prefix]$message[1]`
+<:information:998316895742738643> Debes volver a poner el comando, esta vez el correcto 
+ <:dot:993277045905829979> Si cree que existe y no sabe cómo usar `$getVar[prefix]$message[1]`
+ > ```Si el comando que has puesto es correcto y no te responde, sigue estos pasos```
+ <:dot:993277045905829979> Ejecute el comando `$getVar[prefix]support`
+ <:dot:993277045905829979> Entrar en el soporte.
+ <:dot:993277045905829979> Ir a <#1021859683004330165>
+ <:dot:993277045905829979> Abra un foro y escriba el problema.  Puedes poner imagen para ayudar
+ - - - - - - - - - - -
+ <:Discord_new:951234064726253569> En `$serverName[878225376319516732]` te ayudamos en todo lo posible.
+ - - - - - - - - - - - - - - - - - - - -
+ **Firma**: `$serverName[951221660202201158]`-$getServerVar[terms;951221660202201158]$endif]
+**`$username[$authorID]#$discriminator[$authorID]`** | Id: `$authorID`
+$title[Log Commands]
+$description[Member: **`$username`** | <@$authorID> | $replaceText[$replaceText[$replaceText[$replaceText[$getUserStatus[$authorID];online;<:online_status:896313015622852649>;1];dnd;<:dnd_status:896313695964135434>;1];idle;<:idle_status:896313860720558120>;1];offline;<:offline_status:896313334222192650>;1]
+¦ $getVar[membership;$authorID]
+Id: `$authorID`
+<:Server_Shield_Admin_Verify:952629800370073670>Sanctions: $getVar[sanctions;$authorID]
+<:Server_Shield_Admin_Verify:952629800370073670>Blocked: `$checkContains[$getVar[user_block];$authorID]`
+Server **$serverName[$guildID]** | members: $membersCount
+On $membersCount[online], idle $membersCount[idle], dnd $membersCount[dnd]
+ID: `$guildID`
+<:Server_Shield_Admin_Verify:952629800370073670>Blocked: `$checkContains[$getVar[server_block];$guildID]`
+Partner: $getServerVar[partner;$guildID]
+Official: $getServerVar[terms;$guildID]
+💥 **[Perms :\](https://www.google.com/search?q=perms)**
+> $replaceText[$replaceText[$checkUserPerms[$var[user];admin];true;⛔** Server Administrator**;1];false;$replaceText[$replaceText[$checkUserPerms[$var[user];ban];true;⛔ Ban;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];kick];true;🛡️ Kick;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];manageserver];true;⚙️ Manage server;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];managechannels];true;🛠️ Manage Channels;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];manageroles];true;📑 Manage Roles;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];managemessages];true;📝 Manage Messages;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];managenicknames];true;🔖 Manage Nicknames;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];manageemojis];true;😀 Manage Emotes;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];mentioneveryone];true;🆔 Ping *@*everyone,*@*here & Roles;1];false;;1] $replaceText[$replaceText[$checkUserPerms[$var[user];changenicknames];true;🏷️ Change Nicknames;1];false;;1];1]
+Channel: **$channelName[$channelID]** ID: `$channelID`
+Command: $getVar[prefix]`$message`
+Date: `$day dia/$month mes/$year año` at `$hour hora/$minute minuto/$second segundo`]
+$addField[Badge ©Ꭰꭱꭺꮐꮻɴꮪ;$getVar[official_employee;$authorID] $getVar[employee;$authorID] $getVar[mod;$authorID] $getVar[bug;$authorID] $getVar[early_support;$authorID] $getVar[dev;$authorID] $getVar[partner;$authorID] $getVar[hypesquad;$authorID] $getVar[boost;$authorID] $getVar[membership;$authorID];yes]
+$addField[Badge $serverName[$guildID];$getUserVar[dev;$authorID] $getUserVar[employee;$authorID] $getUserVar[mod;$authorID] $getUserVar[bug;$authorID] $getUserVar[early_support;$authorID] $getUserVar[partner;$authorID] $getUserVar[hypesquad;$authorID] $getUserVar[boost;$authorID] $getUserVar[medal;$authorID];yes]
+$addField[Used Bot;$sum[$getVar[use-bot;$authorID];1];yes]
+$addField[Used Bot server;$sum[$getServerVar[use-bot];1];yes]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year]
+$color[ffffff]
+$useChannel[1016699946013048832]
+$image[$serverIcon]
+$thumbnail[$userAvatar[$authorID]]
+$setVar[use-bot;$sum[$getVar[use-bot;$authorID];1];$authorID]
+$setServerVar[use-bot;$sum[$getServerVar[use-bot];1]]
+
+$if[$getVar[use-bot;$authorID]$month==500September]
+$onlyIf[$getVar[early_support;$authorID]==:x:;]
+$setVar[early_support;<:Discord_Early_Supporter:951234062868168704>;$authorID]
+$channelSendMessage[$channelID;Now <@$authorID> is <:Discord_Early_Supporter:951234062868168704> of ©∆𝖊𝖑𝖙𝖆]
+$endif
+
+$if[$and[$getVar[botonenable]==no;
+$getVar[lvl enable]==no;
+$getVar[usenable]==no;
+$getVar[ecenable]==no;
+$getVar[pokenable]==no;
+$getVar[pok¹enable]==no]==true]
+$sendEmbedMessage[$channelID;Thanks;©∆𝖊𝖑𝖙𝖆 System;;All command were disable because Wolf of World is on mantenience and need be off comamnd
+©∆𝖊𝖑𝖙𝖆 Official: From $getServerVar[terms;951221660202201158] server;;©∆𝖊𝖑𝖙𝖆;;Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$endif
+
+$if[$getUserVar[pokemon]==0]
+$setUserVar[pokemon;$random[1;898]]
+$endif
+
+$nomention
+$if[$getVar[change spawn]==true]
+$if[$or[$day==02;$day==03;$day==04;$day==05]==true]
+$setVar[pkMin;1]
+$setVar[pkMax;151]
+$endif
+$if[$or[$day==06;$day==07;$day==08]==true]
+$setVar[pkMin;152]
+$setVar[pkMax;251]
+$endif
+$if[$or[$day==09;$day==10;$day==11]==true]
+$setVar[pkMin;252]
+$setVar[pkMax;386]
+$endif
+$if[$or[$day==12;$day==13;$day==14]==true]
+$setVar[pkMin;387]
+$setVar[pkMax;493]
+$endif
+$if[$or[$day==15;$day==16;$day==17]==true]
+$setVar[pkMin;494]
+$setVar[pkMax;649]
+$endif
+$if[$or[$day==18;$day==19;$day==20]==true]
+$setVar[pkMin;650]
+$setVar[pkMax;721]
+$endif
+$if[$or[$day==21;$day==22;$day==23]==true]
+$setVar[pkMin;722]
+$setVar[pkMax;809]
+$endif
+$if[$or[$day==24;$day==25;$day==26]==true]
+$setVar[pkMin;809]
+$setVar[pkMax;898]
+$endif
+$if[$or[$day==27;$day==28;$day==29]==true]
+$setVar[pkMin;10001]
+$setVar[pkMax;10249]
+$endif
+$if[$or[$day==30;$day==31;$day==01]==true]
+$setVar[pkMin;10229]
+$setVar[pkMax;10249]
+$endif
+$endif
+$endif
+$endif
+$textSplit[$getVar[mission status;$authorID];-]
+$if[$and[$message!=;$message!=missions;$sum[$splitText[7];1]<=100]==true]
+$setVar[mission status;$splitText[1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$sum[$splitText[7];1]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$endif
+$editMessage[1016699903692505099;1023163647524085780;>>> ```📆CURRENT DATE📆```<a:smug:950018408450232350>Today: <t:$getTimestamp:D>
+- - - - - - - - - - - - - - - - - - - - - -
+```📡BOT TIME📡```<a:umbreon_uwu:1021107662622040236>Bot <t:$hostingExpireTime[yes]:F>
+$if[$hostingExpireTime[yes]>=$sum[$getTimestamp;31556926]]<a:congrats:950018406449569904>$else<:dot:993277045905829979> Goal: Amount to <t:$sum[$getTimestamp;31556926]:F>$endif
+<a:nitroboostgif:961934155967496212>Premium <t:$getServerVar[premium;878225376319516732]:F>
+$if[$getServerVar[premium;878225376319516732]>=$getTimestamp]<a:congrats:950018406449569904>$else<:dot:993277045905829979> Goal: Amount to <t:$getTimestamp:F>$endif
+- - - - - - - - - - - - - - - - - - - - - -
+```ℹ️INFORMATION BOTℹ️```<a:yeee:950018407980474408>Server: `$serverCount`
+$if[$serverCount>=100]<a:congrats:950018406449569904>$else<:dot:993277045905829979> Goal: `100`$endif
+<a:jumpscared:950018407917551666>Time Online: `$uptime` (HH:MM:SS)
+```ℹ️INFORMATION SERVERℹ️```
+Creation: <t:$calculate[(878225376319516732 / 4194304 + 1420070400000) / 1000]:D>
+Owner: `$username[$serverOwner[878225376319516732]]#$discriminator[$serverOwner[878225376319516732]]`_(`$serverOwner[878225376319516732]`)
+Name Server: `$serverName[878225376319516732]`-(`878225376319516732`)
+$if[$getVar[news]!=false]- - - - - - - - - - - - - - - - - - - - - -$textSplit[$getVar[news];|]
+```📣BOT NEWS📣```<a:witch:950018405849767986>Ping: ||$splitText[1]||
+$splitText[2]$endif
+$if[$getVar[Mantenice]!=false]- - - - - - - - - - - - - - - - - - - - - -
+```🟡BOT MANTENICE🟡```<a:relief:950018408609628170>Ping: ||<@&1016699842317271112>||
+$getVar[Mantenice]$endif]
