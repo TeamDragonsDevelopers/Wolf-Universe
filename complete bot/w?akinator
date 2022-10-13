@@ -1,0 +1,51 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==:x:]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[usenable];Developer of this bot disable System User]
+$enabled[$getServerVar[usenable];Developer of this server disable System User]
+$onlyIf[$guildExists[$guildID]==true;]
+$botTyping
+$footer[Select Game type from the menu.] 
+$color[ff8888] 
+$title[Playing Akinator]
+$image[https://cdn.discordapp.com/attachments/837219640874631197/998549047910617189/unknown.png]
+ 
+$newSelectMenu[playaki•$authorID;1;1;Select Language/Type]
+$addSelectMenuOption[playaki•$authorID;English;en;;;🇺🇲]
+$addSelectMenuOption[playaki•$authorID;English;en_animals;Animal;;🇺🇲]
+$addSelectMenuOption[playaki•$authorID;English;en_objects;Objects;;🇺🇲]
+$addSelectMenuOption[playaki•$authorID;Russian;ru;;;🇷🇺]
+$addSelectMenuOption[playaki•$authorID;Arabic;ar;;;🇦🇪]
+ 
+$addSelectMenuOption[playaki•$authorID;Chinese;cn;;;🇨🇳]
+$addSelectMenuOption[playaki•$authorID;German;de;;;🇩🇪]
+$addSelectMenuOption[playaki•$authorID;German;de_animals;Animal;;🇩🇪]
+$addSelectMenuOption[playaki•$authorID;Spanish;es;;;🇪🇸]
+$addSelectMenuOption[playaki•$authorID;Spanish;es_animals;Animal;;🇪🇸]
+ 
+$addSelectMenuOption[playaki•$authorID;French;fr;;;🇫🇷]
+$addSelectMenuOption[playaki•$authorID;French;fr_animals;Animal;;🇫🇷]
+$addSelectMenuOption[playaki•$authorID;French;fr_objects;Objects;;🇫🇷]
+$addSelectMenuOption[playaki•$authorID;Hebrew;il;;;🇮🇱]
+$addSelectMenuOption[playaki•$authorID;Italian;it;;;🇮🇹]
+ 
+$addSelectMenuOption[playaki•$authorID;Italian;it_animals;Animal;;🇫🇷]
+$addSelectMenuOption[playaki•$authorID;Japanese;jp;;;🇯🇵]
+$addSelectMenuOption[playaki•$authorID;Japanese;jp_animals;Animal;;🇯🇵]
+$addSelectMenuOption[playaki•$authorID;Korean;kr;;;🇰🇷]
+$addSelectMenuOption[playaki•$authorID;Dutch;nl;;;🇳🇱]
+ 
+$addSelectMenuOption[playaki•$authorID;Polish;pl;;;🇵🇱]
+$addSelectMenuOption[playaki•$authorID;Portuguese;pt;;;🇵🇹]
+$addSelectMenuOption[playaki•$authorID;Turkish;tr;;;🇹🇷]
+$addSelectMenuOption[playaki•$authorID;Indonesian;id;;;🇮🇩]
+ 
+$addButton[no;ans•playaki•$authorID•y;Yes;success;yes;]
+$addButton[no;ans•playaki•$authorID•idk;I dont Know;primary;yes;]
+$addButton[no;ans•playaki•$authorID•n;No;danger;yes;]
+$addButton[yes;ans•playaki•$authorID•p;Probably Yes;primary;yes;]
+$addButton[no;ans•playaki•$authorID•pn;Probably No;primary;yes;]
