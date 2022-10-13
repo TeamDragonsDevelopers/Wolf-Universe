@@ -1,0 +1,135 @@
+$nomention
+$if[$getVar[announce;$authorID]==0]
+$title[Announcement]
+$description[<:Discord_Announcements:1001090285293535262>`News`<:Discord_Announcements:1001090285293535262>
+Attention to all trainers.
+We will soon begin an unexpected adventure for all of you.
+This feature is currently in testing. We will let you know when it really starts and how to activate it (Get legendary This feature is currently in testing. We will let you know when it really starts and how to activate it (Get legendcoins between 300 and 600)
+- - - - - - - - - - - - -
+<:translated:998317318658609275> Atención a todos los entrenadores.
+Pronto comenzaremos una aventura inesperada para todos ustedes.
+Esta característica se encuentra actualmente en pruebas. Le informaremos cuándo comienza realmente y cómo activarlo (Obtenga legendario Esta función está actualmente en prueba. Te avisaremos cuándo comienza realmente y cómo activarlo (Consigue legendcoins entre 300 y 600)]
+$image[https://media.discordapp.net/attachments/855392252036644865/1006845834660429904/Screenshot_2022_0810_104542.jpg]
+$setVar[announce;1;$authorID]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==1]
+$title[Announceme]
+$description[Evento Victini y El Castillo espada
+> Start in 15th of August at 0:00 Bot (w?time)
+Trata de combatir contra otros miembros a través de Pokémon Showdown y `ganar`.
+Quién gane se lleva `Reshiram Shiny y Zekrom Shiny en pokémon home`.
+Y un Victini Shiny en Hakairyu
+```Enter in the support```]
+$setVar[announce;2;$authorID]
+$addButton[no;https://discord.gg/UxM9qH8HuV;Support!;link;no;<:AK_Alola:921485506586505246>]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==2]
+$title[⚠️Precautions⚠️]
+$description[<:Discord_Admin:1001091994602450964> Attention everyone <:Discord_Admin:1001091994602450964>
+The Pokemon system has decided that illegal pokemon put up by Pokemon will also be illegal in Pokemon World(Hakairyu Bot). So next pokemon that give you a level higher than 100 or that it is illegal to warn the Wolf Universe (Official Account)#9559
+
+<:translated:998317318658609275> - - - - - - - - - - - - - - - - - - - - - <:translated:998317318658609275>
+<:Discord_Admin:1001091994602450964> Atención a todos <:Discord_Admin:1001091994602450964>
+El sistema Pokémon ha decidido que los Pokémon ilegales puestos por Pokémon también serán ilegales en Pokemon World(Bot Hakairyu). Así que próximo pokémon que te den un nivel superior a 100 o que es ilegal avisar a Wolf Universe (Official Account)#9559]
+$setVar[announce;3;$authorID]
+$addButton[no;https://discord.gg/7u9SH3rZEK;Support!;link;no;<:AK_Alola:921485506586505246>]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==3]
+$title[Application]
+$description[We are looking for people to help us improve the Bot and our community. Submit this form to the system. If you are already from the team we will also like to receive from you
+
+Estamos buscando personas que nos ayuden a mejorar el Bot y nuestra comunidad. Envíe este formulario al sistema. Si ya eres del equipo también nos gustaría recibir de ti]
+$addButton[no;Application;Forms;secondary;no;]
+$setVar[announce;5;$authorID]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==4]
+$title[System Pokemon🇬🇧;1]
+$description[The Pokemon system of Ꭰꭱꭺꮐꮻɴꮪ, you are updating your system. Therefore, for a while the Pokemon and Level system will be off.
+> The pokemon system will continue to work using the  command Hakairyu
+Example: Hakairyu catch mew;1]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ $year;1]
+$title[Sistema Pokemon🇪🇸;2]
+$description[El sistema Pokemon de Ꭰꭱꭺꮐꮻɴꮪ, estás actualizando tu sistema. Por lo tanto, durante un tiempo, el sistema de Pokémon y Nivel estará apagado.
+> El sistema Pokemon seguirá funcionando con el comando Hakairyu
+Ejemplo: Hakairyu catch mew;2]
+$footer[Creado por ©Ꭰꭱꭺꮐꮻɴꮪ $year;2]
+$setVar[announce;5;$authorID]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==5]
+$title[System Pokemon🇬🇧;1] 
+$description[The Pokemon System <:Server_Pokemon:980207612425547837> To added battle, this function can currently only occur in Partner Servers <:Partner:951234063400845353> , as well as those who have the inginia <:Partner:951234063400845353>  can use it in other servers.
+To enter put w?spawn and then ⚔️;1]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ $year;1]
+$title[Sistema Pokemon🇪🇸;2]
+$description[El Sistema Pokémon <:Server_Pokemon:980207612425547837> Para añadir batalla, esta función actualmente solo puede ocurrir en Servidores Asociados <:Partner:951234063400845353> , así como aquellos que tienen la inginia <:Partner:951234063400845353> pueden usarla en otros servidores
+Usa w?spawn y después ⚔️;2]
+$footer[Creado por ©Ꭰꭱꭺꮐꮻɴꮪ $year;2]
+$setVar[announce;6;$authorID]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==6]
+$title[Battle In Mantenice]
+$description[Now the battle will be mandatory to win to capture the pokémon. 
+We also do not rule out that it may have errors. If it happens, switch From Pokemon using w?select-partner, if you still don't like it, contact support (w?support);1]
+$description[Ahora la batalla será obligatoria de ganar para capturar a los pokémon. 
+Tampoco descartamos que pueda tener errores. Si sucede, cambia de Pokémon usando w?select-partner, si aún no te gusta, ponte en contacto con el soporte (w?support);2]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ $year;2]
+$setVar[announce;6.5;$authorID]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==6.5]
+$title[New Event: `Tic Tac Toe`]
+$description[Start: `9 de octubre de 2022 16:00`
+Prize: `3 Boxes 2`
+Single Elimination, best of 1
+Max Members: `32`
+**Information**
+It is a new bot game and we would like to perform as a competition
+**Rules**
+During the game you must be connected to be aware of your turn
+Link: https://tournaments.tourneybot.gg/tourneys/6010]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ $year;1]
+$setVar[announce;6.6;$authorID]
+$stop
+$endif
+$if[$getVar[announce;$authorID]==6.6]
+<:Server_Shield_Admin_Verify:952629800370073670> `System Discord Events` <:System:951234063954485278>
+<:Helper:1021122554041213038> `Wolrd Pokemon Tournament`<:Server_Pokemon:980207612425547837>
+Owner: `Ꭼꮮ Ꮲꭱꮖɴꮯꮖꮲꮖꭲꮻ#5959`
+Link: https://discord.gg/SZUNv6MRBD
+$title[`System Discord Events` <:System:951234063954485278>;1]
+$description[We invite you to enter a Pokemon Showdown event. 
+Start in 26th October
+**Standards**
+Ghost and Sinister Pokemon.
+You can't repeat pokemon or objects
+Pokemon level at 50
+They may have a second type or that sinister or ghost are the second
+**Information**
+The tournament will be held `Wolrd Pokemon Tournament`
+Link: https://discord.gg/SZUNv6MRBD
+
+Te invitamos a participar en un evento de Pokemon Showdown. 
+Comienza el 26 de octubre
+**Estándares**
+Pokémon fantasma y siniestro.
+No puedes repetir pokémon u objetos
+Nivel de Pokémon a 50
+Pueden tener un segundo tipo o que siniestro o fantasma sean el segundo.
+**Información**
+El torneo `Wolrd Pokemon Tournament` se celebrará
+Enlace: https://discord.gg/SZUNv6MRBD;1]
+$footer[Thanks  • Created by ©Ꭰꭱꭺꮐꮻɴꮪ-2022• ©Hakairyu-2022;1]
+$description[©Ꭰꭱꭺꮐꮻɴꮪ Official: From <:Shield_Admin_Verify:952629800370073670> server:
+Badge `©Ꭰꭱꭺꮐꮻɴꮪ-Hakairyu#8484`
+> <:Employee_1:983413721399443527> <a:Employee2:1001091825546833973> <:Certified_Moderator_Gold:1020733290895921153> <:Bug_Hunter_lvl_2:951539929761079377> <a:nitro_boost:917387840759926835> <a:Developer_Bot:1001095856914706472> <a:PartnerShrine:995262370337263616> <a:wumpus:916034323256344686> <a:Discord_Boost:951540587759271976> <a:Boost:951540517601157221>;2]
+$description[> This message comes from an `official server` of the `team ©∆𝖊𝖑𝖙𝖆`.  So it's just `informational`.  `To reply`, you will have to use `w?send-system --system<message>`
+Replace <message> to the message you want to send. Remember that `we will never ask you for your password or private information`;3]
+$setVar[announce;6.7;$authorID]
+$stop
+$endif
