@@ -1,0 +1,79 @@
+$nomention
+$if[$getVar[official_employee;$authorID]==:x:]
+$onlyIf[a==e;<:Bug_Hunter_lvl_2:951539929761079377> We are troubleshooting this new command]
+$endif
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$argCount[3;You need to put 3 arguments, w?change_form <numberBox> <positionPok> <none/alola/galar/hisui>. Example: w?change_form 2 10]
+$textSplit[$getUserVar[box $message[2];$authorID]; ]
+$onlyIf[$splitText[$message[3]]!=;You currently don't have any pokemon occupying this spot]
+$onlyIf[$or[$toLowercase[$message[3]]==none;$toLowercase[$message[3]]==alola;$toLowercase[$message[3]]==galar;$toLowercase[$message[3]]==hisui]==true;You dont put a Form, you need to put 
+none, alola, galar or hisui
+w?
+$if[$message[1]!=none]
+$textSplit[$getUserVar[box $message[2];$authorID]; ]
+$textSplit[$splitText[$message[3]];^]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]] 
+$if[$checkContains[$httpResult[name];gmax]==false]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$httpResult[name]-$message[3]] 
+$suppressErrors[This pokemon don't have $message[3]
+Error Code: `$getVar[actualización]00004`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]] 
+$httpResult[name] 
+$textSplit[$getUserVar[box $message[2];$authorID]; ]
+$setUserVar[box $message[2];$replaceText[$getUserVar[box $message[2];$authorID];$splitText[$message[3]] ;;1];$authorID]
+I past $httpResult[species;name] to $httpResult[name]
+$textSplit[$splitText[$message[3]];^]
+$setUserVar[box $message[2];$getUserVar[box $message[2];$authorID] $sum[$sub[$httpResult[id];1];1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$splitText[9];$authorID]
+$endif
+$endif
+$if[$message[1]==none]
+$textSplit[$getUserVar[box $message[2];$authorID]; ]
+$textSplit[$splitText[$message[3]];^]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]] 
+$if[$checkContains[$httpResult[name];alola;galar;hisui]==true]
+$textSplit[$getUserVar[box $message[2];$authorID]; ]
+$textSplit[$splitText[$message[3]];^]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$replaceText[$replaceText[$replaceText[$httpResult[name];-alola;;-1];-galar;;-1];-hisui;;-1]]
+$textSplit[$getUserVar[box $message[2];$authorID]; ]
+$if[$message[3]==1]
+$setUserVar[box $message[2];$replaceText[$getUserVar[box $message[2];$authorID];$splitText[$message[3]] ; ;1];$authorID]
+$endif
+$if[$message[3]==$getTextSplitLength]
+$setUserVar[box $message[2];$replaceText[$getUserVar[box $message[2];$authorID]; $splitText[$message[3]]; ;1];$authorID]
+$endif
+$if[$and[$message[3]>=1;$message[3]!=$getTextSplitLength]==true]
+$setUserVar[box $message[2];$replaceText[$getUserVar[box $message[2];$authorID];$splitText[$message[3]] ; ;1];$authorID]
+$endif
+I part the pokemon you say to $httpResult[name]
+$textSplit[$splitText[$message[3]];^]
+$setUserVar[box $message[2];$getUserVar[box $message[2];$authorID] $sum[$sub[$httpResult[id];1];1]^$splitText[2]^$if[$splitText[3]==s]s$endif^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$splitText[9];$authorID]
+$endif
+$endif
+$endif $endif
