@@ -1,0 +1,31 @@
+$nomention
+$botTyping
+$suppressErrors[I cant found this pokemon. Put number instead.
+Error Code: `$getVar[actualización]00001`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$onlyIf[$or[$getVar[dev;$authorID]!=:x:;$getVar[mod;$authorID]!=:x:;$getVar[employee;$authorID]!=:x:;$getVar[early_support;$authorID]!=:x:]==true;only can <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> or <:Verified_Bot_Developer:951234063967084564> of ©∆𝖊𝖑𝖙𝖆 or <:Discord_Early_Supporter:951234062868168704>]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$toLowercase[$message[1;n-dex]]]
+$title[Loading]
+$description[Looking for the pokemon $httpResult[species;name]]
+$image[https://api.bsmnt.cf/maker/v1?&image1=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$sub[$sum[$httpResult[id];1];1].png&background=$randomText[https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrOz2a2GO2Ghacs72MzCUFti5bQIfNOFdRZw&usqp=CAU;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTFOExPytwvxMBWcurJ6zYgsTJaPRqbXggvg&usqp=CAU;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Qrot7E8a01v5NeO5PmLZGLM-Hbl_iDH-WA&usqp=CAU;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCDV0rzYI8aYf2e5xDDenlU0qseiIDHO40kg&usqp=CAU;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGCZl3-lfgkLF48SvBF_HTJevv-rsf1Cy55Q&usqp=CAU;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs6vM4qXfuQbZd0pOUvWekgc_vkCTdLdZvdA&usqp=CAU;https://i.blogs.es/fd37b0/pokemon-escarlata-y-pokemon-purpura-_-presentacion-2-11-screenshot/450_1000.jpeg;https://cdn.discordapp.com/attachments/945577721772253214/947901553468145664/b1a552a75cbf6eddbec7e7e91dd5f73dpokemon-scarlet-violet-night.jpg;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE-f91bizgA8X-lsyoHJbdxRlHkJuEMOkemA&usqp=CAU;https://cdn.discordapp.com/attachments/938933750606217247/948996336915714118/EP576_Gimnasio_de_Ciudad_Canal.jpg]&text1=Pokemon+Escarlata+y+Purpura&text2=Nombre:+$httpResult[species;name]&text3=Type-1+$httpResult[types;0;type;name]+Type-2+$replaceText[$replaceText[$checkCondition[$httpResult[types;1;type;name]==];true;N/A;-1];false;$httpResult[types;1;type;name];-1]&canvaswidth=800&canvasheight=500&image1x=240&image1y=100&image1width=300&image1height=300&text1px=40&text1x=40&text1y=70&text2px=35&text2x=25&text2y=440&text3px=35&text3x=25&text3y=470&text1color=%23ff0000&text2color=%2327f727&text3color=%23$randomText[7d2181;ff0040]]
+$footer[Wait $random[10;20]s • Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$nomention
+$editEmbedIn[$random[10;20]s;<:pokedex:964839909909205022>Pokedex;👤 Autor: **$username#$discriminator[$authorID]**
+🐉 Pokemon : **$httpResult[name]**
+Specie: `$httpResult[species;name]`
+Numero dex
+**$sub[$httpResult[id];1]**<:emoji_61:934402115495923782>**$sub[$sum[$httpResult[id];1];1]**<:arrowviolett:934401719419437107>**$sum[$httpResult[id];1]**
+Type: **$httpResult[types;0;type;name]**
+$replaceText[$replaceText[$checkCondition[$httpResult[types;1;type;name]==];true;**N/A**;-1];false;**$httpResult[types;1;type;name]**;-1]
+Habilidad 1
+**$httpResult[abilities;0;ability;name]**
+$replaceText[$replaceText[$checkCondition[$httpResult[abilities;1;ability;name]==];true;N/A;-1];false;**$httpResult[abilities;1;ability;name]**;-1]
+Peso
+**$sub[$sum[$httpResult[weight];1];1]**;Request By $username#$discriminator[$authorID] | $creationDate[$messageID] | Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year;$randomText[7d2181;ff0040]]
+$setServerVar[n°dex;$sub[$sum[$httpResult[id];1];1]]
+$addButton[no;-;;secondary;no;<:emoji_61:934402115495923782>]
+$addButton[no;info-dex;;secondary;no;🔍]
+$addButton[no;randomDex;;secondary;no;🔀]
+$addButton[no;+;;secondary;no;<:arrowviolett:934401719419437107>]
+$addButton[no;005;Salir de la Dex;danger;no;📤]
