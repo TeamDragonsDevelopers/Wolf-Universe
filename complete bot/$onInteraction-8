@@ -1,0 +1,118 @@
+$c[Config Progress Bar]
+$var[bar_length;10] $var[filled;🟧] $var[blank;⬛] $var[percent;0]
+ 
+ 
+$onlyIf[$checkContains[$customID;playaki•$authorID]==true;]
+$nomention
+$color[ff8888] 
+$textSplit[$customID;•]
+ 
+$if[$splitText[1]==playaki]
+  $async[req]
+    $removeComponent[$customID;$messageID]
+    $httpPost[https://api.resetxd.xyz/game/akinator/create; {
+    "language": "$message"}]
+    $var[question;$httpResult[question]]
+    $var[game_id;$httpResult[game_id]]
+    $editMessage[$channelID;$messageID;;**$replaceText[$var[question];?;❓]**;**|$replaceText[$repeatMessage[$var[bar_length];$var[blank]];$var[blank];$var[filled];$round[$divide[$multi[$var[percent];$var[bar_length]];100]]]| • $round[$var[percent];3]%**;ff8888;$var[game_id]]
+    $editButton[ans•playaki•$authorID•y;Yes;success;no;;$messageID]
+    $editButton[ans•playaki•$authorID•idk;I dont Know;primary;no;;$messageID]
+    $editButton[ans•playaki•$authorID•n;No;danger;no;;$messageID]
+    $editButton[ans•playaki•$authorID•p;Probably Yes;primary;no;;$messageID]
+    $editButton[ans•playaki•$authorID•pn;Probably No;primary;no;;$messageID]
+  $endasync
+$endif
+ 
+$if[$splitText[1]==ans]
+  $var[game_id;$getEmbedData[$channelID;$messageID;1;footer]]
+  $httpPost[https://api.resetxd.xyz/game/akinator/action;{
+  "action": "$splitText[4]",
+  "game_id": "$var[game_id]"}]
+  $var[percent;$httpResult[confidence]]
+  $title[**$replaceText[$httpResult[question];?;❓]**]
+  $description[**|$replaceText[$repeatMessage[$var[bar_length];$var[blank]];$var[blank];$var[filled];$round[$divide[$multi[$var[percent];$var[bar_length]];100]]]| • $round[$var[percent];3]%**]
+  $footer[Your Last answer was "$splitText[4]"]
+  $image[https://api.resetxd.xyz/welcome?background=https://cdn.discordapp.com/attachments/780036165578784808/998591064116051998/81939832_3194411770585244_1699876574616092672_n.png&message=$url[encode;$httpResult[question]]&avatar=https://cdn.discordapp.com/attachments/780036165578784808/998593110953164900/unnamed.png&username=$round[$httpResult[step]].&text=Progress+:+$round[$var[percent];3]+%]
+  $removeButtons
+  $addButton[no;ans2•playaki•$authorID•y•$var[game_id];Yes;success;;]
+  $addButton[no;ans2•playaki•$authorID•idk•$var[game_id];I dont Know;primary;;]
+  $addButton[no;ans2•playaki•$authorID•n•$var[game_id];No;danger;;]
+  $addButton[yes;ans2•playaki•$authorID•p•$var[game_id];Probably Yes;primary;;]
+  $addButton[no;ans2•playaki•$authorID•pn•$var[game_id];Probably No;primary;;]
+  $addButton[no;yes•playaki•$authorID•$var[game_id];Quit;secondary;;]
+$endif
+ 
+ 
+$if[$splitText[1]==ans2]
+  $var[game_id;$splitText[5]]
+  $httpPost[https://api.resetxd.xyz/game/akinator/action;{
+  "action": "$splitText[4]",
+  "game_id": "$var[game_id]"}]
+  $var[percent;$httpResult[confidence]]
+  $if[$httpResult[name]==]
+    $title[**$replaceText[$httpResult[question];?;❓]**]
+    $description[**|$replaceText[$repeatMessage[$var[bar_length];$var[blank]];$var[blank];$var[filled];$round[$divide[$multi[$var[percent];$var[bar_length]];100]]]| • $round[$var[percent];3]%**]
+    $footer[Your Last answer was "$splitText[4]"]
+    $image[https://api.resetxd.xyz/welcome?background=https://cdn.discordapp.com/attachments/780036165578784808/998591064116051998/81939832_3194411770585244_1699876574616092672_n.png&message=$url[encode;$httpResult[question]]&avatar=https://cdn.discordapp.com/attachments/780036165578784808/998593110953164900/unnamed.png&username=$round[$httpResult[step]].&text=Progress+:+$round[$var[percent];3]+%]
+    $removeButtons
+    $addButton[no;ans2•playaki•$authorID•y•$var[game_id];Yes;success;;]
+    $addButton[no;ans2•playaki•$authorID•idk•$var[game_id];I dont Know;primary;;]
+    $addButton[no;ans2•playaki•$authorID•n•$var[game_id];No;danger;;]
+    $addButton[yes;ans2•playaki•$authorID•p•$var[game_id];Probably Yes;primary;;]
+    $addButton[no;ans2•playaki•$authorID•pn•$var[game_id];Probably No;primary;;]
+    $addButton[no;yes•playaki•$authorID•$var[game_id];Quit;secondary;;]
+  $else
+    $footer[Your Last answer was "$splitText[4]"]
+    $addField[**$httpResult[name]**?;$httpResult[description]
+    `(Rank $httpResult[ranking]) ($httpResult[pseudo])`
+    **|$replaceText[$repeatMessage[$var[bar_length];$var[blank]];$var[blank];$var[filled];$round[$divide[$multi[$var[percent];$var[bar_length]];100]]]| • $round[$var[percent];3]%**;no]
+    $image[$httpResult[image]]
+    $title[Are you thinking of]
+    $removeButtons
+    $addButton[no;yes•playaki•$authorID•$splitText[5];Yes;success;;]
+    $addButton[no;ans2•playaki•$authorID•n•$splitText[5];No;danger;;]
+  $endif
+$endif
+ 
+$if[$splitText[1]==yes]
+  $httpPost[https://api.resetxd.xyz/game/akinator/close;{
+  "game_id": "$splitText[4]"}]
+  $title[🔮** $httpResult[message]** Wanna play again?]
+  $image[https://cdn.discordapp.com/attachments/837219640874631197/998549047910617189/unknown.png]
+  $removeButtons
+  $newSelectMenu[playaki•$authorID;1;1;Select Language/Type]
+  $addSelectMenuOption[playaki•$authorID;English;en;;;🇺🇲]
+  $addSelectMenuOption[playaki•$authorID;English;en_animals;Animal;;🇺🇲]
+  $addSelectMenuOption[playaki•$authorID;English;en_objects;Objects;;🇺🇲]
+  $addSelectMenuOption[playaki•$authorID;Russian;ru;;;🇷🇺]
+  $addSelectMenuOption[playaki•$authorID;Arabic;ar;;;🇦🇪]
+ 
+  $addSelectMenuOption[playaki•$authorID;Chinese;cn;;;🇨🇳]
+  $addSelectMenuOption[playaki•$authorID;German;de;;;🇩🇪]
+  $addSelectMenuOption[playaki•$authorID;German;de_animals;Animal;;🇩🇪]
+  $addSelectMenuOption[playaki•$authorID;Spanish;es;;;🇪🇸]
+  $addSelectMenuOption[playaki•$authorID;Spanish;es_animals;Animal;;🇪🇸]
+ 
+  $addSelectMenuOption[playaki•$authorID;French;fr;;;🇫🇷]
+  $addSelectMenuOption[playaki•$authorID;French;fr_animals;Animal;;🇫🇷]
+  $addSelectMenuOption[playaki•$authorID;French;fr_objects;Objects;;🇫🇷]
+  $addSelectMenuOption[playaki•$authorID;Hebrew;il;;;🇮🇱]
+  $addSelectMenuOption[playaki•$authorID;Italian;it;;;🇮🇹]
+ 
+  $addSelectMenuOption[playaki•$authorID;Italian;it_animals;Animal;;🇫🇷]
+  $addSelectMenuOption[playaki•$authorID;Japanese;jp;;;🇯🇵]
+  $addSelectMenuOption[playaki•$authorID;Japanese;jp_animals;Animal;;🇯🇵]
+  $addSelectMenuOption[playaki•$authorID;Korean;kr;;;🇰🇷]
+  $addSelectMenuOption[playaki•$authorID;Dutch;nl;;;🇳🇱]
+ 
+  $addSelectMenuOption[playaki•$authorID;Polish;pl;;;🇵🇱]
+  $addSelectMenuOption[playaki•$authorID;Portuguese;pt;;;🇵🇹]
+  $addSelectMenuOption[playaki•$authorID;Turkish;tr;;;🇹🇷]
+  $addSelectMenuOption[playaki•$authorID;Indonesian;id;;;🇮🇩]
+ 
+  $addButton[no;ans•playaki•$authorID•y;Yes;success;yes;]
+  $addButton[no;ans•playaki•$authorID•idk;I dont Know;primary;yes;]
+  $addButton[no;ans•playaki•$authorID•n;No;danger;yes;]
+  $addButton[yes;ans•playaki•$authorID•p;Probably Yes;primary;yes;]
+  $addButton[no;ans•playaki•$authorID•pn;Probably No;primary;yes;]
+$endif
