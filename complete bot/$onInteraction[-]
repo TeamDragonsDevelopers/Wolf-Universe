@@ -1,0 +1,49 @@
+$nomention
+
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$setServerVar[n-dex;$sub[$getServerVar[n-dex];1]]
+
+$suppressErrors 
+$httpGet[https://pokeapi.co/api/v2/pokemon/$getServerVar[n-dex]]
+$authorIcon[https://cdn.discordapp.com/attachments/754399449022988415/761868949356675072/29d6e9ae28a342b4addaa285cc8773d7.png;1]
+$author[Pokemon;1]
+$title[<:pokedex:964839909909205022>$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]#$sub[$sum[$httpResult[id];1];1]$if[$and[$sub[$sum[$httpResult[id];1];1]>=1;$sub[$sum[$httpResult[id];1];1]<=151]==true]<:Sw_Primera_generacion:884459398762725417>$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=152;$sub[$sum[$httpResult[id];1];1]<=251]==true]<:Sw_Segunda_generacion:884459400021020674>$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=252;$sub[$sum[$httpResult[id];1];1]<=386]==true]<:Sw_Tercera_generacion:884459450843406417>$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=387;$sub[$sum[$httpResult[id];1];1]<=493]==true]<:Sw_Cuarta_generacion:884459398523674624>$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=494;$sub[$sum[$httpResult[id];1];1]<=649]==true]<:Sw_Quinta_generacion:884459399874224148>$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=650;$sub[$sum[$httpResult[id];1];1]<=721]==true]<:Sw_Sexta_generacion:884459422427009065>$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=721;$sub[$sum[$httpResult[id];1];1]<=809]==true]<:Sw_Sptima_generacion:884459399660318773>$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=809;$sub[$sum[$httpResult[id];1];1]<=898]==true]<:Sw_Octava_generacion:884459398506872832>$endif;1]
+$addField[Specie Name;`$httpResult[species;name]`;yes]
+$addField[Number of Pokedex;**$sub[$sum[$httpResult[id];1];1]**;yes]
+$addField[Height;**$sub[$sum[$httpResult[height];1];1]**;no]
+$addField[Weight;**$sub[$sum[$httpResult[weight];1];1]**;yes]
+$addField[Forms;1º$httpResult[forms;0;name] $if[$httpResult[forms;1;name]!=]2º$httpResult[forms;1;name]$endif $if[$httpResult[forms;2;name]!=]3º$httpResult[forms;2;name]$endif $if[$httpResult[forms;3;name]!=]4º$httpResult[forms;3;name]$endif;no]
+$addField[Type 1;$replaceText[$replaceText[$checkCondition[$httpResult[types;0;type;name]==];true;N/A;-1];false;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$httpResult[types;0;type;name];fire;<:Sw_tipo_fuego:884407189106745434>;-1];steel;<:Sw_tipo_acero:884407188490166324>;-1];water;<:Sw_tipo_agua:884407188959932416>;-1];bug;<:Sw_tipo_bicho:884407188615999540>;-1];dragon;<:Sw_tipo_dragon:884407188834099200>;-1];poison;<:Sw_tipo_veneno:884407188976726068>;-1];flying;<:Sw_tipo_volador:884407189635219506>;-1];normal;<:Sw_tipo_normal:884407188989280276>;-1];electric;<:Sw_tipo_electrico:884407188792172624>;-1];ice;<:Sw_tipo_hielo:884407189396156446>;-1];ground;<:Sw_tipo_tierra:884407189614260234>;-1];fairy;<:Sw_tipo_hada:884407188708294677>;-1];grass;<:Sw_tipo_planta:884407189270310913>;-1];rock;<:Sw_tipo_roca:884407188934762536>;-1];ghost;<:Sw_tipo_fantasma:884407188821508167>;-1];fighting;<:Sw_tipo_lucha:884407189127725066>;-1];psychic;<:Sw_tipo_psquico:884407188712472607>;-1];dark;<:Sw_tipo_siniestro:884407189157072896>;-1];-1];no]
+$addField[Type 2;$replaceText[$replaceText[$checkCondition[$httpResult[types;1;type;name]==];true;N/A;-1];false;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$httpResult[types;1;type;name];fire;<:Sw_tipo_fuego:884407189106745434>;-1];steel;<:Sw_tipo_acero:884407188490166324>;-1];water;<:Sw_tipo_agua:884407188959932416>;-1];bug;<:Sw_tipo_bicho:884407188615999540>;-1];dragon;<:Sw_tipo_dragon:884407188834099200>;-1];poison;<:Sw_tipo_veneno:884407188976726068>;-1];flying;<:Sw_tipo_volador:884407189635219506>;-1];normal;<:Sw_tipo_normal:884407188989280276>;-1];electric;<:Sw_tipo_electrico:884407188792172624>;-1];ice;<:Sw_tipo_hielo:884407189396156446>;-1];ground;<:Sw_tipo_tierra:884407189614260234>;-1];fairy;<:Sw_tipo_hada:884407188708294677>;-1];grass;<:Sw_tipo_planta:884407189270310913>;-1];rock;<:Sw_tipo_roca:884407188934762536>;-1];ghost;<:Sw_tipo_fantasma:884407188821508167>;-1];fighting;<:Sw_tipo_lucha:884407189127725066>;-1];psychic;<:Sw_tipo_psquico:884407188712472607>;-1];dark;<:Sw_tipo_siniestro:884407189157072896>;-1];-1];yes]
+$addField[Skill;1-**$httpResult[abilities;0;ability;name]** ¦ $replaceText[$replaceText[$checkCondition[$httpResult[abilities;1;ability;name]==];true;N/A;-1];false;**$httpResult[abilities;1;ability;name]**;-1];no]
+$addField[Stats;PS-$sum[$sub[$httpResult[stats;0;base_stat];1];1] Attact-$sum[$sub[$httpResult[stats;1;base_stat];1];1] Defense-$sum[$sub[$httpResult[stats;2;base_stat];1];1] Special-Attack-$sum[$sub[$httpResult[stats;3;base_stat];1];1] Special-Defense-$sum[$sub[$httpResult[stats;4;base_stat];1];1] Speed-$sum[$sub[$httpResult[stats;5;base_stat];1];1];yes]
+
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-$if[$and[$sub[$sum[$httpResult[id];1];1]>=1;$sub[$sum[$httpResult[id];1];1]<=151]==true]i/$randomText[yellow;red-blue]$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=152;$sub[$sum[$httpResult[id];1];1]<=251]==true]ii/$randomText[crystal;gold;silver]$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=252;$sub[$sum[$httpResult[id];1];1]<=386]==true]iii/$randomText[emerald;firered-leafgreen;ruby-sapphire]$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=387;$sub[$sum[$httpResult[id];1];1]<=493]==true]iv/$randomText[diamond-pearl;heartgold-soulsilver;platinum]$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=494;$sub[$sum[$httpResult[id];1];1]<=649]==true]v/black-white$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=650;$sub[$sum[$httpResult[id];1];1]<=721]==true]vi/$randomText[omegaruby-alphasapphire;x-y]$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=721;$sub[$sum[$httpResult[id];1];1]<=809]==true]vii/$randomText[icons;ultra-sun-ultra-moon]$endif$if[$and[$sub[$sum[$httpResult[id];1];1]>=809;$sub[$sum[$httpResult[id];1];1]<=898]==true]viii/icons$endif/$sub[$sum[$httpResult[id];1];1].png]
+$footerIcon[$authorAvatar]
+$footer[Request By $username#$discriminator[$authorID] | $creationDate[$messageID] |Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year] $addTimestamp
+$color[$randomText[FF0000;FFFFFF]]
+$title[Info $httpResult[species;name]#$sub[$sum[$httpResult[id];1];1];2]
+$if[$checkContains[$getVar[Shiny Lock];,$sub[$sum[$httpResult[id];1];1],]==true]
+$description[⛔ ¦ `Shiny Lock`;2]
+$endif 
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/$sub[$sum[$httpResult[id];1];1].png;2]
+$footer[Min: $getVar[pkMin] | Max: $getVar[pkMax] • Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year;2]
+$color[$randomText[FF0000;FFFFFF]]
+$endif
+$if[$or[$sub[$getServerVar[n-dex];1]==10000;$sub[$getServerVar[n-dex];1]==9999]==true]
+$setServerVar[n-dex;906]
+$endif
+
+$editButton[+;;secondary;no;<:arrowviolett:934401719419437107>]
+$onlyIf[$getServerVar[n-dex]>=1;You can't down more]
