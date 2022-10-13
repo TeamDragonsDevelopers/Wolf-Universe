@@ -1,0 +1,59 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$suppressErrors
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$getServerVar[terms]==no] 
+$onlyIf[$getVar[redeem;$authorID]>0;You need a redeem. Enter in a giveaway, event or buy with w?buy redeem 1]
+$setVar[redeem;$sub[$getVar[redeem;$authorID];1];$authorID]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$onlyIf[$or[$guildID==951221660202201158;$getVar[official_employee;$authorID]==<:Employee_1:983413721399443527>;$getServerVar[partner;$guildID]==<:partner_server:1015640470019375234>;$getVar[partner;$authorID]==<:Partner:951234063400845353>;$getVar[partner;$authorID]==<a:PartnerShrine:995262370337263616>]==true;only can <:Discord_Early_Supporter:951234062868168704> or <:Partner:951234063400845353> user or <:partner_server:1015640470019375234> server]
+
+$httpGet[https://pokeapi.co/api/v2/pokemon/$randomText[150;249;250;382;383;384;483;484;487;249;250;382;383;380;381;384;483;484;487;643;644;646;641;642;645;647;648;649;717;718;716;719;720;791;792;800;888;889;890;898;151;251;385;386;489;490;491;492;493;494;647;648;649;721;801;802;803;804;805;807;808;893;10001;10002;10003;10086;10006;10007;10018;10022;10023;10024;10118;10119;10043;10044;10078;10077;10079;10075;10063;10062;10193;10194;10191;10192]]
+$if[$getVar[official_employee]==❌]
+$cooldown[30s;You need to wait %time%]
+$endif
+$color[05bb85]
+$title[$if[$getServerVar[lang]==en]A wild Pokémon has appeared!$endif$if[$getServerVar[lang]==es]¡Ha aparecido un Pokémon salvaje!$endif]
+$description[$if[$getServerVar[lang]==en]To catch the pokemon, use `$getVar[prefix]catch <Pokemon name/number>`
+Alias: $getVar[prefix]c$endif$if[$getServerVar[lang]==en]Para atrapar al pokemon, usa `$getVar[prefix]catch <nombre/número de Pokémon>`
+ Alias: $getVar[prefix]c$endif]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$randomText[/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/shiny/]$sub[$sum[$httpResult[id];1];1]$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;March;April;May]==true]==586true]-spring$endif$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;June;July;August]==true]==586true]-summer$endif$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;September;October;November]==true]==586true]-autumn$endif$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;January;February;Dicember]==true]==586true]-winter$endif.png]
+$setServerVar[n°pokemon;$sub[$sum[$httpResult[id];1];1]]
+$setServerVar[pokemon;$httpResult[species;name]]
+$setServerVar[url pokemon;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$randomText[/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/shiny/]$sub[$sum[$httpResult[id];1];1]$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;March;April;May]==true]==586true]-spring$endif$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;June;July;August]==true]==586true]-summer$endif$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;September;October;November]==true]==586true]-autumn$endif$if[$sub[$sum[$httpResult[id];1];1]$or[$checkContains[$month;January;February;Dicember]==true]==586true]-winter$endif.png]
+$addButton[no;pokeball;;secondary;no;<:Sw_Pok_Ball:964863829647429632>] $addButton[no;superball;;secondary;no;<:Sw_Super_Ball:964863829295116299>]  $addButton[no;ultraball;;secondary;no;<:Sw_Ultra_Ball:964863828963774485>] $addButton[no;masterball;;secondary;no;<:Sw_Master_Ball:964865184197910549>]
+$addButton[no;battle.$random[1;100];;secondary;no;⚔️]
+$if[$checkContains[$getVar[Shiny Lock];,$sub[$sum[$httpResult[id];1];1],]==false]
+$setServerVar[shiny;$replaceText[$replaceText[$checkCondition[$randomText[/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/;/shiny/]==/shiny/];true;s;-1];false;;-1]]
+$else
+$setServerVar[shiny;]
+$endif
+$endif $endif
