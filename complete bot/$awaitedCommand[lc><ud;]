@@ -1,0 +1,44 @@
+$nomention
+$suppressErrors[Put a number
+Error Code: `$getVar[actualización]000002`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$if[$getUserVar[support]==universal.diamond]
+$if[$checkContains[$message;deposit all;dep all]==false]
+$if[$getVar[legendcoin;$authorID]>=$multi[100000;$message]]
+We change $multi[100000;$message] for $message
+$reply
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[100000;$message]];$authorID]
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];$message];$authorID]
+$setUserVar[support;]
+$else You don't have enough money
+$setUserVar[support;] $endif
+$else
+$onlyIf[$getVar[legendcoin;$authorID]>=100000;You have less than 100000€]
+$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];$round[$divide[$getVar[legendcoin;$authorID];100000];0]];$authorID]
+$setUserVar[support;]
+We change $getVar[legendcoin;$authorID] for $round[$divide[$getVar[legendcoin;$authorID];100000];0]
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[$round[$divide[$getVar[legendcoin;$authorID];100000];0];100000]];$authorID]
+$endif
+$endif
+
+
+$nomention
+$if[$getUserVar[support]==legend.coin]
+$if[$checkContains[$message;deposit all;dep all]==false]
+$if[$getVar[universal diamond;$authorID]>=$message]
+We change $message for $multi[100000;$message] 
+$reply
+$setVar[universal diamond;$sub[$getVar[universal diamond;$authorID];$message];$authorID]
+$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];$multi[100000;$message]];$authorID]
+$setUserVar[support;]
+$else You don't have enough universal diamond
+$setUserVar[support;] $endif 
+$else
+$onlyIf[$getVar[universal diamond;$authorID]>=1;You have less than 1]
+$setVar[legendcoin;$sum[$getVar[universal diamond;$authorID];$multi[100000;$getVar[universal diamond;$authorID]]];$authorID]
+$setUserVar[support;]
+We change $getVar[universal diamond;$authorID] for $multi[100000;$getVar[universal diamond;$authorID]]
+$setVar[universal diamond;0;$authorID]
+$endif
+$endif
