@@ -1,0 +1,7 @@
+$nomention
+$if[$customID==sell.$authorID]
+$channelSendMessage[$channelID;Please put first the box that is the Pokemon , then the pokemon (place that the pokemon occupies, NUMBER) and then the price, for example 1 9 20188]
+$awaitFunc[sell]$endif
+$if[$customID==buy.$authorID]
+$channelSendMessage[$channelID;Please below this message put the place of the pokemon you want]
+$awaitFunc[buy]$endif
