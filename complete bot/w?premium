@@ -1,0 +1,16 @@
+$nomention
+$title[Premium System]
+$description[<:froggy_arrow:993278005726163085>I give premium to $serverName[$message[1]] until <t:$message[2]:F>
+You pay `15000 Legendcoin yearly`
+If your server have any badge dont pay
+
+<:froggy_arrow:993278005726163085>Doy premium a $serverName[$message[1]] hasta <t:$message[2]:F>
+ Pagas `15000 Legendcoin anualmente`
+Si su servidor tiene alguna insignia no pagas]
+$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ $year]
+$if[$isUserDMEnabled[$serverOwner[$message[1]]]==true]$dm[$serverOwner[$message[1]]]
+$else
+DM close
+$endif
+$channelSendMessage[$channelID;<:froggy_arrow:993278005726163085>I give premium to $serverName[$message[1]] until <t:$message[2]:F>]
+$setServerVar[premium;$message[2];$message[1]]
