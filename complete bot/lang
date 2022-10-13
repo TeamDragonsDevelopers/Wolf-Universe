@@ -1,0 +1,23 @@
+$nomention
+$onlyIf[$or[$toLowercase[$message[1]]==language;$toLowercase[$message[1]]==idioma;$toLowercase[$message[1]]==lang]==true;]
+$onlyIf[$getServerVar[terms]!=no;This command its disable for this server]
+$if[$message[lang;2]==]
+$title[$if[$getServerVar[lang]==en]Language$endif$if[$getServerVar[lang]==es]Idioma$endif]
+$description[$if[$getServerVar[lang]==en]The current language of $serverName[$guildID] is$endif$if[$getServerVar[lang]==es]El idioma actual de$serverName[$guildID] es$endif
+`$if[$getServerVar[lang]==en]English 🇬🇧$endif$if[$getServerVar[lang]==es]Español 🇪🇸$endif`
+$if[$getServerVar[lang]==en]To change, use w?language <es/🇪🇸>$endif$if[$getServerVar[lang]==es]Para cambiar, usa w?language <en/🇬🇧>$endif]
+$endif
+$if[$or[$toLowercase[$message[2]]==es;$message[2]==🇪🇸]==true]
+$setServerVar[lang;es]
+$title[$if[$getServerVar[lang]==en]Language$endif$if[$getServerVar[lang]==es]Idioma$endif]
+$description[$if[$getServerVar[lang]==en]The current language of $serverName[$guildID] is$endif$if[$getServerVar[lang]==es]El idioma actual de$serverName[$guildID] es$endif
+`$if[$getServerVar[lang]==en]English 🇬🇧$endif$if[$getServerVar[lang]==es]Español 🇪🇸$endif`
+$if[$getServerVar[lang]==en]To change, use w?language <es/🇪🇸>$endif$if[$getServerVar[lang]==es]Para cambiar, usa w?language <en/🇬🇧>$endif]
+$endif
+$if[$or[$toLowercase[$message[2]]==en;$message[2]==🇬🇧]==true]
+$setServerVar[lang;en]
+$title[$if[$getServerVar[lang]==en]Language$endif$if[$getServerVar[lang]==es]Idioma$endif]
+$description[$if[$getServerVar[lang]==en]The current language of $serverName[$guildID] is$endif$if[$getServerVar[lang]==es]El idioma actual de$serverName[$guildID] es$endif
+`$if[$getServerVar[lang]==en]English 🇬🇧$endif$if[$getServerVar[lang]==es]Español 🇪🇸$endif`
+$if[$getServerVar[lang]==en]To change, use w?language <es/🇪🇸>$endif$if[$getServerVar[lang]==es]Para cambiar, usa w?language <en/🇬🇧>$endif]
+$endif
