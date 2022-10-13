@@ -1,0 +1,131 @@
+$nomention
+$onlyIf[$getVar[official_employee;$authorID]==<:Employee_1:983413721399443527>;only can <:Employee_1:983413721399443527>  team ©Ꭰꭱꭺꮐꮻɴꮪ]
+$nomention $c[ disables default mention. (lol) ]
+
+$c[ Whitelisted server and user ids separated by comma or whatever since I'm using checkContains (because onlyForIDs is lame) ]
+$var[ids;$c[Server Perms-->]878225376319516732,951224494444412958,951221660202201158,951221213735321730,951221815890554980,951233398633033829,951223376830165072$c[User Perms-->]841727643392671805, 777509131291852830, 950871642169552896, 890478951384907777]
+$c[ In case change is needed (f.e Slash commands), code for evaluation or miscellaneous that I'm too lazy to mention, it's important ok. ]
+$var[message;$message]
+
+$c[ Any feedbacks, be it suggestions or bug reports can be sent to me at: Kaeste#6342 (226492244151107586) ]
+$c[ btw, yes the custom icons in the error thumbnails were made by me, if you wanna use them for your own stuff you can contact me (i lik seeing stuff), or just use them without telling me idk, it's not like I'm gonna ask for credit anyways (just don't claim them as your own and I'll be happy). ]
+
+$c[ Type "$c[/ce]" anywhere in your code to run the "classic eval" with no fancy stuff because why not amr. ]
+
+$if[$checkContains[$var[ids];$guildID;$authorID]] $c[ <- error message at the bottom of the code ]
+$if[$checkContains[$toLowercase[$message];%{DOL}%c[/ce\]]]
+$eval[$var[message]]
+$else
+$try
+$eval[$replaceText[$var[message];$amongus;ඞ]] $c[funny]
+$addCmdReactions[✅]
+$catch
+$textSplit[$error[message];`]
+$var[function;$replaceText[$replaceText[$checkContains[$splitText[2];$];true;$splitText[2]];false;$splitText[4]]]
+$if[$checkContains[$var[function];$]==false]
+$var[function;$error[command]]
+$endif
+ $c[ for loop/eval stuff ]
+$var[functionName;$replaceText[$var[function];$;]]
+
+$if[$var[function]!=]
+$var[errorMessage;$error[message]]
+$httpGet[https://botdesignerdiscord.com/public/api/function/$var[function][\]]
+$try$c[$httpResult[tag]]$catch$httpGet[https://botdesignerdiscord.com/public/api/function/$var[function]]$endtry
+$var[tag;$httpResult[tag]]
+$var[shortDescription;```js
+< $httpResult[shortDescription] >
+```]
+$else
+$var[errorMessage;Error message missing.]
+$var[tag;N/A]
+$var[shortDescription;```js
+< Couldn't find the function that error'ed. >
+```
+$if[$checkContains[$var[message];%{DOL}%if[]]( There may be a chance that one of your `%{DOL}%if[\]` function has an invalid condition. [Check the wiki for more info.\](https://nilpointer-software.github.io/bdfd-wiki/guides/ifStatements.html) )$endif]
+$endif
+
+ $c[ ok ]
+$var[escapedSource;$replaceText[$replaceText[$replaceText[$replaceText[$var[message];$;%%DOL%%];\;;%%SEMICOL%%];\\];%%ESCCLOSE%%];\[;%%ESCOPEN%%]]
+$if[$checkContains[$var[errorMessage];expected]$checkContains[$var[errorMessage];in position]==truetrue]
+$var[errorPos;$trimSpace[$textSplit[$var[errorMessage];position]$textSplit[$splitText[2];,]$splitText[1]]]
+$var[errorStr;$textSplit[$var[errorMessage];']$textSplit[$splitText[2];']$splitText[1]]
+$var[source;$eval[$var[i;0]$replaceText[`$var[escapedSource]`;%%DOL%%$var[functionName][;%{DOL}%var[i%{-SEMICOL-}%%{DOL}%sum[%{DOL}%var[i\]%{-SEMICOL-}%1\]\]%{DOL}%var[r%{-SEMICOL-}%%{DOL}%var[r\].\]%%FUNC_N%%%{DOL}%var[FUNC_%{DOL}%var[i\]%{-SEMICOL-}%]]]
+$eval[$var[i;0]$replaceText[$var[r];.;%{DOL}%var[i%{-SEMICOL-}%%{DOL}%sum[%{DOL}%var[i\]%{-SEMICOL-}%1\]\]%{DOL}%textSplit[%{DOL}%var[FUNC_%{DOL}%var[i\]\]%{-SEMICOL-}%%%SEMICOL%%\]
+%{DOL}%if[%{DOL}%and[%{DOL}%splitText[%{DOL}%var[errorPos\]\]==%{DOL}%var[errorStr\]%{-SEMICOL-}%%{DOL}%optOff[%{DOL}%getTextSplitLength\]>=%{DOL}%var[errorPos\]\]==true\]
+%{DOL}%var[FUNC_%{DOL}%var[i\]%{-SEMICOL-}% `**__`%%DOL%%$var[functionName][%{DOL}%var[FUNC_%{DOL}%var[i\]\]\\]`__**` \]%{DOL}%else
+%{DOL}%var[FUNC_%{DOL}%var[i\]%{-SEMICOL-}%%%DOL%%$var[functionName][%{DOL}%var[FUNC_%{DOL}%var[i\]\]\\]\]%{DOL}%endif]]
+$var[source;$eval[$var[i;0]$replaceText[$var[source];%%FUNC_N%%;%{DOL}%var[i%{-SEMICOL-}%%{DOL}%sum[%{DOL}%var[i\]%{-SEMICOL-}%1\]\]%{DOL}%var[FUNC_%{DOL}%var[i\]\]]]]
+ $elseif[$checkContains[$var[errorMessage];expected at least]]
+$var[argCount;$trimSpace[$textSplit[$var[errorMessage];least]$textSplit[$splitText[2];arguments]$splitText[1]]] $c[lmao this variable is useless]
+$var[argGot;$trimSpace[$textSplit[$var[errorMessage];got]$splitText[2]]]
+$var[source;$eval[$var[i;0]$var[r;]$replaceText[`$var[escapedSource]`;%%DOL%%$var[functionName][;%%FUNC_N%%%{DOL}%var[i\;%{DOL}%sum[%{DOL}%var[i\]\;1\]\]%{DOL}%var[r\;%{DOL}%var[r\].\]%{DOL}%var[FUNC_%{DOL}%var[i\]%{-SEMICOL-}%]]]
+$eval[$var[i;0]$replaceText[$var[r];.;%{DOL}%var[i\;%{DOL}%sum[%{DOL}%var[i\]\;1\]\]%{DOL}%textSplit[%{DOL}%var[FUNC_%{DOL}%var[i\]\]\;%%SEMICOL%%\]
+%{DOL}%if[%{DOL}%optOff[%{DOL}%getTextSplitLength\]==%{DOL}%var[argGot\]\]
+%{DOL}%var[FUNC_%{DOL}%var[i\]\; `**__`%%DOL%%$var[functionName][%{DOL}%var[FUNC_%{DOL}%var[i\]\]\\]`__**` \]%{DOL}%else
+%{DOL}%var[FUNC_%{DOL}%var[i\]\;%%DOL%%$var[functionName][%{DOL}%var[FUNC_%{DOL}%var[i\]\]\\]\]%{DOL}%endif]]
+$var[source;$eval[$var[i;0]$replaceText[$var[source];%%FUNC_N%%;%{DOL}%var[i\;%{DOL}%sum[%{DOL}%var[i\]\;1\]\]%{DOL}%var[FUNC_%{DOL}%var[i\]\]]]]
+ $elseif[$checkContains[$var[errorMessage];Expected `\]`]]
+$var[escapedSource;$replaceText[`$var[escapedSource]`;\];%%BRACKET%%]]
+$var[source;$eval[$var[i;0]$var[indexes;]$replaceText[$replaceText[$var[escapedSource];[;%{DOL}%var[i\;%{DOL}%sum[%{DOL}%var[i\]\;1\]\]%{DOL}%var[indexes\;%{DOL}%var[indexes\],%{DOL}%var[i\]\] `**`[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%var[i\]%{-SEMICOL-}%1%{-SEMICOL-}%¹\]%{-SEMICOL-}%2%{-SEMICOL-}%²\]%{-SEMICOL-}%3%{-SEMICOL-}%³\]%{-SEMICOL-}%4%{-SEMICOL-}%⁴\]%{-SEMICOL-}%5%{-SEMICOL-}%⁵\]%{-SEMICOL-}%6%{-SEMICOL-}%⁶\]%{-SEMICOL-}%7%{-SEMICOL-}%⁷\]%{-SEMICOL-}%8%{-SEMICOL-}%⁸\]%{-SEMICOL-}%9%{-SEMICOL-}%⁹\]%{-SEMICOL-}%0%{-SEMICOL-}%⁰\]`**` ];%%BRACKET%%; %{DOL}%optOff[%{DOL}%textSplit[%{DOL}%var[indexes\]\;,\]%{DOL}%trimSpace[%{DOL}%if[%{DOL}%splitText[%{DOL}%getTextSplitLength\]!=\]`**`%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%splitText[%{DOL}%getTextSplitLength\]%{-SEMICOL-}%1%{-SEMICOL-}%¹\]%{-SEMICOL-}%2%{-SEMICOL-}%²\]%{-SEMICOL-}%3%{-SEMICOL-}%³\]%{-SEMICOL-}%4%{-SEMICOL-}%⁴\]%{-SEMICOL-}%5%{-SEMICOL-}%⁵\]%{-SEMICOL-}%6%{-SEMICOL-}%⁶\]%{-SEMICOL-}%7%{-SEMICOL-}%⁷\]%{-SEMICOL-}%8%{-SEMICOL-}%⁸\]%{-SEMICOL-}%9%{-SEMICOL-}%⁹\]%{-SEMICOL-}%0%{-SEMICOL-}%⁰\]%{DOL}%removeSplitTextElement[%{DOL}%getTextSplitLength\]%{DOL}%var[indexes\;%{DOL}%joinSplitText[,\]\]%{DOL}%else `**`⁰%{DOL}%endif\]\]\]`**` ]]]
+$var[source;$replaceText[$var[source];%%DOL%%$var[functionName]; `**__`%%DOL%%$var[functionName]`__**` ]]
+$var[indexes;$textSplit[$var[indexes];,]$replaceText[$replaceText[$replaceText[$var[indexes];,;;1];,$splitText[$optOff[$getTextSplitLength]]; and $splitText[$getTextSplitLength]];,;, ]]
+$footer[$replaceText[$replaceText[$checkContains[$var[indexes];,;and];true;Brackets № $var[indexes] were not closed!];false;Bracket № $var[indexes] was not closed!]]
+ $elseif[$checkContains[$var[errorMessage];not closed with]]
+$var[escapedSource;$replaceText[`$var[escapedSource]`;\];%%BRACKET%%]]
+$var[errorFunc;$textSplit[$var[errorMessage];with `$]$textSplit[$splitText[2];`]$splitText[1]]
+$var[source;$eval[$var[i;0]$replaceText[$replaceText[$var[escapedSource];%%DOL%%$var[functionName];%{DOL}%var[i\;%{DOL}%sum[%{DOL}%var[i\]\;1\]\]%{DOL}%var[indexes\;%{DOL}%var[indexes\],%{DOL}%var[i\]\]%%FUNC_N%%%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%var[i\]%{-SEMICOL-}%1%{-SEMICOL-}%⁽¹⁾\]%{-SEMICOL-}%2%{-SEMICOL-}%⁽²⁾\]%{-SEMICOL-}%3%{-SEMICOL-}%⁽³⁾\]%{-SEMICOL-}%4%{-SEMICOL-}%⁽⁴⁾\]%{-SEMICOL-}%5%{-SEMICOL-}%⁽⁵⁾\]%{-SEMICOL-}%6%{-SEMICOL-}%⁽⁶⁾\]%{-SEMICOL-}%7%{-SEMICOL-}%⁽⁷⁾\]%{-SEMICOL-}%8%{-SEMICOL-}%⁽⁸⁾\]%{-SEMICOL-}%9%{-SEMICOL-}%⁽⁹⁾\]%{-SEMICOL-}%0%{-SEMICOL-}%⁽⁰⁾\]];%%DOL%%$var[errorFunc];%{DOL}%textSplit[%{DOL}%var[indexes\]\;,\]%{DOL}%optOff[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%replaceText[%{DOL}%splitText[%{DOL}%getTextSplitLength\]%{-SEMICOL-}%1%{-SEMICOL-}%⁽¹⁾\]%{-SEMICOL-}%2%{-SEMICOL-}%⁽²⁾\]%{-SEMICOL-}%3%{-SEMICOL-}%⁽³⁾\]%{-SEMICOL-}%4%{-SEMICOL-}%⁽⁴⁾\]%{-SEMICOL-}%5%{-SEMICOL-}%⁽⁵⁾\]%{-SEMICOL-}%6%{-SEMICOL-}%⁽⁶⁾\]%{-SEMICOL-}%7%{-SEMICOL-}%⁽⁷⁾\]%{-SEMICOL-}%8%{-SEMICOL-}%⁽⁸⁾\]%{-SEMICOL-}%9%{-SEMICOL-}%⁽⁹⁾\]%{-SEMICOL-}%0%{-SEMICOL-}%⁽⁰⁾\]%%DOL%%$var[errorFunc]%{DOL}%removeSplitTextElement[%{DOL}%getTextSplitLength\]%{DOL}%var[indexes\;%{DOL}%joinSplitText[,\]\]\]]]]
+$var[source;$replaceText[$eval[$var[i;0]$replaceText[$var[source];%%FUNC_N%%;%{DOL}%var[i\;%{DOL}%sum[%{DOL}%var[i\]\;1\]\]%{DOL}%textSplit[%{DOL}%var[indexes\]\;,\]%{DOL}%optOff[%{DOL}%trimSpace[%{DOL}%if[%{DOL}%getTextSplitIndex[%{DOL}%var[i\]\]!=-1\]`**__`%%DOL%%$var[functionName]`__**`%{DOL}%else %%DOL%%$var[functionName]%{DOL}%endif\]\]]];%%BRACKET%%;\]]]
+$var[indexes;$textSplit[$var[indexes];,]$replaceText[$replaceText[$replaceText[$var[indexes];,;;1];,$splitText[$optOff[$getTextSplitLength]]; and $splitText[$getTextSplitLength]];,;, ]]
+$footer[$replaceText[$replaceText[$checkContains[$var[indexes];,;and];true;"$var[function]'s" № $var[indexes] were not closed with "$$var[errorFunc]"!];false;"$var[function]" № $var[indexes] was not closed with "$$var[errorFunc]"!]]
+ $elseif[$checkContains[$var[errorMessage];Failed to find variable]]
+$var[errorVarName;$textSplit[$var[errorMessage];named ']$textSplit[$splitText[2];']$splitText[1]]
+$var[source;$replaceText[`$var[message]`;$var[function][$var[errorVarName]\]; `**__`$var[function][$var[errorVarName]\]`__**` ]]
+ $elseif[$checkContains[$var[errorMessage];expects arguments!]]
+$var[source;$replaceText[$replaceText[$replaceText[`$var[message]`;$var[function][;%%FUNC_%%];$var[function]; `**__`$var[function]`__**` ];%%FUNC_%%;$var[function][]]
+ $else
+$var[source;`$var[message]`]
+$endif
+$var[source;$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$var[source];%%DOL%%;$];%%SEMICOL%%;\;];%%ESCCLOSE%%;\\]];%%ESCOPEN%%;\[];  ; ];`**``**`;];**``**;**` `**];``;]]
+
+$if[$checkContains[$error[message];HTTP;returned an error]]
+$addCmdReactions[🖥️;❓]
+$thumbnail[https://cdn.discordapp.com/attachments/974772511466213446/990130523655507978/http.png]
+$title[🖥️  HTTP Error]
+$color[86B6FC]
+$elseif[$checkContains[$error[message];Failed to find variable]]
+$addCmdReactions[🔎;❓]
+$thumbnail[https://cdn.discordapp.com/attachments/974772511466213446/990130523433218098/var.png]
+$title[🔎  Variable Not Found]
+$color[4686FC]
+$elseif[$or[$checkContains[$error[message];expected at least;got empty value]==true;$cropText[$error[message];8;]==expected]==true]
+$addCmdReactions[⚠️]
+$thumbnail[https://cdn.discordapp.com/attachments/974772511466213446/990130518957912075/arg.png]
+$title[⚠️  Invalid Parameters]
+$color[FCDF46]
+$else
+$thumbnail[https://cdn.discordapp.com/attachments/974772511466213446/990130518685286400/syntax.png]
+$title[❓  Syntax Error]
+$color[FC4646]
+$endif
+
+$description[```js
+$if[$checkContains[$var[errorMessage];$var[function]]==false]At '$var[function]' $endif$replaceText[$replaceText[$replaceText[$replaceText[$var[errorMessage];```;%%%;1];```;];`;'];%%%;```
+```
+]
+```]
+$addField[Function Info:;
+$textSplit[$replaceText[$replaceText[$var[tag];$var[function][;];\];];\;]$trimSpace[$if[$var[errorPos]!=]`$var[function][$replaceText[$optOff[$joinSplitText[;]];$splitText[$var[errorPos]];`**__`$splitText[$var[errorPos]]`__**`]\]`$elseif[$checkContains[$var[errorMessage];expected at least]]$textSplit[$replaceText[$var[tag];\];];\;]`$replaceText[$replaceText[$var[tag];\];];$splitText[$var[argGot]];$splitText[$var[argGot]]`**__`]`__**`\]`$elseif[$checkContains[$var[errorMessage];Expected `\]`]]$replaceText[`$var[tag]`;\]`;`**__`\]`__**]$elseif[$checkContains[$var[errorMessage];expects arguments!]]`$var[function]`**__`$replaceText[$var[tag];$var[function];]`__**$else `$var[tag]`$endif]
+$var[shortDescription]
+$if[$var[functionName]==async][(Wiki "Async" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/async.html)$elseif[$var[functionName]==awaitFunc][(Wiki "Awaited Commands and Functions" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/awaitedCommands.html)$elseif[$checkContains[$var[functionName];Button]][(Wiki "Buttons" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/buttons.html)$elseif[$checkContains[$var[functionName];try;catch;error]][(Wiki "%{DOL}%try, %{DOL}%catch and %{DOL}%error" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/trycatch.html)$elseif[$checkContains[$var[functionName];http]][(Wiki "HTTP Requests" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/httpRequests.html)$elseif[$checkContains[$var[functionName];if;else]][(Wiki "If Statements" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/ifStatements.html)$elseif[$checkContains[$var[functionName];SelectMenu]][(Wiki "Select Menu" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/selectmenu.html)$elseif[$checkContains[$toLowercase[$var[functionName]];split]][(Wiki "Text Splitting" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/textSplitting.html)$elseif[$checkContains[$toLowercase[$var[functionName]];thread]][(Wiki "Threads" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/threads.html)$elseif[$checkContains[$toLowercase[$var[functionName]];var]][(Wiki "Variables" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/variables.html)$elseif[$checkContains[$var[functionName];webhook]][(Wiki "Webhooks" Guide)\](https://nilpointer-software.github.io/bdfd-wiki/guides/webhooks.html)$endif]
+$addField[Source Debugging:;
+$var[source]]
+$endtry
+$endif
+
+$else
+$c[ error message ]
+$c[ unused "denied" icon: https://cdn.discordapp.com/attachments/974772511466213446/990160491034837052/denied.png ]
+$description[You don't have permission to run this command.<:5864_WumpusCrown:961934145695666256>]
+$color[FF1010]
+$endif
