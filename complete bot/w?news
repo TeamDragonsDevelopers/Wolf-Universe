@@ -1,0 +1,3 @@
+$nomention
+$setVar[news;$eval[$message]]
+**Now news is**: `$eval[$message]`
