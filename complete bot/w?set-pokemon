@@ -1,0 +1,43 @@
+$nomention
+$if[$message[1;set]==--min]
+$suppressErrors[Error: I don't know about this pokemon]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$toLowercase[$message[2;pok]]]
+$onlyIf[$sub[$sum[$httpResult[id];1];1]<$getVar[pkMax];You can put a number < of $getVar[pkMax]]
+$onlyIf[$getVar[official_employee;$authorID]!=❌;only can <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>,that is, the team of ©∆𝖊𝖑𝖙𝖆]
+$onlyIf[$getVar[change spawn]==false;The auto chango its on]
+$nomention
+$setVar[pkMin;$sub[$sum[$httpResult[id];1];1]]
+I have put a minimum of `$httpResult[name]#$sub[$sum[$httpResult[id];1];1]`
+$else
+$if[$message[1;set]==--max]
+$suppressErrors[Error: I don't know about this pokemon]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$toLowercase[$message[2;pok]]]
+$onlyIf[$sub[$sum[$httpResult[id];1];1]>$getVar[pkMin];You can put a number > of $getVar[pkMin]]
+$onlyIf[$getVar[official_employee;$authorID]!=❌;only can <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>,that is, the team of ©∆𝖊𝖑𝖙𝖆]
+$onlyIf[$getVar[change spawn]==false;The auto chango its on]
+$nomention
+$setVar[pkMax;$sub[$sum[$httpResult[id];1];1]]
+I have put a maximum of `$httpResult[name]#$sub[$sum[$httpResult[id];1];1]`
+$else
+$if[$message[1;set]==--dex]
+$nomention
+I put the change spawn in `$message[2;pok]`
+$setVar[change spawn;$message[2;pok]]
+$onlyIf[$or[$message[2;pok]==true;$message[2;pok]==false]==true;You can put true or false]
+$onlyIf[$getVar[official_employee;$authorID]!=❌;only can <:Bug_Hunter_lvl_1:951539846206337054> <:Bug_Hunter_lvl_2:951539929761079377> <:Certified_Moderator:951234061811208212> <:Employee:951234065917431879> <:Verified_Bot_Developer:951234063967084564>,that is, the team of ©∆𝖊𝖑𝖙𝖆]
+$else
+$if[$message[1;set]==--u.dex]
+$nomention
+I put the change spawn in `$message[2]`
+ for you
+$setVar[change spawn;$message[2];$authorID]
+$onlyIf[$or[$message[2;pok]==true;$message[2;pok]==false]==true;You can put true or false]
+$else
+$title[Error $random[1;10]]
+$description[You can put 
+--dex <true/false>
+--min <number>
+--max <number>
+--u.dex <true/false>]
+$footer[<> = Mandatory </> = choice obligation () = optional (/) = choice optional  • Created by ©∆𝖊𝖑𝖙𝖆-2022 • $username[$botID]]
+$endif$endif$endif$endif
