@@ -1,0 +1,25 @@
+$nomention
+$if[$customID==universal.diamond]
+$setUserVar[support;$customID]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$channelSendMessage[$channelID;You have now `$getVar[legendcoin;$authorID] legendcoin`. Remember: 100000 lc  = 1 ud. 
+Universal Diamond: $getVar[universal diamond;$authorID]
+Legendcoin: $getVar[legendcoin;$authorID]
+> What is the amount you want of universal diamond?]
+$awaitFunc[lc><ud]
+$endif
+
+$nomention
+$if[$customID==legend.coin]
+$setUserVar[support;$customID]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$channelSendMessage[$channelID;You have now `$getVar[universal diamond;$authorID] universal diamond`. Remember: 100000 lc  = 1 ud. 
+Universal Diamond: $getVar[universal diamond;$authorID]
+Legendcoin: $getVar[legendcoin;$authorID]
+> What is the amount you want of legend coin?]
+$awaitFunc[lc><ud]
+$endif
