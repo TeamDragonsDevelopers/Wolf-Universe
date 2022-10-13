@@ -1,0 +1,274 @@
+$nomention
+$suppressErrors[I cant found this error.
+Error Code: `$getVar[actualización]00000`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$if[$getVar[official_employee;$authorID]==:x:]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[usenable];Developer of this bot disable System User]
+$enabled[$getServerVar[usenable];Developer of this server disable System User]
+$onlyIf[$guildExists[$guildID]==true;]
+$onlyIf[$getServerVar[premium]>=$getTimestamp;Your premium expired in <t:$getServerVar[premium]:R>]
+$if[$message[1]==alarm]
+$title[⏰Alarm⏰]
+$description[The clock of $username it ring]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;11].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==amazing]
+$description[$username amazing]
+$title[🤩Amazing🤩]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;14].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==ask]
+$title[🧐Ask🧐]
+$description[$username it $replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==]%;%true%;asking to <@$mentioned[1]>;1];%false%;asking;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;10].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==baka]
+$title[Baka]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;19].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==bite]
+$title[Bite]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;24].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==blush]
+$title[Blush]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;28].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==boop]
+$title[Boop]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;11].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==clap]
+$description[$username clap]
+$title[👏Clap👏]
+$description[$username $replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;is clapping to <@$mentioned[1]>;1];%false%;is clapping;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;23].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==coffee]
+$title[☕Coffee☕]
+$description[$username $replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;are drinking with <@$mentioned[1]>;1];%false%;is drinking;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;11].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==wave]
+$title[Wave]
+$description[$username $replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;wave to <@$mentioned[1]>;1];%false%;wave to other;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;17].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==confused]
+$title[🤔confused🤔]
+$description[$username $replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%; it's confusing <@$mentioned[1]>;1];%false%;is confusing;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;11].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==cry]
+$title[😭Cry😭]
+$description[$username $replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;is crying with <@$mentioned[1]>;1];%false%;is crying;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;29].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==sleepy]
+$title[😴Sleeping😴]
+$description[$username is sleepy]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;17].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==smile]
+$title[😁Smile😁]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;$username is smiling to <@$mentioned[1]>;1];%false%;$username is smiling;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;11].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==poke]
+$title[Poke]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are poke by $username;1];%false%;$username poke;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==die]
+$title[Die]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==disappear]
+$title[Disappear]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;$username is patting to <@$mentioned[1]>;1];%false%; Someone pat to $username;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;8].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==dodge]
+$title[Dodge]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;26].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==error]
+$title[Error]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]1.gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==facedesk]
+$title[Facedesk]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;8].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==facepalm]
+$title[Facepalm]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;12].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==fbi]
+$title[FBI]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==fight]
+$title[Fight]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;11].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==happy]
+$title[Happy]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;20].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==hide]
+$title[Hide]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;11].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==highfive]
+$title[Highfive]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;14].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==hug]
+$title[Hug]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;27].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==kill]
+$title[Kill]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;15].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==die]
+$title[Die]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==die]
+$title[Die]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©SW&SH-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==die]
+$title[Die]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©SW&SH-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==die]
+$title[Die]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©SW&SH-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==die]
+$title[Die]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©SW&SH-$year• ©$username[$botID]-$year]
+$else
+$if[$message[1]==die]
+$title[Die]
+$description[$replaceText[$replaceText[%$checkCondition[$userExists[$mentioned[1]]==true]%;%true%;<@$mentioned[1]> are die by $username;1];%false%;$username die on $date;1]]
+$image[https://api.kawaii.red/gif/$message[1]/$message[1]$random[1;13].gif]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$else
+$title[Error numero $random[1;10]]
+$description[The w?fun **$message** command does not exist.
+We can only these following:
+alarm, amazing, ask, baka, bite, blush, blyat, boop, clap, coffee, confused, cry, cuddle, cute, dance, destroy, die, disappear, dodge, error, facedesk, facepalm, fbi, fight, happy, hide, highfive, hug, kill]
+$footer[Created by ©𝕯∆𝖑𝖙𝖆-$year• ©$username[$botID]-$year]
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif
+$endif $endif
