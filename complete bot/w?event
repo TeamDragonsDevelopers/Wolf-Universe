@@ -1,0 +1,46 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$message[1]==code] 
+$onlyIf[$getVar[code_gift]!=FALSE;there aren't anything at this moment]
+$onlyIf[$getVar[code_gift;$authorID]!=$getVar[code_gift];You has already get the gift]
+$onlyIf[$getVar[code_gift]==$toUppercase[$message[2]];The code it's wrong]
+$if[$getVar[cobber;$authorID]!=]
+$httpGet[https://pokeapi.co/api/v2/pokemon/487] 
+I give you 1 $toTitleCase[$replaceText[$httpResult[name];-; ;-1]] Lvl.100
+Hab: $toTitleCase[$httpResult[abilities;1;ability;name]]
+Movs: $httpResult[moves;1;move;name] $httpResult[moves;5;move;name] $httpResult[moves;12;move;name] $httpResult[moves;44;move;name] 
+$onlyIf[GIRATINA_EVENT_22==$toUppercase[$message[2]];The code it's wrong]
+$if[$getVar[cobber;$authorID]!=]
+$var[hab;1]
+$var[mov;1^5^12^44]
+$setUserVar[info-pok;$sub[$sum[$httpResult[id];1];1]^100^^$var[hab]^$var[mov]]
+$if[$checkContains[$getUserVar[box 1;$authorID];C]==false] 
+$if[$charCount[$getUserVar[box 1;$authorID] $sub[$sum[$httpResult[id];1];1]^100^^$var[hab]^$var[mov]^0]<=4999]
+$textSplit[$getUserVar[box 1;$authorID]; ]
+$setUserVar[box 1;$getUserVar[box 1;$authorID] $sub[$sum[$httpResult[id];1];1]^100^^$var[hab]^$var[mov]^0]You have saved $toTitleCase[$replaceText[$httpResult[name];-; ;-1]]#$sub[$sum[$httpResult[id];1];1]$replaceText[$replaceText[$checkCondition[n==s];true;<:Goldsparkles:951547849940795392>;-1];false;;-1] in your `box 1` $endif
+
+$if[$charCount[$getUserVar[box 1;$authorID]]>=4998]
+$setUserVar[box 1;$getUserVar[box 1;$authorID] C;$authorID]
+$stop
+$endif
+$endif
+$else
+Put w?event code <code>
+Example: w?event code UN1V3RS4L W0LF
+$endif
+$setVar[code_gift;$getVar[code_gift];$authorID]
+$else
+Put w?event code <code>
+Example: w?event code UN1V3RS4L W0LF
+$endif
