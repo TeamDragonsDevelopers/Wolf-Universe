@@ -1,0 +1,21 @@
+$nomention
+$if[$getVar[code_gift;$authorID]$getVar[code_gift]!=FALSEFALSE]
+$if[$checkContains[$message;$getVar[code_gift]]==true]
+$title[✅Received✅]
+$description[You received: Arceus and Diamansfera
+ⓘ You can't put again the code: ||$getVar[code_gift;$authorID]||]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$setVar[code_gift;FALSE;$authorID]
+$c[Vars to give to users]
+$setUserVar[history-pokemon;arceus~60~diamansfera $getVar[box 1;$authorID]]
+$setVar[code_gift;FALSE;$authorID]
+$else
+$title[Cancel Code]
+$description[The code ||$message|| it's wrong or the code has expired]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$endif
+$else
+$title[❌Gift❌]
+$description[There are currently no gifts to receive by code]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$endif
