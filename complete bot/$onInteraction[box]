@@ -1,0 +1,38 @@
+$nomention
+$removeButtons
+$suppressErrors[Put the number of the box that you have problem.
+> w?new_past $getUserVar[box] 
+Error Code: `$getVar[actualización]00003`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$if[$or[$guildID!=951221660202201158;$guildID!=951221213735321730]==true]
+$onlyIf[a==a;<:7796_FoxxoCoffee:1001489118821371927> Sorry but now that command are in mantenice
+<:translated:998317318658609275> Lo siento pero ahora este comando esta en mantenimiento
+<@$authorID>]
+$endif
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$title[Box $getUserVar[box] ¦ $if[$checkContains[$getVar[box $getUserVar[box];$authorID];C]==true]<a:command_disable:952178313055584316>$else<a:command_enable:952178312720023606>
+$endif;1]
+$description[First position: number dex ¦ Second position: level
+1-898 --> Normal ¦ 10001-10099 --> Forms ¦ 100100-100115 --> Alola ¦ 10077-10090 --> <:Sw_Megaevolucion:951233822903635968> ¦ 10195-10228 --> <:Sw_Gigamax:951233822530363454>$textSplit[$getUserVar[box $getUserVar[box];$authorID]; ]
+$if[$and[$splitText[$sum[$getUserVar[number-box];0]]!=;$splitText[$sum[$getUserVar[number-box];0]]!=C]==true]
+$textSplit[$splitText[$sum[$getUserVar[number-box];0]];^]$sum[$getUserVar[number-box];0] $splitText[1] Lvl. $splitText[2]$if[$splitText[3]==s] ¦ <:Goldsparkles:951547849940795392>$endif$endif]
+$footer[Use `w?t.box $getUserVar[box]` to see the rest of the pokemon]
+$newSelectMenu[nbox;1;1;box]
+$addSelectMenuOption[nbox;Box 1;box1;;no;1️⃣ ;]
+$addSelectMenuOption[nbox;Box 2;box2;;no;2️⃣;]
+$addSelectMenuOption[nbox;Box 3;box3;;no;3️⃣;]
+$addSelectMenuOption[nbox;Box 4;box4;;no;4️⃣;]
+$addSelectMenuOption[nbox;Box 5;box5;;no;5️⃣;]
+$if[$getUserVar[number-box]==2]
+$addButton[no;box-;;secondary;no;◀]
+$else
+$addButton[no;box-;;secondary;yes;◀]
+$endif
+$if[$getUserVar[number-box]==500]
+$addButton[no;box+;;secondary;no;▶️]
+$else
+$addButton[no;box+;;secondary;yes;▶️]
+$endif
