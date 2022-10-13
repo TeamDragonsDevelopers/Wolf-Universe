@@ -1,0 +1,45 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$onlyIf[$guildExists[$guildID]==true;]
+$onlyIf[$or[$getVar[official_employee;$authorID]==<:Employee_1:983413721399443527>;$getServerVar[partner;$guildID]==<:Partner:951234063400845353>]==true;Sorry but your server its not a partner.]
+$onlyIf[$or[$month==March;$month==April]==true;Aun no es March o Abril, ahora estas en $month]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$random[$getVar[pkMin];$getVar[pkMax]]]
+$color[05bb85]
+$title[$if[$getServerVar[lang]==en]🐰A wild Pokémon has appeared!🐰$endif$if[$getServerVar[lang]==es]🐰¡Ha aparecido un Pokémon salvaje!🐰$endif]
+$description[$if[$getServerVar[lang]==en]To catch the pokemon, use `$getVar[prefix]catch <Pokemon name/number>`
+Alias: $getVar[prefix]c$endif$if[$getServerVar[lang]==en]Para atrapar al pokemon, usa `$getVar[prefix]catch <nombre/número de Pokémon>`
+ Alias: $getVar[prefix]c$endif]
+$image[https://api.bsmnt.cf/maker/v1?&image1=https://poketwo.s3.object1.us-east-1.tswcloud.com/data/$randomText[images;images;images;shiny]/$sub[$sum[$httpResult[id];1];1].png?v=26&background=&text1=Pokemon+Escarlata+y+Purpura&text2=&text3=&canvaswidth=800&canvasheight=500&image1x=240&image1y=100&image1width=300&image1height=300&text1px=40&text1x=40&text1y=70&text2px=38&text2x=50&text2y=450&text3px=&text3x=&text3y=&text1color=%23ff0000&text2color=%2327f727&text3color=]
+$addField[$getVar[prefix]catch;to catch a pokemon;yes]
+$addField[$getVar[prefix]hint;to help pokemon;yes]
+$setServerVar[n°pokemon;$sub[$sum[$httpResult[id];1];1]]
+$setServerVar[pokemon;$httpResult[species;name]]
+$setServerVar[url pokemon;https://poketwo.s3.object1.us-east-1.tswcloud.com/data/$randomText[images;images;images;shiny]/$sub[$sum[$httpResult[id];1];1].png?v=26]
+$addButton[no;pokeball;;secondary;no;<:Sw_Pok_Ball:964863829647429632>] $addButton[no;superball;;secondary;no;<:Sw_Super_Ball:964863829295116299>]  $addButton[no;ultraball;;secondary;no;<:Sw_Ultra_Ball:964863828963774485>] $addButton[no;masterball;;secondary;no;<:Sw_Master_Ball:964865184197910549>]
+$addButton[no;battle.$random[1;100];;secondary;no;⚔️]
+$endif $endif
