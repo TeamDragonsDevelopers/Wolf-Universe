@@ -1,0 +1,112 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$suppressErrors[It's could be a problem that `you don't put the amount`.If the error continue, please enter in support (w?support)
+Error Code: `$getVar[actualización]00002`
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[ecenable];Developer of this bot disable System Economy]
+$enabled[$getServerVar[ecenable];Developer of this server disable System Economy]
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$checkContains[$toLowercase[$message[1]];1;pb;pokeball]==true]
+$onlyIf[$getVar[legendcoin;$authorID]>=$multi[150;$message[2]];You don't have enough money to buy this item]
+You have but x$message[2] Pokeball ,that cost $multi[150;$message[2]] and now you have $sub[$getVar[legendcoin;$authorID];$multi[150;$message[2]]]
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[150;$message[2]]];$authorID]
+$textSplit[$getVar[objects;$authorID];-]
+$onlyIf[$sum[$splitText[1];$message[2]]<=999;You can only have 999 pokeballs]
+$setVar[objects;$sum[$splitText[1];$message[2]]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$checkContains[$toLowercase[$message[1]];2;sb;superball]==true]
+$onlyIf[$getVar[legendcoin;$authorID]>=$multi[250;$message[2]];You don't have enough money to buy this item]
+ 
+You have but x$message[2] Superball ,that cost $multi[250;$message[2]] and now you have $sub[$getVar[legendcoin;$authorID];$multi[250;$message[2]]].
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[250;$message[2]]];$authorID]
+$textSplit[$getVar[objects;$authorID];-]
+$onlyIf[$sum[$splitText[2];$message[2]]<=999;You can only have 999 superballs] 
+$setVar[objects;$splitText[1]-$sum[$splitText[2];$message[2]]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$checkContains[$toLowercase[$message[1]];3;ub;ultraball]==true]
+$onlyIf[$getVar[legendcoin;$authorID]>=$multi[450;$message[2]];You don't have enough money to buy this item]
+You have but x$message[2] Ultraball ,that cost $multi[450;$message[2]] and now you have $sub[$getVar[legendcoin;$authorID];$multi[450;$message[2]]].
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[450;$message[2]]];$authorID]
+$textSplit[$getVar[objects;$authorID];-]
+$onlyIf[$sum[$splitText[3];$message[2]]<=999;Yo can only have 999 ultraballs]
+$setVar[objects;$splitText[1]-$splitText[2]-$sum[$splitText[3];$message[2]]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$checkContains[$toLowercase[$message[1]];4;mb;masterball]==true]
+$onlyIf[$getVar[legendcoin;$authorID]>=$multi[1050;$message[2]];You don't have enough money to buy this item]
+You have but x$message[2] Masterball ,that cost $multi[1050;$message[2]] and now you have $sub[$getVar[legendcoin;$authorID];$multi[1050;$message[2]]].
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[1050;$message[2]]];$authorID]
+$textSplit[$getVar[objects;$authorID];-]
+$onlyIf[$sum[$splitText[4];$message[2]]<=999;Yo can only have 999 masterballs]
+$setVar[objects;$splitText[1]-$splitText[2]-$splitText[3]-$sum[$splitText[4];$message[2]]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$splitText[9]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$checkContains[$toLowercase[$message[1]];inciense;6]==true]
+$setUserVar[spawn;$sum[$getUserVar[spawn];100]]
+$setUserVar[incienso;true]
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];3000];$authorID]
+Incienso x$message[2] comprado ✅
+$onlyIf[$message[2]==1;Depebes de poner 1]
+$onlyIf[$sub[$getVar[legendcoin;$authorID];3000]>=3000;You don't have enough money to buy this item]
+$onlyIf[$sum[$getUserVar[spawn];100]<=300;No puedes alcanzar mas de 300 spawn]
+$else
+$if[$checkContains[$toLowercase[$message[1]];8;wishing-piece]==true]
+$onlyIf[$getVar[legendcoin;$authorID]>=$multi[30;$message[2]];You don't have enough money to buy this item]
+ 
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];300];$authorID]
+You buy Wishing Piece
+$setVar[Wishing Piece;$sum[$getVar[Wishing Piece;$authorID];$message[2]];$authorID]
+$else
+$if[$checkContains[$toLowercase[$message[1]];ticket goold;4;ticket-gold;9]==true]
+$onlyIf[$message[2]!=;
+] 
+$onlyIf[$getVar[legendcoin;$authorID]>=$multi[3000000;$message[2]];You don't have enough money to buy this item]
+ 
+$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];3000000];$authorID]
+Ticket 🎫  comprado ✅
+$textSplit[$getVar[objects;$authorID];-]
+$onlyIf[$sum[$splitText[3];$message[2]]<=999;Yo can only have 999 pokeballs]
+$setVar[objects;$splitText[1]-$splitText[2]-$splitText[3]-$splitText[4]-$splitText[5]-$splitText[6]-$splitText[7]-$splitText[8]-$sum[$splitText[9];$message[2]]-$splitText[10]-$splitText[11]-$splitText[12]-$splitText[13]-$splitText[14]-$splitText[15]-$splitText[16]-$splitText[17]-$splitText[18]-$splitText[19]-$splitText[20];$authorID]
+$else
+$if[$checkContains[$toLowercase[$message[1]];domi-distinguished;10]==true]
+$setVar[Domi_Distinguished;$sum[$getVar[Domi_Distinguished;$authorID];$message[2]];$authorID]
+You buy Domi_Distinguished x$message[2] ✅
+$onlyIf[$message[2]>=1;Depebes de poner minimo 1]
+$onlyIf[$getVar[legendcoin;$authorID]>=30;You don't have enough money to buy this item]
+$else
+$if[$checkContains[$toLowercase[$message[1]];redeem;11]==true]
+$setVar[redeem;$sum[$getVar[redeem;$authorID];1];$authorID]
+$setVar[universal diamond;$sub[$getVar[universal diamond;$authorID];4];$authorID]
+Redeem x$message[2] comprado ✅
+$onlyIf[$message[2]!= ;Put at least 1]
+$onlyIf[$sub[$getVar[universal diamond;$authorID];4]>=0;You don't have enough diamonds to buy this item]
+$else
+ 
+$title[Error $random[1;9]]
+$description[This item does not exist]
+$footer[Created by ©∆𝖊𝖑𝖙𝖆-$year • ©$username[$botID]-$year]
+$endif
+$endif
+$endif $endif $endif $endif 
+$endif $endif
