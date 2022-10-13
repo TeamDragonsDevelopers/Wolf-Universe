@@ -1,0 +1,54 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$getVar[official_employee;$authorID]==:x:]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$enabled[$getVar[usenable];Developer of this bot disable System User]
+$enabled[$getServerVar[usenable];Developer of this server disable System User]
+$onlyIf[$guildExists[$guildID]==true;]
+$botTyping
+$reply
+$var[level;$randomText[E;M]]
+ 
+$httpPost[https://rpchangman.herokuapp.com/api/start/;{ "difficulty": "$var[level]" }]
+$httpPost[https://rpchangman.herokuapp.com/api/guess/;{ "id": "$httpResult[id]", "guess": "z" }]
+$textSplit[$httpResult[max_guesses];.]
+$var[color;ff8888]
+$var[board;$httpResult[board]]
+$var[rem;$sub[$splitText[1];$charCount[$httpResult[missed_letters]]] misses remaining!]
+$title[🏟️ • HangMan]
+$footer[$var[rem] • Level : $replaceText[$replaceText[$replaceText[$httpResult[difficulty];E;🐣 Easy;1];M;🐶 Normal;1];H;😈 Hard;1]]
+$color[$var[color]]
+$addField[📋 BOARD • Clue : $replaceText[$replaceText[$checkCondition[$multi[$charCount[$httpResult[missed_letters]];2]>=$splitText[1]];true;||*$httpResult[secret_set]*||;1];false;*After $sub[$divide[$splitText[1];2];$charCount[$httpResult[missed_letters]]] mistake(s).*;1];$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$toLowercase[$var[board]];a;🇦 ;-1];b;🇧 ;-1];c;🇨 ;-1];d;🇩 ;-1];e;🇪 ;-1];f;🇫 ;-1];g;🇬 ;-1];h;🇭 ;-1];i;🇮 ;-1];j;🇯 ;-1];k;🇰 ;-1];l;🇱 ;-1];m;🇲 ;-1];n;🇳 ;-1];o;🇴 ;-1];p;🇵 ;-1];q;🇶 ;-1];r;🇷 ;-1];s;🇸 ;-1];t;🇹 ;-1];u;🇺 ;-1];v;🇻 ;-1];w;🇼 ;-1];x;🇽 ;-1];y;🇾 ;-1];z;🇿 ;-1];_;❔ ;-1];no]
+ 
+$addButton[yes;hangman@a@$httpResult[id]@$authorID;A;secondary;no;]
+$addButton[no;hangman@b@$httpResult[id]@$authorID;B;secondary;no;]
+$addButton[no;hangman@c@$httpResult[id]@$authorID;C;secondary;no;]
+$addButton[no;hangman@d@$httpResult[id]@$authorID;D;secondary;no;]
+$addButton[no;hangman@e@$httpResult[id]@$authorID;E;secondary;no;]
+ 
+$addButton[yes;hangman@f@$httpResult[id]@$authorID;F;secondary;no;]
+$addButton[no;hangman@g@$httpResult[id]@$authorID;G;secondary;no;]
+$addButton[no;hangman@h@$httpResult[id]@$authorID;H;secondary;no;]
+$addButton[no;hangman@i@$httpResult[id]@$authorID;I;secondary;no;]
+$addButton[no;hangman@j@$httpResult[id]@$authorID;J;secondary;no;]
+ 
+$addButton[yes;hangman@k@$httpResult[id]@$authorID;K;secondary;no;]
+$addButton[no;hangman@l@$httpResult[id]@$authorID;L;secondary;no;]
+$addButton[no;hangman@m@$httpResult[id]@$authorID;M;secondary;no;]
+$addButton[no;hangman@n@$httpResult[id]@$authorID;N;secondary;no;]
+$addButton[no;hangman@o@$httpResult[id]@$authorID;O;secondary;no;]
+ 
+$addButton[yes;hangman@p@$httpResult[id]@$authorID;P;secondary;no;]
+$addButton[no;hangman@q@$httpResult[id]@$authorID;Q;secondary;no;]
+$addButton[no;hangman@r@$httpResult[id]@$authorID;R;secondary;no;]
+$addButton[no;hangman@s@$httpResult[id]@$authorID;S;secondary;no;]
+$addButton[no;hangman@t@$httpResult[id]@$authorID;T;secondary;no;]
+ 
+$addButton[yes;hangman@u@$httpResult[id]@$authorID;U;secondary;no;]
+$addButton[no;hangman@v@$httpResult[id]@$authorID;V;secondary;no;]
+$addButton[no;hangman@w@$httpResult[id]@$authorID;W;secondary;no;]
+$addButton[no;hangman@x@$httpResult[id]@$authorID;X;secondary;no;]
+$addButton[no;hangman@y@$httpResult[id]@$authorID;Y;secondary;no;]
