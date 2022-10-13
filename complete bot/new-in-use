@@ -1,0 +1,29 @@
+$nomention
+$if[$getVar[use-bot;$authorID]==1]
+$title[Welcome to ©Ꭰꭱꭺꮐꮻɴꮪ;1]
+$description[> What is ©Ꭰꭱꭺꮐꮻɴꮪ? 
+`A community where you help other people to create bots and servers`
+> The $username[$botID] bot what does it do?
+`I present to you our official $username[$botID] Bot, a bot from the ©∆𝖊𝖑𝖙𝖆 that has been created with the purpose of having fun with the world of pokémon and with other members`
+> The Bot code is open to everyone?
+There are only a few codes [here](https://github.com/PenguinKingdom/wolf_of_word)
+> Could you tell me more about the bot?
+`Sure, that's why we created a second part`;1]
+$title[©Ꭰꭱꭺꮐꮻɴꮪ-`$username[$botID]#$discriminator[$botID]`;2]
+$description[Hello, my name is $username[$botID], I'm the bot of ©Ꭰꭱꭺꮐꮻɴꮪ, here is some information about me;2]
+$addField[I have been created in;<t:1624004160:F>;yes;2]
+$addField[My current creator is;$username[841727643392671805]#$discriminator[841727643392671805];yes;2]
+$addField[Commands;`$commandsCount`;yes;2]
+$addField[My prefix is;$getVar[prefix], for start use w?help;yes;2]
+$addField[I am in;$serverCount servers;yes;2]
+$addField[My website is;[Hakairyu](https://delta-bot.gitbook.io/wolf-universe);yes;2]
+$addField[My support is;[$serverName[878225376319516732]](https://discord.gg/UxM9qH8HuV);yes;2]
+$addField[My badges;$getVar[official_employee;$botID]
+$getVar[dev;$botID] $getVar[employee;$botID] $getVar[mod;$botID] $getVar[bug;$botID] $getVar[early_support;$botID] $getVar[partner;$botID] $getVar[hypesquad;$botID] $getVar[boost;$botID];yes;2]
+$title[Other comments;3]
+$description[Excuse me, we are resetting all the data, so until <t:1659363457:R> it will be constantly resetting until all or almost all contain the initial data;3]
+$addButton[yes;https://discord.com/api/oauth2/authorize?client_id=855390537702965258&permissions=518416366657&scope=bot%20applications.commands;Invite bot!;link;no;📨] $addButton[no;https://github.com/PenguinKingdom/wolf_of_word;ListCommand;link;no;<:Boost_level_9:951539780968120371>]
+$endif
+$setUserVar[box 1;$replaceText[$getUserVar[box 1];~;^;-1]]
+$setUserVar[box $getUserVar[box];$replaceText[$getUserVar[box $getUserVar[box]];  ; ;1]]
+$setVar[cobber;$replaceText[$getVar[cobber;$authorID];~;^;-1];$authorID]
