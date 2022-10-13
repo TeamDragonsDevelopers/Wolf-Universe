@@ -1,0 +1,42 @@
+$nomention
+$if[$guildID!=878225376319516732]
+$onlyIf[$getVar[official_employee;$authorID]==<:Employee_1:983413721399443527>;only can <:Employee_1:983413721399443527>  team ©Ꭰꭱꭺꮐꮻɴꮪ]
+$else
+$onlyIf[$or[$hasRole[$authorID;1016699798906216558]==true;$isAdmin[$authorID]==true]==true;Only admin Perms or Deliver can]
+$endif
+$textSplit[$message;^]
+$onlyIf[$userExists[$splitText[1]]==true;The user don't exist
+> w?add-pokemon `<userID>`^<numberBox>^<infoPok>]
+$onlyIf[$isNumber[$splitText[2]]==true;The box don't exist
+> w?add-pokemon <userID>^`<numberBox>`^<infoPok>]
+$onlyIf[$splitText[3]$splitText[4]$splitText[5]$splitText[6]$splitText[7]$splitText[8]$splitText[9]$splitText[10]$splitText[11]!=;The information it's not set
+> w?add-pokemon <userID>^<numberBox>^`<infoPok>`]
+$onlyIf[$charCount[$getUserVar[box $splitText[2];$splitText[1]] $splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$splitText[9]^$splitText[10]^$splitText[11]]<=4999;Too many pokemon]
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[3]]
+I give to <@$splitText[1]> this pokemon $sub[$sum[$httpResult[id];1];1]^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$splitText[9]^$splitText[10]^$splitText[11] and its save in box $splitText[2]
+$var[poke;$getUserVar[box $splitText[2];$splitText[1]]] 
+$setUserVar[box $splitText[2];$sub[$sum[$httpResult[id];1];1]^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$splitText[9]^$splitText[10]^$splitText[11] $var[poke];$splitText[1]]
+$suppressErrors[Error]
+$title[Pokémon Preview]
+$description[<:sospechoso:963716325748903997>Partner: `$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]` $if[$splitText[5]==s]<:Goldsparkles:951547849940795392>
+$if[$checkContains[$getVar[Shiny Lock];,$splitText[3],]==true]`Shiny Lock ⚠️`$endif$endif
+Lvl: `$splitText[4]` $if[$splitText[4]>=101]⚠️$endif
+Static: Ps-$sum[$sub[$httpResult[stats;0;base_stat];1];1] Attact-$sum[$sub[$httpResult[stats;1;base_stat];1];1] Defense-$sum[$sub[$httpResult[stats;2;base_stat];1];1] Special-Attack-$sum[$sub[$httpResult[stats;3;base_stat];1];1] Special-Defense-$sum[$sub[$httpResult[stats;4;base_stat];1];1] Speed-$sum[$sub[$httpResult[stats;5;base_stat];1];1] 
+Hab: $toTitleCase[$httpResult[abilities;$splitText[6];ability;name]]
+Movs: $if[$splitText[7]!=]$toTitleCase[$httpResult[moves;$splitText[7];move;name]]$endif $if[$splitText[8]!=]$toTitleCase[$httpResult[moves;$splitText[8];move;name]]$endif $if[$splitText[9]!=]$toTitleCase[$httpResult[moves;$splitText[9];move;name]]$endif 
+$if[$splitText[10]!=]$toTitleCase[$httpResult[moves;$splitText[10];move;name]]$endif]
+$if[$sub[$sum[$httpResult[id];1];1]!=10192]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[5]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png]
+$endif
+$if[$sub[$sum[$httpResult[id];1];1]==10192]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[5]==s]/shiny/$else/$endif893-dada.png;1]
+$endif
+$thumbnail[$authorAvatar]$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year]
+$color[$random[0;16777215]]
+$sendEmbedMessage[1027294831975870547;$username[$authorID] give to $username[$splitText[1]] this pokemon $sub[$sum[$httpResult[id];1];1]^$splitText[4]^$splitText[5]^$splitText[6]^$splitText[7]^$splitText[8]^$splitText[9]^$splitText[10]^$splitText[11] and its save in box $splitText[2];Pokémon Preview;;<:sospechoso:963716325748903997>Partner: `$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]` $if[$splitText[5]==s]<:Goldsparkles:951547849940795392>
+$if[$checkContains[$getVar[Shiny Lock];,$splitText[3],]==true]`Shiny Lock ⚠️`$endif$endif
+Lvl: `$splitText[4]` $if[$splitText[4]>=101]⚠️$endif
+Static: Ps-$sum[$sub[$httpResult[stats;0;base_stat];1];1] Attact-$sum[$sub[$httpResult[stats;1;base_stat];1];1] Defense-$sum[$sub[$httpResult[stats;2;base_stat];1];1] Special-Attack-$sum[$sub[$httpResult[stats;3;base_stat];1];1] Special-Defense-$sum[$sub[$httpResult[stats;4;base_stat];1];1] Speed-$sum[$sub[$httpResult[stats;5;base_stat];1];1] 
+Hab: $toTitleCase[$httpResult[abilities;$splitText[6];ability;name]]
+Movs: $if[$splitText[7]!=]$toTitleCase[$httpResult[moves;$splitText[7];move;name]]$endif $if[$splitText[8]!=]$toTitleCase[$httpResult[moves;$splitText[8];move;name]]$endif $if[$splitText[9]!=]$toTitleCase[$httpResult[moves;$splitText[9];move;name]]$endif 
+$if[$splitText[10]!=]$toTitleCase[$httpResult[moves;$splitText[10];move;name]]$endif;ffffff;;;Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year;;$authorAvatar;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[5]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png;no;no]
