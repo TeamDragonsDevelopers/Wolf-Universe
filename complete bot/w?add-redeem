@@ -1,0 +1,4 @@
+$nomention
+$onlyIf[$userExists[$message[1;id]]==true;Put id of the user.]
+$setVar[redeem;$sum[$getVar[redeem;$message[1;id]];$message[2;amount]];$message[1;id]]
+I give to $username[$message[1;id]]#$discriminator[$message[1;id]] $message[2;amount] redeem
