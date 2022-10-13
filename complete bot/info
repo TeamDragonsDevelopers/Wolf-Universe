@@ -1,0 +1,43 @@
+$nomention
+$onlyIf[$or[$toLowercase[$message[1]]==i;$toLowercase[$message[1]]==info]==true;]
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns]
+$if[$message[2;number]==]
+$textSplit[$getUserVar[info-pok;$authorID];^]
+$suppressErrors[Try to catch any pokemon and then use again
+> w?i
+Error Code: `$getVar[actualización]1ě000` or `$getVar[actualización]00002`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$endif
+$if[$message[2;number]!=]
+$if[$isSlash==false]
+$argsCheck[2;You need to put 2 arguments, w?info <numberBox> <positionPok>. Example: w?info 2 10]
+$endif
+$textSplit[$getUserVar[box $message[2;number]]; ]
+$textSplit[$splitText[$message[3;position]];^]
+$suppressErrors[It's could be a problem of the pokemon that don't have ability and moves. 
+You can do the next:
+> If you get the same error, enter to the support (w?support)
+
+> Use w?release $message[2;number] $message[3;position]
+Error Code: `$getVar[actualización]00004`
+If fail again, contact to support (w?support)
+https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
+$endif
+$httpGet[https://pokeapi.co/api/v2/pokemon/$splitText[1]]
+$title[Adventure Status]
+$description[Trainer: `$username#$discriminator[]` ¦ $getVar[membership;$authorID]
+<:Moneda_dorada_Zacian:951547048723890256>Legends Coin: $getVar[legendcoin;$authorID]
+<:Boost_level_9:951539780968120371>Universal Diamond: $getVar[universal diamond;$authorID]
+<:flareon:951547048627429426>Adventure part: $getVar[parts adventure;$authorID]
+<:sospechoso:963716325748903997>Partner: `$toTitleCase[$replaceText[$httpResult[name];-; ;-1]]` $if[$splitText[3]==s]<:Goldsparkles:951547849940795392>$endif
+Lvl: `$splitText[2]`
+Static: Ps-$sum[$sub[$httpResult[stats;0;base_stat];1];1] Attact-$sum[$sub[$httpResult[stats;1;base_stat];1];1] Defense-$sum[$sub[$httpResult[stats;2;base_stat];1];1] Special-Attack-$sum[$sub[$httpResult[stats;3;base_stat];1];1] Special-Defense-$sum[$sub[$httpResult[stats;4;base_stat];1];1] Speed-$sum[$sub[$httpResult[stats;5;base_stat];1];1] 
+Hab: $toTitleCase[$httpResult[abilities;$splitText[4];ability;name]]
+Movs: $if[$splitText[5]!=]$toTitleCase[$httpResult[moves;$splitText[5];move;name]]$endif $if[$splitText[6]!=]$toTitleCase[$httpResult[moves;$splitText[6];move;name]]$endif $if[$splitText[7]!=]$toTitleCase[$httpResult[moves;$splitText[7];move;name]]$endif 
+$if[$splitText[8]!=]$toTitleCase[$httpResult[moves;$splitText[8];move;name]]$endif]
+$image[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home$if[$splitText[3]==s]/shiny/$else/$endif$sub[$sum[$httpResult[id];1];1]$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;March;April;May]==true]==truetrue]-spring$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;June;July;August]==true]==truetrue]-summer$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;September;October;November]==true]==truetrue]-autumn$endif$if[$or[$sub[$sum[$httpResult[id];1];1]==585;$sub[$sum[$httpResult[id];1];1]==586]$or[$checkContains[$month;January;February;Dicember]==true]==truetrue]-winter$endif.png]
+$thumbnail[$authorAvatar]$footer[Created by ©Ꭰꭱꭺꮐꮻɴꮪ-$year • ©$username[$botID]-$year]
+$color[$random[0;16777215]]
