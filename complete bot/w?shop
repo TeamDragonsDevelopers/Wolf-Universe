@@ -1,0 +1,12 @@
+$nomention
+$textSplit[$getVar[objects;$authorID];-] 
+$title[Shop] 
+$description[Legendcoin: $getVar[legendcoin;$authorID]
+Universal Diamond: $getVar[universal diamond;$authorID]]
+$addField[<:Sw_Pok_Ball:964863829647429632> 150<:Moneda_dorada_Zacian:951547048723890256>;You have now `$splitText[1]`;yes]
+$addField[<:Sw_Super_Ball:964863829295116299> 250<:Moneda_dorada_Zacian:951547048723890256>;You have now `$splitText[2]`;yes] 
+$addField[<:Sw_Ultra_Ball:964863828963774485> 450<:Moneda_dorada_Zacian:951547048723890256>;You have now `$splitText[3]`;yes] $addField[<:Sw_Master_Ball:964865184197910549> 1050<:Moneda_dorada_Zacian:951547048723890256>;You have now `$splitText[4]`;yes]
+$addField[Inciense-3000<:Moneda_dorada_Zacian:951547048723890256>;You have now $getUserVar[spawn]
+`1 inciense-->100 spawn`;yes]
+$addField[Redeem-4 diamond (4000000 legendcoin);You have now $getVar[redeem;$authorID];yes]
+$addButton[no;buy;;secondary;yes;💵]
