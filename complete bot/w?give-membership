@@ -1,0 +1,79 @@
+$nomention
+$onlyIf[$guildID==951221660202201158;This server isn't the official server of the bot. Please go to $serverName[951221660202201158]]
+$argsCheck[3;You need to put w?give-membership `<userID>` `<status>` `<channelID>`]
+$onlyIf[$userExists[$message[1]]==true;I can't found the user
+w?give-membership `<userID>` <ranks> <channelID>]
+$onlyIf[$channelExists[$message[3]]==true;I can't found the channel
+w?give-membership <userID> <ranks> `<channelID>`]
+$if[$toLowercase[$message[2]]==delte]
+$var[status;:x:]
+$else
+$if[$toLowercase[$message[2]]==unranked]
+I give you 1 boxes 1
+> Use w?open-boxes boxes-1 
+$setVar[boxes 1;$sum[$getVar[boxes 1;$authorID];1];$authorID]
+$var[status;<:cs_unranked:1003760673785905335>]
+$else
+$if[$toLowercase[$message[2]]==bronze]
+I give you 1 boxes 1
+> Use w?open-boxes boxes-1 
+$setVar[boxes 1;$sum[$getVar[boxes 1;$message[1]];1];$message[1]]
+$var[status;<:cs_bronze:1003761046588239883>]
+$else
+$if[$toLowercase[$message[2]]==silver]
+I give you 1 boxes 2
+> Use w?open-boxes boxes-2 
+$setVar[boxes 2;$sum[$getVar[boxes 2;$message[1]];1];$message[1]]
+$var[status;<:cs_silver:1003761342253105222>]
+$else
+$if[$toLowercase[$message[2]]==gold]
+I give you 1 boxes 2
+> Use w?open-boxes boxes-2 
+$setVar[boxes 2;$sum[$getVar[boxes 2;$message[1]];1];$message[1]]
+$var[status;<:cs_gold:1003761689415655514>]
+$else
+$if[$toLowercase[$message[2]]==platinum]
+I give you 1 boxes 3
+> Use w?open-boxes boxes-3 
+$setVar[boxes 3;$sum[$getVar[boxes 3;$message[1]];1];$message[1]]
+$var[status;<:cs_platinum:1003761571316637736>]
+$else
+$if[$toLowercase[$message[2]]==diamond]
+I give you 1 boxes 3
+> Use w?open-boxes boxes-3 
+$setVar[boxes 3;$sum[$getVar[boxes 3;$message[1]];1];$message[1]]
+$var[status;<:cs_diamond:1003761614891262012>]
+$else
+$if[$toLowercase[$message[2]]==master]
+I give you 1 boxes 4
+> Use w?open-boxes boxes-4 
+$setVar[boxes 4;$sum[$getVar[boxes 4;$message[1]];1];$message[1]]
+$var[status;<:cs_master:1003761835968831569>]
+$else
+$if[$toLowercase[$message[2]]==specialops]
+I give you 1 boxes 4
+> Use w?open-boxes boxes-4 
+$setVar[boxes 4;$sum[$getVar[boxes 4;$message[1]];1];$message[1]]
+$var[status;<:cs_specialops:1003761903685861427>]
+$else
+$onlyIf[a==e;Only have delete, unranked, bronze, silver, gold, platinum, diamond, master, specialops
+w?give-membership <userID> `<status>` <channelID>]
+$endif$endif$endif$endif$endif$endif$endif$endif$endif$endif
+
+$onlyIf[$checkContains[$getVar[user_block];$message[1]]==false;<:Server_Shield_Admin_Verify:952629800370073670> The member you want to give a membership to is not allowed to use the Bot]
+$onlyIf[$isBot[$message[1]]==false;The member you want to give a membership to is a bot
+w?give-membership `<userID>` <ranks> <channelID>]
+$channelSendMessage[$channelID;Now $username[$message[1]]#$discriminator[$message[1]]
+Now your membership status is `$message[2]` ¦ $var[status]]
+$setVar[membership;$var[status];$message[1]]
+ 
+$title[©Ꭰꭱꭺꮐꮻɴꮪ's MemberShip]
+$description[Now <@$message[1]>
+Now your membership status is `$message[2]` ¦ $var[status]]
+$if[$isUserDMEnabled[$message[1]]==true]$dm[$message[1]]
+$else $channelSendMessage[$message[3];©
+©Ꭰꭱꭺꮐꮻɴꮪ's MemberShip
+Now <@$message[1]>
+Now your membership status is `$message[2]` ¦ $var[status]]
+$endif
+$onlyIf[$userExists[$message[1]]==true;Member does not exist]
