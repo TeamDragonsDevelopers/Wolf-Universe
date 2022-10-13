@@ -1,0 +1,69 @@
+$nomention
+$onlyIf[$checkContains[$getVar[server_block];$guildID]==false;<:Server_Shield_Admin_Verify:952629800370073670>This server its blocked]
+$onlyIf[$checkContains[$getVar[user_block];$authorID]==false;<:Server_Shield_Admin_Verify:952629800370073670> You are blocked]
+$onlyIf[$getVar[sanctions;$authorID]<=5;<:Server_Shield_Admin_Verify:952629800370073670> You can't use the Bot with more than 5 warns] 
+$if[$getVar[official_employee;$authorID]==❌]
+$onlyIf[$getVar[Mantenice]==false;$getVar[Mantenice]]
+$endif
+$if[$guildID!=951221213735321730]
+$enabled[$getVar[pok¹enable];Developer of this bot disable System Pokemon
+Only in $serverName[951221213735321730] can use]
+$enabled[$getServerVar[pok¹enable];Developer of this server disable System Pokemon]
+$endif
+$onlyIf[$guildExists[$guildID]==true;]
+$if[$getVar[terms;$authorID]!=yes]
+$title[<:System:951234063954485278>Verification System<:Verified:951234061920243712>]
+$description[To verify you must click <:Verified:951234061920243712>, by clicking there you accept the ToB, that is, the bot terms]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Terms of Bot] $addTimestamp
+$addButton[no;verify;Approve;success;no;<:Verified:951234061920243712>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/terms;ToB;link;no;<:Verified_Bot:965673506538942485>] 
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world/information/policity;Privacy Policies;link;no;<:Server_Shield_Admin_Verify:952629800370073670>]$else
+$if[$getVar[actualización;$authorID]<10.1]
+$title[<:Wumpusblush:951547751399825580> 🆕 Version: `y-$getVar[actualización]`<:Update:964263685075922955>]
+$description[The bot has added this command in its new version because there have been changes in it.  But in another it may not.  If you want to use this and other commands in their latest version, press update (<:Update:964263685075922955>)]
+$color[ffffff]
+$author[©∆𝖊𝖑𝖙𝖆 System]
+$footer[©∆𝖊𝖑𝖙𝖆-Updating of Bot] $addTimestamp
+$addButton[no;update;;success;no;<:Update:964263685075922955>]
+$addButton[no;https://delta-bot.gitbook.io/wolf-of-world;Previous Updates;link;no;<:Search:951234065497989120>] 
+$else
+$if[$message[1]==--user]
+$onlyIf[$isNumber[$message[3]]==true;Put the number position of the pokemon you want to trade]
+$onlyIf[$isNumber[$message[2]]==true;Put the number box where the pokemon are]
+$textSplit[$getUserVar[box $message[1]]; ]
+$onlyIf[$splitText[$message[3]]!=;You currently don't have any pokemon occupying this spot]
+$onlyIf[$userExists[$mentioned[1]]==true;The user don't exist]
+$setUserVar[box $message[1];$replaceText[$getUserVar[box $message[1]];$splitText[$message[2]];;1]]
+$setUserVar[box $message[1];$splitText[$message[2]] $getUserVar[box $message[1];$mentioned[1]];$mentioned[1]]
+The trainer $username[$mentioned[1]], received $splitText[$message[2]] correctly
+$endif
+$if[$message[1]==--gift]
+$onlyIf[$isNumber[$message[2]]==true;Put the number of the pokemon you want to offer]
+$textSplit[$getUserVar[history-pokemon]; ]
+$onlyIf[$splitText[$message[2]]!=;You currently don't have any pokemon occupying this spot]
+$setUserVar[history-pokemon;$replaceText[$getUserVar[history-pokemon];$splitText[$message[2]];;1]]
+$setUserVar[history-pokemon;$getUserVar[history-pokemon;$botID] $splitText[$message[2]];$botID]
+$channelSendMessage[$channelID;The trainer received $splitText[$message[2]] correctly]
+The user $username[$authorID]#$discriminator[$authorID]-$authorID has send to $username[$botID]#$discriminator[$botID]-$botID that: $splitText[$message[2]]
+$dm[841727643392671805]
+$endif
+$if[$message[1]==--global]
+$onlyIf[a==e;]
+$onlyIf[$isNumber[$message[2]]==true;Put the number of the pokemon you want to past to global]
+$textSplit[$getUserVar[box 1]; ]
+$if[$getTextSplitLength<=30]
+$onlyIf[$splitText[$message[2]]!=;You currently don't have any pokemon occupying this spot]
+$if[$getTextSplitLength<=30]
+$setUserVar[;$replaceText[$getUserVar[history-pokemon];$splitText[$message[2]];;1]]
+$textSplit[$getVar[history-pokemon;$authorID]; ]
+$if[$or[$getTextSplitLength==30;$getTextSplitLength==60;$getTextSplitLength==120;$getTextSplitLength==240;$getTextSplitLength==480;$getTextSplitLength==960;$getTextSplitLength==1920;$getTextSplitLength==3840;$getTextSplitLength==7680;$getTextSplitLength==15360;$getTextSplitLength==30720]==false]
+$textSplit[$getUserVar[history-pokemon]; ]
+$setVar[history-pokemon; $getVar[history-pokemon;$authorID] $splitText[$message[2]];$authorID]
+$else
+$setVar[history-pokemon; $getVar[history-pokemon;$authorID] • $splitText[$message[2]];$authorID]$endif
+The pokemon $splitText[$message[2]] has passed to Global
+$endif
+ $endif
+$endif $endif
