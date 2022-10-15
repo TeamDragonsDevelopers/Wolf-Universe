@@ -105,16 +105,34 @@ $var[mov;$random[1;30]$endif^$random[31;80]^$random[8;12]^$random[13;40]]
 $var[hab;$replaceText[$replaceText[$checkCondition[$httpResult[abilities;1;ability;name]==];true;0;-1];false;$randomText[0;0;0;0;0;1];-1]] 
 $setUserVar[info-pok;$sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]
 $if[$checkContains[$getUserVar[box 1;$authorID];C]==false] 
+
 $if[$charCount[$getUserVar[box 1;$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]<=4999]
+$var[box;1]
+$else
+$if[$checkContains[$getUserVar[box 2;$authorID];C]==false] 
+$if[$charCount[$getUserVar[box 2;$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]<=4999]
+$var[box;2]
+$else
+$if[$checkContains[$getUserVar[box 3;$authorID];C]==false] 
+$if[$charCount[$getUserVar[box 3;$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]<=4999]
+$var[box;3]
+$else
+$if[$checkContains[$getUserVar[box 4;$authorID];C]==false] 
+$if[$charCount[$getUserVar[box 4;$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]<=4999]
+$var[box;4]
+$endif$endif
+$endif$endif
+$endif$endif$endif
+$endif
 $textSplit[$getUserVar[box 1;$authorID]; ]
-$setUserVar[box 1;$getUserVar[box 1;$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]You have saved $toTitleCase[$replaceText[$httpResult[name];-; ;-1]]#$sub[$sum[$httpResult[id];1];1]$replaceText[$replaceText[$checkCondition[$getServerVar[shiny]==s];true;<:Goldsparkles:951547849940795392>;-1];false;;-1] in your `box 1`
-$setUserVar[box;1]$endif
+$setUserVar[box $var[box];$getUserVar[box $var[box];$authorID] $sub[$sum[$httpResult[id];1];1]^$random[1;100]^$getServerVar[shiny]^$var[hab]^$var[mov]^0]You have saved $toTitleCase[$replaceText[$httpResult[name];-; ;-1]]#$sub[$sum[$httpResult[id];1];1]$replaceText[$replaceText[$checkCondition[$getServerVar[shiny]==s];true;<:Goldsparkles:951547849940795392>;-1];false;;-1] in your `box $var[box]`
+$setUserVar[box;$var[box]]
 
 $if[$charCount[$getUserVar[box 1;$authorID]]>=4998]
-$setUserVar[box 1;$getUserVar[box 1;$authorID] C;$authorID]
+$setUserVar[box $var[box];$getUserVar[box $var[box];$authorID] C;$authorID]
 $stop
 $endif
-$endif
+
 $async[shiny]
 $setServerVar[shiny;]
 $setServerVar[pokemon;error]
