@@ -5,40 +5,40 @@ If fail again, contact to support (w?support)
 https://discord.com/assets/e4ec7c5d7af5342f57347c9ada429fba.gif]
 $if[$getUserVar[support]==universal.diamond]
 $if[$checkContains[$message;deposit all;dep all]==false]
-$if[$getVar[legendcoin;$authorID]>=$multi[100000;$message]]
+$if[$getVar[landan;$authorID]>=$multi[100000;$message]]
 We change $multi[100000;$message] for $message
 $reply
-$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[100000;$message]];$authorID]
-$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];$message];$authorID]
+$setVar[landan;$sub[$getVar[landan;$authorID];$multi[100000;$message]];$authorID]
+$setVar[omegan;$sum[$getVar[omegan;$authorID];$message];$authorID]
 $setUserVar[support;]
 $else You don't have enough money
 $setUserVar[support;] $endif
 $else
-$onlyIf[$getVar[legendcoin;$authorID]>=100000;You have less than 100000€]
-$setVar[universal diamond;$sum[$getVar[universal diamond;$authorID];$round[$divide[$getVar[legendcoin;$authorID];100000];0]];$authorID]
+$onlyIf[$getVar[landan;$authorID]>=100000;You have less than 100000λ]
+$setVar[omegan;$sum[$getVar[omegan;$authorID];$round[$divide[$getVar[landan;$authorID];100000];0]];$authorID]
 $setUserVar[support;]
-We change $getVar[legendcoin;$authorID] for $round[$divide[$getVar[legendcoin;$authorID];100000];0]
-$setVar[legendcoin;$sub[$getVar[legendcoin;$authorID];$multi[$round[$divide[$getVar[legendcoin;$authorID];100000];0];100000]];$authorID]
+We change $getVar[landan;$authorID] for $round[$divide[$getVar[landan;$authorID];100000];0]
+$setVar[landan;$sub[$getVar[landan;$authorID];$multi[$round[$divide[$getVar[landan;$authorID];100000];0];100000]];$authorID]
 $endif
 $endif
 
 
 $nomention
-$if[$getUserVar[support]==legend.coin]
+$if[$getUserVar[support]==landan]
 $if[$checkContains[$message;deposit all;dep all]==false]
-$if[$getVar[universal diamond;$authorID]>=$message]
+$if[$getVar[omegan;$authorID]>=$message]
 We change $message for $multi[100000;$message] 
 $reply
-$setVar[universal diamond;$sub[$getVar[universal diamond;$authorID];$message];$authorID]
-$setVar[legendcoin;$sum[$getVar[legendcoin;$authorID];$multi[100000;$message]];$authorID]
+$setVar[omegan;$sub[$getVar[omegan;$authorID];$message];$authorID]
+$setVar[landan;$sum[$getVar[landan;$authorID];$multi[100000;$message]];$authorID]
 $setUserVar[support;]
-$else You don't have enough universal diamond
+$else You don't have enough Ω
 $setUserVar[support;] $endif 
 $else
-$onlyIf[$getVar[universal diamond;$authorID]>=1;You have less than 1]
-$setVar[legendcoin;$sum[$getVar[universal diamond;$authorID];$multi[100000;$getVar[universal diamond;$authorID]]];$authorID]
+$onlyIf[$getVar[omegan;$authorID]>=1;You have less than 1]
+$setVar[landan;$sum[$getVar[omegan;$authorID];$multi[100000;$getVar[omegan;$authorID]]];$authorID]
 $setUserVar[support;]
-We change $getVar[universal diamond;$authorID] for $multi[100000;$getVar[universal diamond;$authorID]]
-$setVar[universal diamond;0;$authorID]
+We change $getVar[omegan;$authorID] for $multi[100000;$getVar[omegan;$authorID]]
+$setVar[omegan;0;$authorID]
 $endif
 $endif
